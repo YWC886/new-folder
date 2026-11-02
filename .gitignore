@@ -1,0 +1,41 @@
+﻿# ---- Windows ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ---- 编辑器 / IDE ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- 系统 / 临时 ---- 
+.DS_Store
+*.tmp
+*.log
+
+# ---- 依赖 / 构建产物 ----
+node_modules/
+dist/
+build/
+out/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.venv*/
+
+# ---- 环境变量 / 密钥 ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---- 其它 ----
+*.bak
+.cache/
