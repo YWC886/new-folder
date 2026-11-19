@@ -3,7 +3,7 @@
 本目录存放**软件著作权登记**与**复现包**相关材料，由脚本从仓库内容生成/维护，不手工复制代码。
 
 > 软件全称：**多旋翼动力系统效率地图构建与匹配优化软件**
-> 版本：**V1.0**（对应仓库 2026-11-19 状态，代码测试 168 项全绿）
+> 版本：**V1.0**（对应仓库 2026-11-19 状态，代码测试 178 项全绿）
 > 状态：材料初稿，未提交登记；学校/著作权人信息待项目组确认后补填。
 
 ## 1. 目录
@@ -13,7 +13,7 @@
 | `README.md` | 本文件：材料清单、生成命令、提交与复现指引 |
 | `软件说明书_V1.0.md` | 软著说明书（功能、技术特点、运行环境、测试验证、权利声明） |
 | `复现包清单_V1.0.md` | 复现包结构、收录文件、校验方式、排除项、引用与许可 |
-| `build/源代码页_V1.0.txt` | 自动生成：全部源码按每页 50 行连续编号，共 **201 页**（约 565 KB） |
+| `build/源代码页_V1.0.txt` | 自动生成：全部源码按每页 50 行连续编号，共 **212 页**（约 595 KB） |
 | `build/源代码清单_V1.0.json` | 自动生成：源文件列表、行数、SHA256、总页数 |
 | `build/源文件目录_V1.0.txt` | 自动生成：单行一文件的目录（便于快速核对） |
 
@@ -44,7 +44,7 @@ py -3.12 code\tools\build_manifest.py --output data\processed\release_manifest_v
 $env:PYTHONIOENCODING = 'utf-8'
 py -3.12 work\env\check_env.py
 
-# 2) 全部分模块测试（当前 168 项）
+# 2) 全部分模块测试（当前 178 项）
 foreach ($d in 'acquisition','processing','simulation','selection','reference','tools') {
     py -3.12 -m unittest discover -s "code\$d" -p "test_*.py"
 }
@@ -70,3 +70,4 @@ py -3.12 -c "import csv,hashlib,pathlib; rows=list(csv.DictReader(open('data/pro
 - 2026-11-19 v1.0 重生成（标定拟合 v0.1）：新增 `code/processing/calibration_fit.py` + 测试 + 设计文档，源文件 34 个 / 9,491 行 / 190 页，清单 127 文件，全量 158 项测试。
 
 - 2026-11-19 v1.0 重生成（逐桨反推 v0.3）：新增 `code/reference/calibrate_uiuc.py` + 测试 + 设计文档；源文件 36 个 / 10,025 行 / 201 页，清单 131 文件，全量 168 项测试（参考 28）。
+- 2026-11-19 v1.0 重生成（bootstrap 不确定度 v0.1）：新增 `code/reference/bootstrap_priors.py` + 测试 + 设计文档；源文件 38 个 / 10,593 行 / 212 页，清单 135 文件，全量 178 项测试（参考 38）。
