@@ -28,7 +28,7 @@ for _p in (ROOT / "work" / "pylibs", ROOT / "code" / "processing"):
 import numpy as np  # noqa: E402
 
 import gp_surface as gp  # noqa: E402
-from match_propulsion import OBJECTIVES, _score_candidates, load_runs, pareto_front  # noqa: E402
+from match_propulsion import OBJECTIVES, _score_candidates, assert_measured, load_runs, pareto_front  # noqa: E402
 
 # gp_surface 在导入时会设置 matplotlib Agg；图件延迟导入即可
 import matplotlib.pyplot as plt  # noqa: E402
@@ -355,10 +355,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output", type=Path, default=Path("data/processed/selection_v0.3_gp.csv"))
     parser.add_argument("--figure", type=Path, default=Path("data/processed/figures/selection_v0.3.png"))
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--require-measured", action="store_true", help="MEASURED 守门：仅接受 source=MEASURED 的 runs（D038）")
     args = parser.parse_args(argv)
 
     try:
         runs = load_runs(args.input)
+        if args.require_measured:
+            assert_measured(runs)
         voltages = [float(item) for item in args.voltages.split(",") if item.strip()] or None
         results = match_gp(
             runs,

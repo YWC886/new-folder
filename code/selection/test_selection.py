@@ -363,5 +363,91 @@ class ParetoAndReportTest(unittest.TestCase):
         self.assertEqual(exit_code, 2)
 
 
+    def test_main_require_measured_rejects_sim(self) -> None:
+        rows = [
+            {
+                **{field: "" for field in INPUT_FIELDS},
+                **{
+                    "run_id": "sim-1",
+                    "source": "SIM",
+                    "combo": "C1",
+                    "voltage_set_v": "22.2",
+                    "throttle_set_pct": "50",
+                    "thrust_N_mean": "5.0",
+                    "eta_sys_mean": "0.3",
+                    "rpm_mean": "8000",
+                    "current_a_mean": "10",
+                    "prop_diameter_m": "0.2544",
+                },
+            }
+        ]
+        input_path = self.root / "runs.csv"
+        with input_path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=INPUT_FIELDS)
+            writer.writeheader()
+            writer.writerows(rows)
+        exit_code = main(
+            [
+                "--input",
+                str(input_path),
+                "--thrust",
+                "5",
+                "--require-measured",
+                "--output",
+                str(self.root / "out.csv"),
+                "--figure",
+                str(self.root / "fig.png"),
+            ]
+        )
+        self.assertEqual(exit_code, 2)
+        self.assertFalse((self.root / "out.csv").exists())
+
+    def test_main_require_measured_accepts_measured(self) -> None:
+        rows = []
+        for voltage in (22.2, 29.6):
+            for throttle in (50.0, 75.0):
+                row = {field: "" for field in INPUT_FIELDS}
+                row.update(
+                    {
+                        "run_id": f"m-{voltage}-{throttle}",
+                        "source": "MEASURED",
+                        "combo": "C1",
+                        "voltage_set_v": str(voltage),
+                        "throttle_set_pct": str(throttle),
+                        "thrust_N_mean": str(voltage * throttle / 1000.0),
+                        "eta_sys_mean": "0.3" if throttle == 50.0 else "0.5",
+                        "eta_em_mean": "0.6",
+                        "fm_mean": "0.7",
+                        "rpm_mean": "8000",
+                        "current_a_mean": "10",
+                        "u_eta_sys_k2": "0.0226",
+                        "prop_diameter_m": "0.2544",
+                    }
+                )
+                rows.append(row)
+        input_path = self.root / "runs.csv"
+        with input_path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=INPUT_FIELDS)
+            writer.writeheader()
+            writer.writerows(rows)
+        exit_code = main(
+            [
+                "--input",
+                str(input_path),
+                "--thrust",
+                "1.7",
+                "--tolerance",
+                "0.2",
+                "--require-measured",
+                "--output",
+                str(self.root / "out" / "selection.csv"),
+                "--figure",
+                str(self.root / "out" / "selection.png"),
+            ]
+        )
+        self.assertEqual(exit_code, 0)
+        self.assertTrue((self.root / "out" / "selection.csv").exists())
+
+
 if __name__ == "__main__":
     unittest.main()

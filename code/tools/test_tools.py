@@ -15,6 +15,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import build_manifest as bm  # noqa: E402
+import run_all_tests as rat  # noqa: E402
 import source_pages as sp  # noqa: E402
 
 
@@ -128,6 +129,35 @@ class ManifestTests(unittest.TestCase):
         self.assertIn("docs", categories)
         self.assertTrue(any(row["rel_path"].endswith(".py") for row in rows))
         self.assertFalse(any(row["rel_path"].startswith("work/") for row in rows))
+
+
+class RunAllTestsTests(unittest.TestCase):
+    @staticmethod
+    def _write_case(path: Path, body: str) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("import unittest\n\n\nclass Toy(unittest.TestCase):\n" + body, encoding="utf-8")
+
+    def test_all_passing_returns_zero(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._write_case(
+                root / "code" / "acquisition" / "test_ok_a.py",
+                "    def test_ok(self):\n        self.assertTrue(True)\n",
+            )
+            self._write_case(
+                root / "code" / "processing" / "test_ok_b.py",
+                "    def test_ok(self):\n        self.assertEqual(1 + 1, 2)\n",
+            )
+            self.assertEqual(rat.main(["--root", str(root)]), 0)
+
+    def test_failure_returns_one(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._write_case(
+                root / "code" / "acquisition" / "test_bad.py",
+                "    def test_bad(self):\n        self.assertEqual(1, 2)\n",
+            )
+            self.assertEqual(rat.main(["--root", str(root)]), 1)
 
 
 if __name__ == "__main__":

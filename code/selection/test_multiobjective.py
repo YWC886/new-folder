@@ -250,5 +250,27 @@ class CliTests(unittest.TestCase):
             self.assertTrue(out_png.exists())
 
 
+    def test_main_require_measured_rejects_sim(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            runs_csv = tmp_path / "runs.csv"
+            write_runs_csv(runs_csv)
+            code = mo.main(
+                [
+                    "--input",
+                    str(runs_csv),
+                    "--thrust",
+                    "3.0",
+                    "--require-measured",
+                    "--output",
+                    str(tmp_path / "pareto.csv"),
+                    "--figure",
+                    str(tmp_path / "pareto.png"),
+                ]
+            )
+            self.assertEqual(code, 2)
+            self.assertFalse((tmp_path / "pareto.csv").exists())
+
+
 if __name__ == "__main__":
     unittest.main()

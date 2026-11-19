@@ -49,6 +49,7 @@
 | D036 | 2026-11-19 | **`compute_efficiency --require-measured` 联动守门（v0.5）**：复用 `assert_measured`（与 `measured_readiness` 同一组检查：标定/meta `simulated:false`、`mode:"serial"`、必需通道有限数值），拒绝时抛 `ValueError("MEASURED 守门拒绝：…")` 且 CLI exit 1；**默认关闭**（不改变 SIM 演示与既有测试行为），仅实测运行显式开启 | 门禁若只做独立脚本，实测运行仍可能绕过；把守门放进计算入口可强制执行，同时保持向后兼容 | 默认开启（会拒绝所有 SIM 演示与既有回归测试，破坏演示与测试基线） | 生效（SIM 拒绝演练 exit 1；5 项守门测试） |
 
 | D037 | 2026-11-19 | **`aggregate_efficiency --require-measured` 汇总守门（v0.6）**：仅接受 `source=MEASURED` 且 `mode=serial` 的汇总行（`assert_measured`），混杂 SIM/合成/非 serial 时抛 `ValueError("MEASURED 守门拒绝：…")`、CLI exit 2；**默认关闭**（不改变既有 SIM 地图汇总流程） | 效率地图与选型都消费 aggregate 输出；若汇总层不守门，SIM 行可通过下游混入实测图表。汇总层是数据进入地图/选型的关口 | 在 `plot`/`selection` 各自重复检查（入口分散、易漏） | 生效（`--dir data\metadata --require-measured` 演练拒绝 17 个 SIM run，exit 2；12 项 aggregate 测试） |
+| D038 | 2026-11-19 | **选型入口 MEASURED 守门 + 一键 CI（v0.7）**：`match_propulsion`/`gp_match`/`multiobjective` 三个入口加 `--require-measured`（复用 `match_propulsion.assert_measured`，仅接受 `source=MEASURED` 的 runs CSV，默认关闭、拒绝时 exit 2）；新增 `code/tools/run_all_tests.py` 六套合跑 CI（`--root/--pattern`，逐套 `[OK]/[FAIL]` + 总计，exit 0 仅当全部通过且 total>0） | 选型是结果呈现的最后一环；即使上游守门，误用 SIM 地图仍可能产出「选型结论」。CI 脚本把六套测试固化为一条命令，避免漏跑 | 各入口复制粘贴检查逻辑（已抽公共 `assert_measured`）；用 pytest/第三方 CI（增加依赖、与现有 unittest 基线不一致） | 生效（三入口守门 + 2/1/1 项拒绝测试；CI 六套 203 项全通过、exit 0） |
 
 ## 待决事项
 

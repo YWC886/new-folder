@@ -488,10 +488,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--n", type=int, default=5, help="推荐点数（suggest 模式）")
     parser.add_argument("--min-distance", type=float, default=0.12)
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--require-measured", action="store_true", help="MEASURED 守门：仅接受 source=MEASURED 的 runs（D038）")
     args = parser.parse_args(argv)
 
     try:
         runs = mp.load_runs(Path(args.input))
+        if args.require_measured:
+            mp.assert_measured(runs)
     except (ValueError, FileNotFoundError) as exc:
         print(f"错误：{exc}")
         return 2

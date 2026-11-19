@@ -79,7 +79,7 @@ docs\
 | `design/selection_matching_v0.1.md` | v0.1 | 草稿（SIM 原型：Top-N + Pareto，14 项测试） | D | 2026-11-19 |
 | `design/selection_matching_v0.2.md` | v0.2 | 草稿（油门插值 + 多目标 + U 过滤，20 项测试） | D | 2026-11-19 |
 | `design/selection_matching_v0.3.md` | v0.3 | 草稿（GP 连续匹配 + σ 合成保守效率，34 项测试） | D | 2026-11-19 |
-| `design/selection_matching_v0.4.md` | v0.4 | 草稿（GP 多目标 Pareto + 补测点推荐，43 项测试） | D | 2026-11-19 |
+| `design/selection_matching_v0.4.md` | v0.4 | 草稿（GP 多目标 Pareto + 补测点推荐，43 项测试；v0.5 三入口守门后共 47 项） | D | 2026-11-19 |
 | `design/public_data_benchmark_v0.1.md` | v0.1 | 草稿（UIUC 静态 CT/CP 对标，9 项测试） | D | 2026-11-19 |
 | `design/public_data_benchmark_v0.2.md` | v0.2 | 草稿（多桨型 8 桨/112 点 + pooled 统计 + 分组图，18 项测试） | D | 2026-11-19 |
 | `design/public_data_benchmark_v0.3.md` | v0.3 | 草稿（逐桨参数反推 REFERENCE-derived priors，do_not_apply；10 项测试 = 参考共 28 项） | D | 2026-11-19 |
@@ -128,7 +128,7 @@ docs\
 | `code/simulation/` | 物理仿真模型与仿真战役 | 生成 SIM 数据、效率地图先验与闭环验证 |
 | `code/selection/` | 选型匹配原型（Top-N / Pareto；v0.2 插值、v0.3 GP 连续匹配、v0.4 多目标 Pareto + 补测推荐） | 把效率地图转为任务需求匹配结论（当前 SIM） |
 | `code/reference/` | 公开数据对标（UIUC 单桨 + v0.2 多桨型目录 + v0.3 逐桨参数反推 + bootstrap 95% CI，do_not_apply） | 参考数据来源、许可证与对标记录（结果标 REFERENCE） |
-| `code/tools/` | 软著/复现材料生成器（源代码页、SHA256 清单） | 把代码与文档稳定导出为登记/复现材料 |
+| `code/tools/` | 软著/复现材料生成器（源代码页、SHA256 清单）与一键 CI（六套测试合跑） | 把代码与文档稳定导出为登记/复现材料，并固化测试入口 |
 | `docs/research/` | 文献、标准、竞赛/软著、项目深读、AI 工具 | 设计选择与成果材料的可核验依据 |
 | `docs/softcopyright/` | 软著说明书、源代码页、复现包清单 | 登记材料与交付复现依据 |
 | `data/` | raw / processed / metadata | 测试记录与标定结果 |

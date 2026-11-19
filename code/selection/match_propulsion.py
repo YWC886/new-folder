@@ -122,6 +122,19 @@ def load_runs(path: Path) -> list[dict]:
     return runs
 
 
+def assert_measured(runs: list[dict]) -> None:
+    """MEASURED 选型守门（D035/D036/D037/D038）：拒绝非实测来源的 runs。"""
+    if not runs:
+        raise ValueError("MEASURED 守门拒绝：没有可校验的 runs")
+    bad = [run for run in runs if str(run.get("source", "")).upper() != "MEASURED"]
+    if bad:
+        sample = ", ".join(sorted({str(run.get("run_id", "?")) for run in bad})[:5])
+        raise ValueError(
+            f"MEASURED 守门拒绝：{len(bad)}/{len(runs)} 个 run 来源不是 MEASURED（示例：{sample}）；"
+            "选型入口 --require-measured 仅接受实测效率地图"
+        )
+
+
 def pareto_front(runs: list[dict]) -> list[dict]:
     """推力—效率 Pareto 前沿（推力越小越好、η_sys 越大越好），按推力升序返回。"""
     ordered = sorted(runs, key=lambda item: (item["thrust_N"], -item["eta_sys"]))
@@ -414,10 +427,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output", type=Path, default=Path("data/processed/selection_top_n.csv"))
     parser.add_argument("--figure", type=Path, default=Path("data/processed/figures/selection_v0.2.png"))
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--require-measured", action="store_true", help="MEASURED 守门：仅接受 source=MEASURED 的 runs（D038）")
     args = parser.parse_args(argv)
 
     try:
         runs = load_runs(args.input)
+        if args.require_measured:
+            assert_measured(runs)
         voltages = [float(item) for item in args.voltages.split(",") if item.strip()] or None
         results = match(
             runs,
