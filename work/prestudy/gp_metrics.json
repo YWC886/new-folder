@@ -1,0 +1,84 @@
+{
+  "setting": {
+    "d_inch": 18.0,
+    "kv": 400.0,
+    "n_points": 120,
+    "reps": 3,
+    "noise_rel": 0.012
+  },
+  "gp_cv": {
+    "r2": 0.9488,
+    "rmse_pct": 0.704
+  },
+  "rsm_cv": {
+    "r2": 0.8916,
+    "rmse_pct": 1.024
+  },
+  "learning_curve": [
+    {
+      "samples": 30,
+      "r2_mean": 0.5063559474237913,
+      "r2_std": 0.3881566941546599
+    },
+    {
+      "samples": 60,
+      "r2_mean": 0.9056236713749571,
+      "r2_std": 0.04451475371091103
+    },
+    {
+      "samples": 120,
+      "r2_mean": 0.9359461526641198,
+      "r2_std": 0.010322949069152355
+    },
+    {
+      "samples": 180,
+      "r2_mean": 0.9455993324922252,
+      "r2_std": 0.009185423948353878
+    },
+    {
+      "samples": 240,
+      "r2_mean": 0.9338174126948491,
+      "r2_std": 0.006765077066148424
+    },
+    {
+      "samples": 300,
+      "r2_mean": 0.9380451342956126,
+      "r2_std": 0.01685013328686232
+    }
+  ],
+  "map_range_pct": {
+    "min": 38.09,
+    "max": 58.55
+  },
+  "suggest_next_points": [
+    {
+      "V_dc": 20.27,
+      "throttle": 0.15,
+      "std_pct": 1.005
+    },
+    {
+      "V_dc": 19.79,
+      "throttle": 0.15,
+      "std_pct": 0.975
+    },
+    {
+      "V_dc": 19.3,
+      "throttle": 0.15,
+      "std_pct": 0.948
+    },
+    {
+      "V_dc": 18.82,
+      "throttle": 0.15,
+      "std_pct": 0.923
+    },
+    {
+      "V_dc": 18.34,
+      "throttle": 0.15,
+      "std_pct": 0.901
+    }
+  ],
+  "figs": [
+    "fig4_gp_map_uncertainty.png",
+    "fig5_learning_curve.png"
+  ]
+}

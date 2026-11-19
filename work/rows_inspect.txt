@@ -1,0 +1,113 @@
+ROW 0: height=737 rule=atLeast cells=2 [{'span': 2, 'nparas': 1, 'texts': ['项目名称']}, {'span': 7, 'nparas': 1, 'texts': []}]
+ROW 1: height=363 rule=atLeast cells=2 [{'span': 2, 'nparas': 1, 'texts': ['项目类型']}, {'span': 7, 'nparas': 1, 'texts': ['（  ）创新训练项目  （  ）创业训练项目  （  ）创业实践项目']}]
+ROW 2: height=363 rule=atLeast cells=2 [{'span': 2, 'nparas': 1, 'texts': ['项目类型']}, {'span': 7, 'nparas': 1, 'texts': ['是否为“青年红色筑梦之旅”项目（  ）']}]
+ROW 3: height=737 rule=atLeast cells=2 [{'span': 2, 'nparas': 1, 'texts': ['项目实施时间']}, {'span': 7, 'nparas': 1, 'texts': ['起始时间：    年   月          完成时间：    年   月']}]
+ROW 4: height=624 rule=atLeast cells=6 [{'span': 1, 'nparas': 8, 'texts': ['申', '请', '人', '或', '申', '请', '团', '队']}, {'span': 1, 'nparas': 1, 'texts': []}, {'span': 2, 'nparas': 1, 'texts': ['姓名']}, {'span': 1, 'nparas': 1, 'texts': ['学号']}, {'span': 3, 'nparas': 1, 'texts': ['所在学院']}, {'span': 1, 'nparas': 1, 'texts': ['联系电话']}]
+ROW 5: height=624 rule=atLeast cells=6 [{'span': 1, 'nparas': 8, 'texts': ['申', '请', '人', '或', '申', '请', '团', '队']}, {'span': 1, 'nparas': 1, 'texts': ['主持人']}, {'span': 2, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}, {'span': 3, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}]
+ROW 6: height=624 rule=atLeast cells=6 [{'span': 1, 'nparas': 8, 'texts': ['申', '请', '人', '或', '申', '请', '团', '队']}, {'span': 1, 'nparas': 1, 'texts': ['成  员']}, {'span': 2, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}, {'span': 3, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}]
+ROW 7: height=624 rule=atLeast cells=6 [{'span': 1, 'nparas': 8, 'texts': ['申', '请', '人', '或', '申', '请', '团', '队']}, {'span': 1, 'nparas': 1, 'texts': ['成  员']}, {'span': 2, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}, {'span': 3, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}]
+ROW 8: height=624 rule=atLeast cells=6 [{'span': 1, 'nparas': 8, 'texts': ['申', '请', '人', '或', '申', '请', '团', '队']}, {'span': 1, 'nparas': 1, 'texts': ['成  员']}, {'span': 2, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}, {'span': 3, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}]
+ROW 9: height=624 rule=atLeast cells=6 [{'span': 1, 'nparas': 8, 'texts': ['申', '请', '人', '或', '申', '请', '团', '队']}, {'span': 1, 'nparas': 1, 'texts': ['成  员']}, {'span': 2, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}, {'span': 3, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': []}]
+ROW 10: height=624 rule=atLeast cells=5 [{'span': 1, 'nparas': 7, 'texts': ['指', '导', '教', '师']}, {'span': 1, 'nparas': 1, 'texts': ['姓名']}, {'span': 3, 'nparas': 1, 'texts': []}, {'span': 1, 'nparas': 1, 'texts': ['研究方向']}, {'span': 3, 'nparas': 1, 'texts': []}]
+ROW 11: height=5201 rule=atLeast cells=3 [{'span': 1, 'nparas': 7, 'texts': ['指', '导', '教', '师']}, {'span': 1, 'nparas': 7, 'texts': ['主', '要', '成', '果']}, {'span': 7, 'nparas': 1, 'texts': []}]
+ROW 12: height=3135 rule=atLeast cells=1 [{'span': 9, 'nparas': 1, 'texts': ['一、项目简介（不少于300字）']}]
+ROW 13: height=4646 rule=atLeast cells=1 [{'span': 9, 'nparas': 1, 'texts': ['二、项目相关研究现状及发展动态（不少于500字）']}]
+ROW 14: height=4672 rule=atLeast cells=1 [{'span': 9, 'nparas': 1, 'texts': ['三、项目实施的目的、意义（不少于300字）']}]
+ROW 15: height=3135 rule=atLeast cells=1 [{'span': 9, 'nparas': 1, 'texts': ['四、项目研究内容和拟解决的关键问题（不少于500字）']}]
+ROW 16: height=3120 rule=atLeast cells=1 [{'span': 9, 'nparas': 2, 'texts': ['五、项目研究与实施的基础条件（不少于500字）']}]
+ROW 17: height=3120 rule=atLeast cells=1 [{'span': 9, 'nparas': 1, 'texts': ['六、项目实施方案（不少于500字）']}]
+ROW 18: height=3120 rule=atLeast cells=1 [{'span': 9, 'nparas': 1, 'texts': ['七、项目的技术路线、创新点与项目特色（不少于300字）']}]
+ROW 19: height=2688 rule=atLeast cells=1 [{'span': 9, 'nparas': 2, 'texts': ['八、已有基础（包括与本项目有关的研究积累和已取得的成绩、学校可以提供的条', '件、尚缺少的条件及解决方法）']}]
+ROW 20: height=3120 rule=atLeast cells=1 [{'span': 9, 'nparas': 1, 'texts': ['九、项目研究进度安排及预期成果(本栏内容为中期检查及结题答辩重要参考)']}]
+ROW 21: height=570 rule=atLeast cells=1 [{'span': 9, 'nparas': 2, 'texts': ['十、经费预算']}]
+ROW 22: height=567 rule=atLeast cells=3 [{'span': 3, 'nparas': 1, 'texts': ['开支科目']}, {'span': 4, 'nparas': 1, 'texts': ['经费预算（元）']}, {'span': 2, 'nparas': 1, 'texts': ['主要用途']}]
+ROW 23: height=567 rule=atLeast cells=3 [{'span': 3, 'nparas': 1, 'texts': []}, {'span': 4, 'nparas': 1, 'texts': []}, {'span': 2, 'nparas': 1, 'texts': []}]
+ROW 24: height=567 rule=atLeast cells=3 [{'span': 3, 'nparas': 1, 'texts': []}, {'span': 4, 'nparas': 1, 'texts': []}, {'span': 2, 'nparas': 1, 'texts': []}]
+ROW 25: height=567 rule=atLeast cells=3 [{'span': 3, 'nparas': 1, 'texts': []}, {'span': 4, 'nparas': 1, 'texts': []}, {'span': 2, 'nparas': 1, 'texts': []}]
+ROW 26: height=567 rule=atLeast cells=3 [{'span': 3, 'nparas': 1, 'texts': []}, {'span': 4, 'nparas': 1, 'texts': []}, {'span': 2, 'nparas': 1, 'texts': []}]
+ROW 27: height=567 rule=atLeast cells=2 [{'span': 7, 'nparas': 1, 'texts': ['总计']}, {'span': 2, 'nparas': 1, 'texts': ['                  元']}]
+ROW 28: height=567 rule=atLeast cells=1 [{'span': 9, 'nparas': 6, 'texts': ['十一、导师推荐意见(必须明确表述项目结题成果及呈现方式)', ' 签名：                         ', '年     月     日     ']}]
+
+=== CELL PARAGRAPH DETAIL (row 12+) ===
+row12 para0: '一、项目简介（不少于300字）' style=Normal align=LEFT (0) first_line=None line_spacing=None space_before=76200 space_after=None
+    run '一、项目简介（' font=None size=152400 bold=None
+    run '不少于' font=宋体 size=152400 bold=None
+    run '3' font=TimesNewRomanPSMT size=152400 bold=None
+    run '00' font=TimesNewRomanPSMT size=152400 bold=None
+    run '字' font=宋体 size=152400 bold=None
+    run '）' font=None size=152400 bold=None
+row13 para0: '二、项目相关研究现状及发展动态（不少于500字）' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+    run '二、' font=None size=152400 bold=None
+    run '项目相关研究现状及发展动态（不少于' font=宋体 size=152400 bold=None
+    run '5' font=TimesNewRomanPSMT size=152400 bold=None
+    run '00' font=TimesNewRomanPSMT size=152400 bold=None
+    run '字）' font=宋体 size=152400 bold=None
+row14 para0: '三、项目实施的目的、意义（不少于300字）' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+    run '三、项目实施的目的、意义（不少于' font=None size=152400 bold=None
+    run '3' font=None size=152400 bold=None
+    run '00字' font=None size=152400 bold=None
+    run '）' font=None size=152400 bold=None
+row15 para0: '四、项目研究内容和拟解决的关键问题（不少于500字）' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+    run '四、项目研究内容和拟解决的关键问题（不少于' font=宋体 size=152400 bold=None
+    run '5' font=TimesNewRomanPSMT size=152400 bold=None
+    run '00' font=TimesNewRomanPSMT size=152400 bold=None
+    run '字）' font=宋体 size=152400 bold=None
+row16 para0: '五、项目研究与实施的基础条件（不少于500字）' style=Normal align=LEFT (0) first_line=None line_spacing=None space_before=None space_after=None
+    run '五、项目研究与实施的基础条件（不少于' font=宋体 size=152400 bold=None
+    run '5' font=TimesNewRomanPSMT size=152400 bold=None
+    run '00' font=TimesNewRomanPSMT size=152400 bold=None
+    run '字）' font=宋体 size=152400 bold=None
+row16 para1: '' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+row17 para0: '六、项目实施方案（不少于500字）' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+    run '六、项目实施方案（不少于' font=宋体 size=152400 bold=None
+    run '5' font=TimesNewRomanPSMT size=152400 bold=None
+    run '00' font=TimesNewRomanPSMT size=152400 bold=None
+    run '字）' font=宋体 size=152400 bold=None
+row18 para0: '七、项目的技术路线、创新点与项目特色（不少于300字）' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+    run '七、' font=None size=152400 bold=None
+    run '项目的技术路线、创新点与项目特色' font=宋体 size=152400 bold=None
+    run '（不少于3' font=None size=152400 bold=None
+    run '00字' font=None size=152400 bold=None
+    run '）' font=None size=152400 bold=None
+row19 para0: '八、已有基础（包括与本项目有关的研究积累和已取得的成绩、学校可以提供的条' style=Normal align=LEFT (0) first_line=None line_spacing=None space_before=None space_after=None
+    run '八、已有基础（包括与本项目有关的研究积累和已取得的成绩、学校可以提供的条' font=宋体 size=152400 bold=None
+row19 para1: '件、尚缺少的条件及解决方法）' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+    run '件、尚缺少的条件及解决方法）' font=宋体 size=152400 bold=None
+row20 para0: '九、项目研究进度安排及预期成果(本栏内容为中期检查及结题答辩重要参考)' style=Normal align=LEFT (0) first_line=None line_spacing=None space_before=None space_after=None
+    run '九、项目研究进度安排及' font=宋体 size=152400 bold=None
+    run '预期成果' font=宋体 size=152400 bold=False
+    run '(' font=TimesNewRomanPSMT size=152400 bold=None
+    run '本栏内容为中期检查及结题答辩重要参考' font=宋体 size=152400 bold=None
+    run ')' font=TimesNewRomanPSMT size=152400 bold=None
+row21 para0: '十、经费预算' style=Normal align=LEFT (0) first_line=None line_spacing=None space_before=None space_after=None
+    run '十、经费预算' font=宋体 size=152400 bold=None
+row21 para1: '' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+row22 para0: '开支科目' style=Normal align=CENTER (1) first_line=None line_spacing=None space_before=76200 space_after=None
+    run '开支科目' font=宋体 size=152400 bold=None
+row23 para0: '' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+row24 para0: '' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+row25 para0: '' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+row26 para0: '' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+row27 para0: '总计' style=Normal align=CENTER (1) first_line=None line_spacing=None space_before=76200 space_after=None
+    run '总计' font=宋体 size=152400 bold=None
+row28 para0: '十一、导师推荐意见(必须明确表述项目结题成果及呈现方式)' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+    run '十一、导师推荐意见' font=宋体 size=152400 bold=None
+    run '(' font=宋体 size=152400 bold=None
+    run '必须明确表述项目结题成果及呈现方式' font=宋体 size=152400 bold=None
+    run ')' font=宋体 size=152400 bold=None
+row28 para1: '' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+row28 para2: '' style=Normal align=None first_line=None line_spacing=None space_before=76200 space_after=None
+row28 para3: ' 签名：                         ' style=Normal align=RIGHT (2) first_line=None line_spacing=None space_before=76200 space_after=None
+    run ' ' font=宋体 size=152400 bold=None
+    run '签名' font=宋体 size=152400 bold=None
+    run '： ' font=宋体 size=152400 bold=None
+    run '                        ' font=宋体 size=152400 bold=None
+row28 para4: '' style=Normal align=RIGHT (2) first_line=None line_spacing=None space_before=76200 space_after=None
+row28 para5: '年     月     日     ' style=Normal align=RIGHT (2) first_line=None line_spacing=None space_before=76200 space_after=None
+    run '年' font=宋体 size=152400 bold=None
+    run ' ' font=宋体 size=152400 bold=None
+    run '    月' font=宋体 size=152400 bold=None
+    run ' ' font=宋体 size=152400 bold=None
+    run '    日' font=宋体 size=152400 bold=None
+    run ' ' font=宋体 size=152400 bold=None
+    run '    ' font=宋体 size=152400 bold=None

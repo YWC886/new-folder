@@ -1,0 +1,29 @@
+# UIUC Propeller Database — Volume 1, APC 11x8E (thin electric) static data (mirrored sample)
+# Source: https://m-selig.ae.illinois.edu/props/volume-1/data/apce_11x8_static_kt0517.txt
+# Volume 1 page: https://m-selig.ae.illinois.edu/props/volume-1/propDB-volume-1.html
+# Database home: https://m-selig.ae.illinois.edu/props/propDB.html
+# Downloaded: 2026-11-19
+# Citation: J.B. Brandt, R.W. Deters, G.K. Ananda, O.D. Dantsker, and M.S. Selig
+#   (2026, date downloaded), "UIUC Propeller Database, Vols 1-4", University of Illinois
+#   at Urbana-Champaign, Department of Aerospace Engineering.
+# Note: small sample mirrored only for parser/benchmark development and tests.
+#   Full database is at the source URL above; cite UIUC when using these data.
+#   Static (RPM sweep) wind-tunnel measurements; aircraft: APC 11x8E, 11 in x 8 in.
+# Columns: RPM [r/min]  CT [-]  CP [-]  (measured thrust / power coefficients)
+RPM    CT       CP
+1655   0.0951   0.0524
+2019   0.0977   0.0523
+2320   0.0987   0.0519
+2616   0.0994   0.0513
+2916   0.1011   0.0520
+3209   0.1018   0.0520
+3512   0.1023   0.0526
+3805   0.1025   0.0522
+4119   0.1030   0.0520
+4406   0.1039   0.0522
+4722   0.1046   0.0522
+5001   0.1058   0.0522
+5302   0.1082   0.0516
+5598   0.1089   0.0514
+5905   0.1114   0.0505
+6213   0.1136   0.0503

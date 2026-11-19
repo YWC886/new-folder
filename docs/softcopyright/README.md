@@ -1,0 +1,69 @@
+# 软著与复现材料（v1.0）
+
+本目录存放**软件著作权登记**与**复现包**相关材料，由脚本从仓库内容生成/维护，不手工复制代码。
+
+> 软件全称：**多旋翼动力系统效率地图构建与匹配优化软件**
+> 版本：**V1.0**（对应仓库 2026-11-19 状态，代码测试 143 项全绿）
+> 状态：材料初稿，未提交登记；学校/著作权人信息待项目组确认后补填。
+
+## 1. 目录
+
+| 文件 | 说明 |
+| --- | --- |
+| `README.md` | 本文件：材料清单、生成命令、提交与复现指引 |
+| `软件说明书_V1.0.md` | 软著说明书（功能、技术特点、运行环境、测试验证、权利声明） |
+| `复现包清单_V1.0.md` | 复现包结构、收录文件、校验方式、排除项、引用与许可 |
+| `build/源代码页_V1.0.txt` | 自动生成：全部源码按每页 50 行连续编号，共 **181 页**（约 507 KB） |
+| `build/源代码清单_V1.0.json` | 自动生成：源文件列表、行数、SHA256、总页数 |
+| `build/源文件目录_V1.0.txt` | 自动生成：单行一文件的目录（便于快速核对） |
+
+**提交登记时**：从 `build/源代码页_V1.0.txt` 取**前 30 页 + 后 30 页**（不足 60 页交全部），
+转 PDF/打印时保留页眉「软件名称/版本/页码」。说明书按登记系统模板调整格式即可。
+
+## 2. 生成命令（可重复执行）
+
+```powershell
+# 源代码页 + 清单 JSON（--overwrite 覆盖旧产物）
+py -3.12 code\tools\source_pages.py --out-dir docs\softcopyright\build --overwrite
+
+# 复现包 SHA256 清单 CSV
+py -3.12 code\tools\build_manifest.py --output data\processed\release_manifest_v0.1.csv --overwrite
+```
+
+两脚本规则：
+
+- 源代码页：按 `code/{acquisition,processing,simulation,selection,reference,tools}/*.py` 收集，
+  路径排序、连续行号、每页 50 行，页眉含软件名/版本/页码；清单 JSON 记录每个文件的 SHA256 与行数。
+- 清单：收录 `code/`、`docs/`、`data/reference/`、`data/processed/` 下 ≤2 MB 的文本产物与根目录
+  `*.md`/`*.txt`；排除图片/Office/PDF/zip、`work/`、`__pycache__`。
+
+## 3. 复现与校验（最小步骤）
+
+```powershell
+# 1) 环境自检（Python 3.12 + 依赖）
+$env:PYTHONIOENCODING = 'utf-8'
+py -3.12 work\env\check_env.py
+
+# 2) 全部分模块测试（当前 143 项）
+foreach ($d in 'acquisition','processing','simulation','selection','reference','tools') {
+    py -3.12 -m unittest discover -s "code\$d" -p "test_*.py"
+}
+
+# 3) 复现包完整性（对照清单抽查）
+py -3.12 -c "import csv,hashlib,pathlib; rows=list(csv.DictReader(open('data/processed/release_manifest_v0.1.csv',encoding='utf-8'))); bad=[r['rel_path'] for r in rows if hashlib.sha256(pathlib.Path(r['rel_path']).read_bytes()).hexdigest()!=r['sha256']]; print('files:',len(rows),'mismatch:',bad[:5])"
+```
+
+## 4. 重要声明
+
+- 仓库内全部 **SIM（仿真合成）** 与 **REFERENCE（UIUC 公开风洞数据）** 产物均**不是实验测量**，
+  不得作为选型结论、论文结论或实机性能依据；实机验证待台架搭建与砝码标定后另行开展。
+- UIUC Propeller Database 数据仅科研/教学用途，引用须注明来源（见 `复现包清单_V1.0.md` §4）。
+- 本软件为大学生创新创业训练计划项目阶段性成果，未发表、未转让；正式登记前需经指导教师与学校审核。
+
+## 5. 版本与变更
+
+- 2026-11-19 v1.0：首版材料（说明书、源代码页生成器、复现包清单生成器）；对应代码测试 91 项。
+- 2026-11-19 v1.0 重生成：随 v0.4 GP / 选型 v0.3 更新，源文件 27 个 / 6,941 行 / 139 页，清单 97 文件，全量 117 项测试。
+- 2026-11-19 v1.0 重生成（v0.4）：随选型 v0.4 更新，源文件 29 个 / 7,756 行 / 156 页，清单 102 文件，全量 126 项测试。
+- 2026-11-19 v1.0 重生成（v0.4 仿真）：随双节点热网络更新，源文件 31 个 / 8,328 行 / 167 页，清单 106 文件，全量 134 项测试。
+- 2026-11-19 v1.0 重生成（多桨对标 + 调研集成）：随 UIUC 多桨型对标 v0.2 与 `docs/research/`（文献/标准/竞赛/项目深读）更新，源文件 32 个 / 9,004 行 / 181 页，清单 124 文件，全量 143 项测试。

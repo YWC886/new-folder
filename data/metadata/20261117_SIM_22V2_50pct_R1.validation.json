@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1",
+  "source_file": "D:\\下载\\创新\\data\\raw\\20261117_SIM_22V2_50pct_R1.csv",
+  "simulated": true,
+  "status": "pass",
+  "rows": 5000,
+  "duration_s": 4.999,
+  "estimated_sample_rate_sps": 1000.0000000000001,
+  "errors": [],
+  "warnings": [],
+  "statistics": {
+    "thrust_raw": {
+      "count": 5000,
+      "mean": 28000.1706392,
+      "std": 20.23881618017957,
+      "min": 27940.717,
+      "max": 28059.64,
+      "missing": 0
+    },
+    "torque_raw": {
+      "count": 5000,
+      "mean": 17002.9444372,
+      "std": 12.903468140545298,
+      "min": 16960.103,
+      "max": 17054.573,
+      "missing": 0
+    },
+    "rpm": {
+      "count": 5000,
+      "mean": 6000.3898039999995,
+      "std": 2.917350566121445,
+      "min": 5991.026,
+      "max": 6010.241,
+      "missing": 0
+    },
+    "voltage_v": {
+      "count": 5000,
+      "mean": 22.200082368,
+      "std": 0.006060936002105624,
+      "min": 22.17904,
+      "max": 22.22476,
+      "missing": 0
+    },
+    "current_a": {
+      "count": 5000,
+      "mean": 8.000011208,
+      "std": 0.010645964469818345,
+      "min": 7.96604,
+      "max": 8.03551,
+      "missing": 0
+    },
+    "motor_temp_c": {
+      "count": 5000,
+      "mean": 35.049990799999996,
+      "std": 0.02887256553145346,
+      "min": 35.0,
+      "max": 35.1,
+      "missing": 0
+    },
+    "ambient_temp_c": {
+      "count": 5000,
+      "mean": 24.0,
+      "std": 0.0,
+      "min": 24.0,
+      "max": 24.0,
+      "missing": 0
+    },
+    "humidity_pct": {
+      "count": 5000,
+      "mean": 45.0,
+      "std": 0.0,
+      "min": 45.0,
+      "max": 45.0,
+      "missing": 0
+    },
+    "pressure_kpa": {
+      "count": 5000,
+      "mean": 96.0,
+      "std": 0.0,
+      "min": 96.0,
+      "max": 96.0,
+      "missing": 0
+    }
+  },
+  "steady_window": {
+    "thrust_raw": {
+      "count": 3001,
+      "mean": 27997.99004298567,
+      "std": 19.5560459800838,
+      "min": 27946.693,
+      "max": 28057.947,
+      "relative_std": 0.0006984803534131968
+    },
+    "rpm": {
+      "count": 3001,
+      "mean": 6000.610803065645,
+      "std": 2.8498612033227104,
+      "min": 5991.026,
+      "max": 6009.815,
+      "relative_std": 0.00047492851925453125
+    }
+  },
+  "checked_at": "2026-11-17T17:12:03+08:00"
+}

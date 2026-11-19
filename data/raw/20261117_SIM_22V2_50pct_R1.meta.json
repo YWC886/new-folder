@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1",
+  "run_id": "20261117_SIM_22V2_50pct_R1",
+  "status": "completed",
+  "mode": "simulate",
+  "simulated": true,
+  "data_notice": "合成数据，仅用于软件联调，不是实验结果",
+  "started_at": "2026-11-17T17:11:20.808+08:00",
+  "finished_at": "2026-11-17T17:11:20.843+08:00",
+  "wall_duration_s": 0.034949,
+  "rows_written": 5000,
+  "csv_file": "20261117_SIM_22V2_50pct_R1.csv",
+  "serial": null,
+  "simulation": {
+    "seed": 20261117,
+    "sample_rate_sps": 1000.0
+  },
+  "test": {
+    "operator": "模拟联调",
+    "combo": "DEMO",
+    "motor": "未填写",
+    "esc": "未填写",
+    "prop": "未填写",
+    "voltage_set_v": 22.2,
+    "throttle_set_pct": 50.0,
+    "repeat": "R1",
+    "prop_diameter_m": 0.4572,
+    "notes": ""
+  },
+  "error": null
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1",
+  "simulated": true,
+  "source": "物理仿真隐藏真值标定（propulsion_model v0.1）：仅用于仿真闭环验证，绝不可用于实机测量或论文结论",
+  "hidden_truth_of": "code/simulation/propulsion_model.py",
+  "calibrated_at": "2026-11-19T19:31:58+08:00",
+  "operator": "仿真建模",
+  "thrust": {
+    "k": 0.00035,
+    "b": 0.0
+  },
+  "torque": {
+    "k": 5.882352941176471e-06,
+    "b": 0.0
+  },
+  "propeller": {
+    "diameter_m": 0.2544
+  },
+  "notes": "合成 ADC 计数标定：k 由仿真采集卡满量程假定决定；真实系统必须用静态砝码双人标定"
+}

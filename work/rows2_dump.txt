@@ -1,0 +1,1149 @@
+=== COVER P9..P19 runs (compact) ===
+P9 text='项 目 名 称：                         ' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:ind w:firstLine="964" w:firstLineChars="300"/>
+  <w:rPr>
+    <w:rFonts w:hint="default" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+    <w:b/>
+    <w:bCs w:val="0"/>
+    <w:sz w:val="32"/>
+    <w:szCs w:val="32"/>
+    <w:u w:val="single"/>
+    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+  </w:rPr>
+</w:pPr>
+
+  run0 '项' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run1 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run2 '目' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run3 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run4 '名' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run5 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run6 '称：' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run7 '                     ' sz=203200 bold=True u=True name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:u w:val="single"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run8 '    ' sz=203200 bold=True u=True name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:u w:val="single"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+P10 text='项 目 类 型：      创新训练项目       ' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:ind w:firstLine="964" w:firstLineChars="300"/>
+  <w:rPr>
+    <w:rFonts w:hint="default" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+    <w:b/>
+    <w:bCs w:val="0"/>
+    <w:sz w:val="32"/>
+    <w:szCs w:val="32"/>
+    <w:u w:val="single"/>
+    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+  </w:rPr>
+</w:pPr>
+
+  run0 '项' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run1 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run2 '目' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run3 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run4 '类' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run5 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run6 '型：' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run7 '      ' sz=203200 bold=True u=True name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:u w:val="single"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run8 '创新训练项目' sz=203200 bold=True u=True name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:u w:val="single"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run9 '       ' sz=203200 bold=True u=True name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:u w:val="single"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+P11 text='项 目 负 责 人：                      ' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:ind w:firstLine="964" w:firstLineChars="300"/>
+  <w:rPr>
+    <w:rFonts w:hint="default" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+    <w:b/>
+    <w:bCs w:val="0"/>
+    <w:sz w:val="32"/>
+    <w:szCs w:val="32"/>
+    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+  </w:rPr>
+</w:pPr>
+
+  run0 '项' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run1 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run2 '目' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run3 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run4 '负' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run5 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run6 '责' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run7 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run8 '人：' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run9 '                      ' sz=203200 bold=True u=True name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:u w:val="single"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+P12 text='指 导 教 师：                         ' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:ind w:firstLine="964" w:firstLineChars="300"/>
+  <w:rPr>
+    <w:rFonts w:hint="default" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+    <w:b/>
+    <w:bCs w:val="0"/>
+    <w:sz w:val="32"/>
+    <w:szCs w:val="32"/>
+    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+  </w:rPr>
+</w:pPr>
+
+  run0 '指' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run1 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run2 '导' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run3 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run4 '教' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run5 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run6 '师：' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run7 '                         ' sz=203200 bold=True u=True name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:u w:val="single"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+P13 text='申 报 日 期：                         ' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:ind w:firstLine="964" w:firstLineChars="300"/>
+  <w:rPr>
+    <w:rFonts w:hint="default" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+    <w:b/>
+    <w:bCs w:val="0"/>
+    <w:sz w:val="32"/>
+    <w:szCs w:val="32"/>
+    <w:u w:val="single"/>
+    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+  </w:rPr>
+</w:pPr>
+
+  run0 '申' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run1 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run2 '报' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run3 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run4 '日' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run5 ' ' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run6 '期：' sz=203200 bold=True u=None name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:eastAsia="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+  run7 '                         ' sz=203200 bold=True u=True name=宋体
+    rPr: <w:rPr>
+  <w:rFonts w:hint="eastAsia" w:ascii="宋体" w:hAnsi="宋体" w:cs="宋体"/>
+  <w:b/>
+  <w:bCs w:val="0"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+  <w:u w:val="single"/>
+  <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+</w:rPr>
+
+P14 text='' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:rPr>
+    <w:rFonts w:eastAsia="仿宋_GB2312"/>
+    <w:bCs/>
+    <w:sz w:val="32"/>
+    <w:szCs w:val="32"/>
+  </w:rPr>
+</w:pPr>
+
+P15 text='' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:rPr>
+    <w:rFonts w:eastAsia="仿宋_GB2312"/>
+    <w:bCs/>
+    <w:sz w:val="36"/>
+    <w:szCs w:val="36"/>
+  </w:rPr>
+</w:pPr>
+
+P16 text='' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:rPr>
+    <w:rFonts w:eastAsia="仿宋_GB2312"/>
+    <w:bCs/>
+    <w:sz w:val="36"/>
+    <w:szCs w:val="36"/>
+  </w:rPr>
+</w:pPr>
+
+P17 text='' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:rPr>
+    <w:rFonts w:eastAsia="仿宋_GB2312"/>
+    <w:bCs/>
+    <w:sz w:val="36"/>
+    <w:szCs w:val="36"/>
+  </w:rPr>
+</w:pPr>
+
+P18 text='' style=Normal align=None
+  pPr: <w:pPr>
+  <w:spacing w:line="338" w:lineRule="auto"/>
+  <w:rPr>
+    <w:rFonts w:eastAsia="仿宋_GB2312"/>
+    <w:bCs/>
+    <w:sz w:val="36"/>
+    <w:szCs w:val="36"/>
+  </w:rPr>
+</w:pPr>
+
+P19 text='' style=Normal align=None
+  pPr: <w:pPr>
+  <w:rPr>
+    <w:rFonts w:eastAsia="黑体"/>
+    <w:color w:val="000000"/>
+    <w:sz w:val="32"/>
+    <w:szCs w:val="32"/>
+  </w:rPr>
+</w:pPr>
+
+  run0 '' sz=203200 bold=None u=None name=None
+    rPr: <w:rPr>
+  <w:rFonts w:eastAsia="黑体"/>
+  <w:color w:val="000000"/>
+  <w:sz w:val="32"/>
+  <w:szCs w:val="32"/>
+</w:rPr>
+
+
+=== ROWS 0-3,10,11,22-27 cells ===
+row0:
+  cell0:
+    para0: '项目名称' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '' sz=203200 bold=None name=黑体
+      run '项目名称' sz=152400 bold=None name=None
+  cell1:
+    para0: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+row1:
+  cell0:
+    para0: '项目类型' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '项目类型' sz=152400 bold=None name=None
+  cell1:
+    para0: '（  ）创新训练项目  （  ）创业训练项目  （  ）创业实践项目' style=Normal align=None
+      pPr: <w:pPr>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '（' sz=152400 bold=None name=None
+      run '  ' sz=152400 bold=None name=None
+      run '）创新训练项目' sz=152400 bold=None name=None
+      run '  ' sz=152400 bold=None name=None
+      run '（' sz=152400 bold=None name=None
+      run '  ' sz=152400 bold=None name=None
+      run '）创业训练项目' sz=152400 bold=None name=None
+      run '  ' sz=152400 bold=None name=None
+      run '（' sz=152400 bold=None name=None
+      run '  ' sz=152400 bold=None name=None
+      run '）创业实践项目' sz=152400 bold=None name=None
+row2:
+  cell0:
+    para0: '项目类型' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '项目类型' sz=152400 bold=None name=None
+  cell1:
+    para0: '是否为“青年红色筑梦之旅”项目（  ）' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:b/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '是否为“青年红色筑梦之旅”项目（' sz=152400 bold=False name=None
+      run '  ' sz=152400 bold=False name=None
+      run '）' sz=152400 bold=False name=None
+row3:
+  cell0:
+    para0: '项目实施时间' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '项目实施时间' sz=152400 bold=None name=None
+  cell1:
+    para0: '起始时间：    年   月          完成时间：    年   月' style=Normal align=None
+      pPr: <w:pPr>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '起始时间：' sz=152400 bold=None name=None
+      run '    ' sz=152400 bold=None name=None
+      run '年' sz=152400 bold=None name=None
+      run '   ' sz=152400 bold=None name=None
+      run '月' sz=152400 bold=None name=None
+      run '          ' sz=152400 bold=None name=None
+      run '完成时间：' sz=152400 bold=None name=None
+      run '    ' sz=152400 bold=None name=None
+      run '年' sz=152400 bold=None name=None
+      run '   ' sz=152400 bold=None name=None
+      run '月' sz=152400 bold=None name=None
+row10:
+  cell0:
+    para0: '指' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '指' sz=152400 bold=None name=None
+    para1: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para2: '导' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '导' sz=152400 bold=None name=None
+    para3: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para4: '教' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '教' sz=152400 bold=None name=None
+    para5: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para6: '师' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '师' sz=152400 bold=None name=None
+  cell1:
+    para0: '姓名' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '姓名' sz=152400 bold=None name=None
+  cell2:
+    para0: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell3:
+    para0: '研究方向' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '研究方向' sz=152400 bold=None name=None
+  cell4:
+    para0: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+row11:
+  cell0:
+    para0: '指' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '指' sz=152400 bold=None name=None
+    para1: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para2: '导' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '导' sz=152400 bold=None name=None
+    para3: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para4: '教' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '教' sz=152400 bold=None name=None
+    para5: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para6: '师' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '师' sz=152400 bold=None name=None
+  cell1:
+    para0: '主' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '主' sz=152400 bold=None name=None
+    para1: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para2: '要' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '要' sz=152400 bold=None name=None
+    para3: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para4: '成' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '成' sz=152400 bold=None name=None
+    para5: '' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+    para6: '果' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '果' sz=152400 bold=None name=None
+  cell2:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:snapToGrid w:val="0"/>
+  <w:ind w:left="269" w:hanging="307" w:hangingChars="128"/>
+  <w:rPr>
+    <w:sz w:val="24"/>
+    <w:szCs w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+row22:
+  cell0:
+    para0: '开支科目' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '开支科目' sz=152400 bold=None name=宋体
+  cell1:
+    para0: '经费预算（元）' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '经费预算（元）' sz=152400 bold=None name=宋体
+  cell2:
+    para0: '主要用途' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '主要用途' sz=152400 bold=None name=宋体
+row23:
+  cell0:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell1:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell2:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+row24:
+  cell0:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell1:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell2:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+row25:
+  cell0:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell1:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell2:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+row26:
+  cell0:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell1:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+  cell2:
+    para0: '' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+row27:
+  cell0:
+    para0: '总计' style=Normal align=CENTER (1)
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:jc w:val="center"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run '总计' sz=152400 bold=None name=宋体
+  cell1:
+    para0: '                  元' style=Normal align=None
+      pPr: <w:pPr>
+  <w:spacing w:before="120" w:beforeLines="50"/>
+  <w:rPr>
+    <w:rFonts w:ascii="宋体" w:cs="宋体"/>
+    <w:kern w:val="0"/>
+    <w:sz w:val="24"/>
+  </w:rPr>
+</w:pPr>
+
+      run ' ' sz=152400 bold=None name=宋体
+      run '                 元' sz=152400 bold=None name=宋体

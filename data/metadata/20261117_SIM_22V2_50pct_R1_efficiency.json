@@ -1,0 +1,129 @@
+{
+  "schema_version": "0.1",
+  "source_file": "D:\\下载\\创新\\data\\raw\\20261117_SIM_22V2_50pct_R1.csv",
+  "calibration_file": "D:\\下载\\创新\\data\\metadata\\calib_SIM_DEMO.json",
+  "calibration_source": "DEMO 合成标定：仅用于处理流水线联调，绝不可用于实机测量或论文结论",
+  "simulated": true,
+  "data_notice": "模拟数据：仅用于软件联调与流程验证，不是实验结果",
+  "simulated_reason": "meta.json 或标定文件标记 simulated",
+  "rows": 5000,
+  "window": {
+    "window_s": 3.0,
+    "samples": 3001,
+    "thrust_N": {
+      "count": 3001,
+      "mean": 9.799296515044984,
+      "std": 0.00684461609302933,
+      "min": 9.78134255,
+      "max": 9.82028145,
+      "relative_std": 0.000698480353413197
+    },
+    "torque_Nm": {
+      "count": 3001,
+      "mean": 0.10000150945959191,
+      "std": 8.048222390200088e-05,
+      "min": 0.09976531176470588,
+      "max": 0.10032101764705884,
+      "relative_std": 0.0008048100907368976
+    },
+    "rpm": {
+      "count": 3001,
+      "mean": 6000.610803065645,
+      "std": 2.8498612033227104,
+      "min": 5991.026,
+      "max": 6009.815,
+      "relative_std": 0.00047492851925453125
+    },
+    "voltage_v": {
+      "count": 3001,
+      "mean": 22.200019610129957,
+      "std": 0.006004267544667742,
+      "min": 22.17904,
+      "max": 22.22102,
+      "relative_std": 0.0002704622631021448
+    },
+    "current_a": {
+      "count": 3001,
+      "mean": 7.995187794068644,
+      "std": 0.009131973167516686,
+      "min": 7.96604,
+      "max": 8.03154,
+      "relative_std": 0.0011421836988358652
+    },
+    "p_shaft_w": {
+      "count": 3001,
+      "mean": 62.83919507337598,
+      "std": 0.05561494713331667,
+      "min": 62.69392346387821,
+      "max": 63.03687417532923,
+      "relative_std": 0.0008850359567524104
+    },
+    "p_elec_w": {
+      "count": 3001,
+      "mean": 177.49332639484416,
+      "std": 0.20883009485745388,
+      "min": 176.740837111,
+      "max": 178.2417183888,
+      "relative_std": 0.0011765518123926489
+    },
+    "eta_em": {
+      "count": 3001,
+      "mean": 0.35403748384840783,
+      "std": 0.0005533318998188518,
+      "min": 0.35212220162797603,
+      "max": 0.35567640239235393,
+      "relative_std": 0.0015629189706245288
+    },
+    "fm": {
+      "count": 3001,
+      "mean": 0.8030215895721721,
+      "std": 0.0013450150854708402,
+      "min": 0.7991134562739061,
+      "max": 0.8067256754829011,
+      "relative_std": 0.0016749426203938396
+    },
+    "eta_sys": {
+      "count": 3001,
+      "mean": 0.2842993881412899,
+      "std": 0.00047155051528095316,
+      "min": 0.28283992707909883,
+      "max": 0.285735070101015,
+      "relative_std": 0.0016586406265728718
+    }
+  },
+  "conditions": {
+    "run_id": "20261117_SIM_22V2_50pct_R1",
+    "mode": "simulate",
+    "combo": "DEMO",
+    "repeat": "R1",
+    "motor": "未填写",
+    "esc": "未填写",
+    "prop": "未填写",
+    "voltage_set_v": 22.2,
+    "throttle_set_pct": 50.0,
+    "prop_diameter_m": 0.4572,
+    "operator": "模拟联调"
+  },
+  "assumptions": {
+    "air_density_kg_m3": 1.125480428466882,
+    "air_density_source": "实测环境温压估算",
+    "disk_area_m2": 0.16417322322758926,
+    "eta_definitions": {
+      "eta_em": "P_shaft / P_elec（电机+电调）",
+      "fm": "P_ideal / P_shaft，P_ideal = T^1.5 / sqrt(2 rho A)（静态悬停动量理论）",
+      "eta_sys": "P_ideal / P_elec = FM * eta_em"
+    }
+  },
+  "calibration": {
+    "thrust": {
+      "k": 0.00035,
+      "b": 0.0
+    },
+    "torque": {
+      "k": 5.882352941176471e-06,
+      "b": 0.0
+    }
+  },
+  "warnings": [],
+  "computed_at": "2026-11-19T19:18:30+08:00"
+}

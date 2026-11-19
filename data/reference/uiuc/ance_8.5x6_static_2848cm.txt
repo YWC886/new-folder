@@ -1,0 +1,29 @@
+# UIUC Propeller Database — Volume 1, Aeronaut 8.5x6 Carbon Electric static data (mirrored sample)
+# Source: https://m-selig.ae.illinois.edu/props/volume-1/data/ance_8.5x6_static_2848cm.txt
+# Volume 1 page: https://m-selig.ae.illinois.edu/props/volume-1/propDB-volume-1.html
+# Database home: https://m-selig.ae.illinois.edu/props/propDB.html
+# Downloaded: 2026-11-19
+# Citation: J.B. Brandt, R.W. Deters, G.K. Ananda, O.D. Dantsker, and M.S. Selig
+#   (2026, date downloaded), "UIUC Propeller Database, Vols 1-4", University of Illinois
+#   at Urbana-Champaign, Department of Aerospace Engineering.
+# Note: small sample mirrored only for parser/benchmark development and tests.
+#   Full database is at the source URL above; cite UIUC when using these data.
+#   Static (RPM sweep) wind-tunnel measurements; aircraft: Aeronaut 8.5x6 Carbon Electric, 8.5 in x 6 in.
+# Columns: RPM [r/min]  CT [-]  CP [-]  (measured thrust / power coefficients)
+RPM    CT       CP
+2489   0.1046   0.0567
+2813   0.1052   0.0556
+3095   0.1049   0.0549
+3386   0.1062   0.0551
+3648   0.1074   0.0537
+3980   0.1080   0.0522
+4259   0.1083   0.0515
+4558   0.1074   0.0513
+4861   0.1076   0.0505
+5139   0.1067   0.0505
+5436   0.1081   0.0509
+5737   0.1078   0.0504
+6031   0.1115   0.0504
+6324   0.1087   0.0493
+6605   0.1112   0.0499
+6897   0.1144   0.0505

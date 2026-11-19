@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1",
+  "simulated": true,
+  "source": "DEMO 合成标定：仅用于处理流水线联调，绝不可用于实机测量或论文结论",
+  "data_notice": "该标定由任意选的线性系数构造，不对应任何真实传感器；真实标定须由双人静态砝码试验生成",
+  "thrust": {
+    "k": 0.00035,
+    "b": 0.0,
+    "unit": "N per ADC count"
+  },
+  "torque": {
+    "k": 5.882352941176471e-06,
+    "b": 0.0,
+    "unit": "N·m per ADC count"
+  },
+  "propeller": {
+    "diameter_m": 0.4572,
+    "note": "18 英寸示例桨径，仅用于计算桨盘面积"
+  }
+}

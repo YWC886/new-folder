@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.2",
+  "source_file": "D:\\下载\\创新\\data\\raw\\20261119_SIM_29.6V_100pct_R1.csv",
+  "calibration_file": "D:\\下载\\创新\\data\\metadata\\calib_SIM_PHYS10x4.json",
+  "calibration_source": "物理仿真隐藏真值标定（propulsion_model v0.1）：仅用于仿真闭环验证，绝不可用于实机测量或论文结论",
+  "simulated": true,
+  "data_notice": "模拟数据：仅用于软件联调与流程验证，不是实验结果",
+  "simulated_reason": "meta.json 或标定文件标记 simulated",
+  "rows": 2500,
+  "window": {
+    "mode": "last",
+    "requested_window_s": 1.5,
+    "window_s": 1.499,
+    "start_s": 1.0,
+    "end_s": 2.499,
+    "samples": 1500,
+    "thrust_N": {
+      "count": 1500,
+      "mean": 18.467344466666667,
+      "std": 0.020226592464971712,
+      "min": 18.40335,
+      "max": 18.53075,
+      "relative_std": 0.0010952626405751225
+    },
+    "torque_Nm": {
+      "count": 1500,
+      "mean": 0.30295471764705884,
+      "std": 0.000997987224339948,
+      "min": 0.2989117647058824,
+      "max": 0.3067529411764706,
+      "relative_std": 0.0032941795133310963
+    },
+    "rpm": {
+      "count": 1500,
+      "mean": 11395.538866666668,
+      "std": 3.0956988898523865,
+      "min": 11383.9,
+      "max": 11405.4,
+      "relative_std": 0.0002716588417690085
+    },
+    "voltage_v": {
+      "count": 1500,
+      "mean": 29.600533333333335,
+      "std": 0.00996147794845232,
+      "min": 29.571,
+      "max": 29.644,
+      "relative_std": 0.00033653035356746906
+    },
+    "current_a": {
+      "count": 1500,
+      "mean": 14.127679333333333,
+      "std": 0.020103281676839238,
+      "min": 14.046,
+      "max": 14.191,
+      "relative_std": 0.0014229712610624495
+    },
+    "p_shaft_w": {
+      "count": 1500,
+      "mean": 361.52738856782173,
+      "std": 1.1948799692126644,
+      "min": 356.65147954969854,
+      "max": 366.05549263022533,
+      "relative_std": 0.0033050883750360936
+    },
+    "p_elec_w": {
+      "count": 1500,
+      "mean": 418.18683849,
+      "std": 0.6083745403027981,
+      "min": 415.789692,
+      "max": 419.940072,
+      "relative_std": 0.0014547912184408598
+    },
+    "eta_em": {
+      "count": 1500,
+      "mean": 0.8645135106068292,
+      "std": 0.003134171484153243,
+      "min": 0.8517870699208997,
+      "max": 0.8771068942328358,
+      "relative_std": 0.003625358592664757
+    },
+    "fm": {
+      "count": 1500,
+      "mean": 0.6489639960385541,
+      "std": 0.0024054415672121634,
+      "min": 0.6408905218818738,
+      "max": 0.6580747957219363,
+      "relative_std": 0.003706587086333922
+    },
+    "eta_sys": {
+      "count": 1500,
+      "mean": 0.561031944708548,
+      "std": 0.0012255529779197872,
+      "min": 0.5564845131759366,
+      "max": 0.5649253842657566,
+      "relative_std": 0.0021844620248076124
+    }
+  },
+  "conditions": {
+    "run_id": "20261119_SIM_29.6V_100pct_R1",
+    "mode": "simulate",
+    "combo": "SIM10x4.5",
+    "repeat": 1,
+    "motor": "仿真电机 400KV",
+    "esc": "仿真电调 40A",
+    "prop": "仿真桨 10x4.5",
+    "voltage_set_v": 29.6,
+    "throttle_set_pct": 100.0,
+    "prop_diameter_m": 0.2544,
+    "operator": "仿真建模"
+  },
+  "assumptions": {
+    "air_density_kg_m3": 1.1255001748806424,
+    "air_density_source": "实测环境温压估算",
+    "disk_area_m2": 0.05083046648025828,
+    "eta_definitions": {
+      "eta_em": "P_shaft / P_elec（电机+电调）",
+      "fm": "P_ideal / P_shaft，P_ideal = T^1.5 / sqrt(2 rho A)（静态悬停动量理论）",
+      "eta_sys": "P_ideal / P_elec = FM * eta_em"
+    }
+  },
+  "calibration": {
+    "thrust": {
+      "k": 0.00035,
+      "b": 0.0
+    },
+    "torque": {
+      "k": 5.882352941176471e-06,
+      "b": 0.0
+    }
+  },
+  "uncertainty": {
+    "method": "一阶相对不确定度传播（各分量独立；U = 2u，约 95%）",
+    "components_1sigma_relative": {
+      "thrust": 0.0065,
+      "torque": 0.005,
+      "rpm": 0.001,
+      "voltage": 0.001,
+      "current": 0.005,
+      "air_density": 0.005
+    },
+    "sensitivities": {
+      "eta_em": "由 Q、omega、U、I 传播",
+      "fm": "由 T（指数 1.5）、rho（指数 0.5）、Q、omega 传播",
+      "eta_sys": "由 T（1.5）、rho（0.5）、U、I 直接传播（避免与 FM/η_em 相关性重复计算）"
+    },
+    "u_rel_eta_em": 0.007211102550927979,
+    "u_rel_fm": 0.011283284096396758,
+    "u_rel_eta_sys": 0.011283284096396758,
+    "U_rel_eta_em_k2": 0.014422205101855958,
+    "U_rel_fm_k2": 0.022566568192793516,
+    "U_rel_eta_sys_k2": 0.022566568192793516,
+    "reference_targets_k2": {
+      "eta_em": 0.015,
+      "fm": 0.025,
+      "eta_sys": 0.021
+    },
+    "note": "分量为假设值（bench_tech 量级），实机静态标定与传感器校准后必须复核"
+  },
+  "warnings": [],
+  "computed_at": "2026-11-19T19:31:59+08:00"
+}

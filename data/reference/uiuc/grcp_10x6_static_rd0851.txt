@@ -1,0 +1,29 @@
+# UIUC Propeller Database — Volume 1, Graupner 10x6 CAM Prop static data (mirrored sample)
+# Source: https://m-selig.ae.illinois.edu/props/volume-1/data/grcp_10x6_static_rd0851.txt
+# Volume 1 page: https://m-selig.ae.illinois.edu/props/volume-1/propDB-volume-1.html
+# Database home: https://m-selig.ae.illinois.edu/props/propDB.html
+# Downloaded: 2026-11-19
+# Citation: J.B. Brandt, R.W. Deters, G.K. Ananda, O.D. Dantsker, and M.S. Selig
+#   (2026, date downloaded), "UIUC Propeller Database, Vols 1-4", University of Illinois
+#   at Urbana-Champaign, Department of Aerospace Engineering.
+# Note: small sample mirrored only for parser/benchmark development and tests.
+#   Full database is at the source URL above; cite UIUC when using these data.
+#   Static (RPM sweep) wind-tunnel measurements; aircraft: Graupner 10x6 CAM, 10 in x 6 in.
+# Columns: RPM [r/min]  CT [-]  CP [-]  (measured thrust / power coefficients)
+RPM    CT       CP
+1987   0.0828   0.0450
+2314   0.0849   0.0448
+2565   0.0869   0.0444
+2942   0.0918   0.0445
+3270   0.0938   0.0435
+3556   0.0950   0.0431
+3863   0.0973   0.0427
+4164   0.0985   0.0420
+4475   0.1000   0.0417
+4773   0.1004   0.0414
+5073   0.1007   0.0411
+5391   0.1015   0.0410
+5728   0.1019   0.0408
+6006   0.1020   0.0407
+6308   0.1021   0.0405
+6592   0.1026   0.0404
