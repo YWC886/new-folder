@@ -40,6 +40,8 @@
 | D030 | 2026-11-19 | **AI 工具与外部调研纪律**：本机安装并验证 `ve` 2.0.2、`arkcli` 1.0.41、28 个 arkcli AI skills（`%USERPROFILE%\.agents\skills` 与 `.claude\skills` 双装）与 6 个 volcengine core skills（**凭证未配置**，不联网调用云 API、不产生费用、不写入密钥）；组建 Lead + 4 名 Agent（文献/标准合规/项目深读/多桨对标），在限定写范围内协作、由 Lead 复核集成；所有外部资料必须可核验（URL/DOI/官方渠道）、**不得编造**文献/标准/数据，REFERENCE 数据与 SIM/实测结论严格分离；AI 生成内容在外对材料中标注并须人工/学校复核；研究资料统一存 `docs/research/` 并登记索引，工具安装状态与使用边界记录在 `docs/research/ai_tooling_v0.1.md` | 用户指示（m02068）：安装 AI 工具、组建 Agent 项目组、深入研究并搜集科研成果；用可复核的纪律承接外部资料，避免幻觉与"AI 结论=实验结论" | 让 Agent 自由写全仓（相互覆盖、无法复核）；直接采信 AI 检索出的文献/标准号（幻觉风险）；不记录安装状态（环境不可复现） | 生效 |
 | D031 | 2026-11-19 | **多桨型公开数据对标 v0.2**：`code/reference/catalog_uiuc.py` 对 8 个 UIUC 静态桨（112 点、3 品牌/6 系列）做 per-prop + pooled 的 CT/CP 误差统计与分组图；pooled C_T 绝对均值 11.37%（带符号 −0.69%）、C_P 16.68%（带符号 −13.62%，模型系统性低估 C_P）；仅作量级/趋势检查，**不得替代实测**，也不得据此修改仿真参数后直接宣称"校准完成"；后续若反推 cp0/ct0 须以 M0.4 实测标定数据为准并记录 | 多桨对标揭示通用 cp0 水平与转速趋势偏差（7/7 桨实测 C_T 随 RPM 上升而模型缓降），为后续按桨型重标定提供依据 | 只用单桨样本（结论依赖单一桨型）；据文献数据直接替换模型参数（未经本项目实测） | 生效 |
 
+| D032 | 2026-11-19 | **静态砝码标定拟合工具 v0.1**（`code/processing/calibration_fit.py`）：输入长表读数 CSV（`channel,direction,repeat,applied,raw`），对 thrust/torque 双通道做最小二乘 `applied=k·raw+b`，输出与 `compute_efficiency.load_calibration` 兼容的标定 JSON（**固定 `simulated:false`**，含 metrics 与 warnings）；质量门槛 R²≥0.9995、重复性 ≤0.5%FS、迟滞 ≤0.5%FS（超限写 warnings 不阻断）；**只允许真实静态标定读数**，禁止用仿真数据生成 `simulated:false` 标定；实机标定须按 `docs/test/静态砝码读数记录_v0.1.md` 双人签署并在 `calibration_fit_v0.1.md` 记录限制（力矩力臂、温漂、B 类不确定度未纳入） | M0.4 硬件链路与双人砝码标定后需要可复现的 k/b 生成路径；手工填 JSON 易错且无法追溯质量指标 | 手工填标定 JSON（易错、无指标）；在流水线内做拟合（标定与计算耦合、不便复核） | 生效（工具与 15 项测试已完成，实机读数未到位） |
+
 ## 待决事项
 
 | 编号 | 事项 | 需在 | 负责人 |

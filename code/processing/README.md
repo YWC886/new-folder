@@ -1,4 +1,4 @@
-# code/processing · 效率计算流水线 v0.4
+# code/processing · 效率计算流水线 v0.4（含标定拟合 v0.1）
 
 把台架原始 CSV 换算为物理量，并计算「电机+电调效率 / 螺旋桨品质因数 / 系统效率」三件套；支持稳态窗口自动识别、一阶不确定度传播、效率地图汇总/成图与 GP 平滑代理。**当前只用模拟数据验证过，尚无实机数据。**
 
@@ -10,16 +10,18 @@
 | `aggregate_efficiency.py` | 多份 `efficiency.json` → 效率地图 `runs.csv`（每次运行一行，含 U 与选窗方式）+ `grid.csv`（分组均值±标准差与 U 最大值） |
 | `plot_efficiency_map.py` | `runs.csv` → 效率地图 PNG（散点/热力图；`--uncertainty` 画 U(k=2) 误差棒/格内标注；SIM 强制标注） |
 | `gp_surface.py` | `runs.csv` → RBF 核 GP 平滑代理：LOOCV 选核宽、21×21 网格预测 η_sys 均值/标准差 CSV + 双面板图（v0.4） |
+| `calibration_fit.py` | 静态砝码读数长表 CSV → `simulated:false` 标定 JSON（k/b + R²/重复性/迟滞指标 + warnings；仅真实读数，v0.1） |
 | `test_processing.py` | 12 项回归测试（公式、空气密度、标记、缺通道/缺标定、禁止覆盖、稳态 auto/回退、U 公式） |
 | `test_aggregate.py` | 8 项测试（展平、分组统计、去重、坏文件、覆盖保护、来源标记、U/mode 传播） |
 | `test_plot_efficiency_map.py` | 6 项测试（网格图、单点图、非法字段、`--uncertainty` 误差棒/格内标注、U 缺失容错） |
 | `test_gp_surface.py` | 12 项测试（读取兼容、LOOCV、核宽搜索、网格输出、CSV/PNG、覆盖保护、错误输入） |
+| `test_calibration_fit.py` | 15 项测试（读数解析、精确 k/b 复原、重复性/迟滞、R² 告警、覆盖保护、CLI 端到端并读回标定） |
 | `../README.md`（本文件） | 用法、公式、数据诚信约定 |
 
 ## 快速运行
 
 ```powershell
-# 模块测试（38 项：流水线 12 + 汇总 8 + 绘图 6 + GP 12）
+# 模块测试（53 项：流水线 12 + 汇总 8 + 绘图 6 + GP 12 + 标定拟合 15）
 py -3.12 -m unittest discover -s code\processing -p "test_*.py" -v
 
 # 用模拟数据 + 合成标定跑通流水线（自动识别稳态窗口，输出带 simulated 标记）
@@ -38,6 +40,11 @@ py -3.12 code\processing\aggregate_efficiency.py --dir data\metadata --overwrite
 
 # 绘制效率地图（v0.3 可加 --uncertainty）
 py -3.12 code\processing\plot_efficiency_map.py --uncertainty --overwrite
+
+# v0.1 静态砝码标定拟合（仅真实读数；输出 simulated:false 标定 JSON，含质量指标）
+py -3.12 code\processing\calibration_fit.py `
+  --input data\calibration\静态砝码读数.csv `
+  --output data\calibration\calib_MEASURED.json --diameter 0.4572
 
 # GP 平滑代理（LOOCV 自动选核宽；输出网格 CSV + 双面板图）
 py -3.12 code\processing\gp_surface.py --overwrite
