@@ -111,7 +111,7 @@ py -3.12 code\simulation\two_node_thermal.py --heat-s 120 --cool-s 180 --c-windi
   `R_sa` 分配）、加热期绕组高于定子、冷却段单调回落至近环境、稳态能量守恒
   （`q_ws ≈ q_sa ≈ heat`，2%）、非法参数、CSV/PNG 字段与覆盖保护、`duty_profile` 边界、
   CLI 端到端（成功 0 / 已存在 2 / `--overwrite` 0）。
-- 仿真模块合计 29 项测试（21+8）；全仓 178 项（截至 2026-11-19 bootstrap 不确定度 v0.1 后）。
+- 仿真模块合计 29 项测试（21+8）；全仓 188 项（截至 2026-11-19 bootstrap 不确定度 v0.1 后）。
 
 ## 7. 限制与 v0.5 待办
 

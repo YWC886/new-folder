@@ -1,6 +1,6 @@
-# code/processing · 效率计算流水线 v0.4（含标定拟合 v0.1）
+# code/processing · 效率计算流水线 v0.5（含标定拟合 v0.1、MEASURED 门禁 v0.1）
 
-把台架原始 CSV 换算为物理量，并计算「电机+电调效率 / 螺旋桨品质因数 / 系统效率」三件套；支持稳态窗口自动识别、一阶不确定度传播、效率地图汇总/成图与 GP 平滑代理。**当前只用模拟数据验证过，尚无实机数据。**
+把台架原始 CSV 换算为物理量，并计算「电机+电调效率 / 螺旋桨品质因数 / 系统效率」三件套；支持稳态窗口自动识别、一阶不确定度传播、效率地图汇总/成图与 GP 平滑代理；另有 M0.4 门禁 `measured_readiness.py`（v0.1）检查输入是否具备实测资格。**当前只用模拟数据验证过，尚无实机数据。**
 
 ## 文件
 
@@ -11,17 +11,19 @@
 | `plot_efficiency_map.py` | `runs.csv` → 效率地图 PNG（散点/热力图；`--uncertainty` 画 U(k=2) 误差棒/格内标注；SIM 强制标注） |
 | `gp_surface.py` | `runs.csv` → RBF 核 GP 平滑代理：LOOCV 选核宽、21×21 网格预测 η_sys 均值/标准差 CSV + 双面板图（v0.4） |
 | `calibration_fit.py` | 静态砝码读数长表 CSV → `simulated:false` 标定 JSON（k/b + R²/重复性/迟滞指标 + warnings；仅真实读数，v0.1） |
+| `measured_readiness.py` | MEASURED 通路就绪门禁（v0.1）：检查 meta/标定/表头/必需通道/桨径；SIM 输入拒绝，退出码 0/1/2（D035） |
 | `test_processing.py` | 12 项回归测试（公式、空气密度、标记、缺通道/缺标定、禁止覆盖、稳态 auto/回退、U 公式） |
 | `test_aggregate.py` | 8 项测试（展平、分组统计、去重、坏文件、覆盖保护、来源标记、U/mode 传播） |
 | `test_plot_efficiency_map.py` | 6 项测试（网格图、单点图、非法字段、`--uncertainty` 误差棒/格内标注、U 缺失容错） |
 | `test_gp_surface.py` | 12 项测试（读取兼容、LOOCV、核宽搜索、网格输出、CSV/PNG、覆盖保护、错误输入） |
 | `test_calibration_fit.py` | 15 项测试（读数解析、精确 k/b 复原、重复性/迟滞、R² 告警、覆盖保护、CLI 端到端并读回标定） |
+| `test_measured_readiness.py` | 10 项测试（SIM 拒绝、有效样本就绪、缺 meta/通道/桨径、标定标记、CLI 退出码与 JSON 输出） |
 | `../README.md`（本文件） | 用法、公式、数据诚信约定 |
 
 ## 快速运行
 
 ```powershell
-# 模块测试（53 项：流水线 12 + 汇总 8 + 绘图 6 + GP 12 + 标定拟合 15）
+# 模块测试（63 项：流水线 12 + 汇总 8 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10）
 py -3.12 -m unittest discover -s code\processing -p "test_*.py" -v
 
 # 用模拟数据 + 合成标定跑通流水线（自动识别稳态窗口，输出带 simulated 标记）
@@ -45,6 +47,10 @@ py -3.12 code\processing\plot_efficiency_map.py --uncertainty --overwrite
 py -3.12 code\processing\calibration_fit.py `
   --input data\calibration\静态砝码读数.csv `
   --output data\calibration\calib_MEASURED.json --diameter 0.4572
+
+# MEASURED 通路门禁（M0.4；0=就绪，1=未就绪，SIM 输入会被拒绝）
+py -3.12 code\processing\measured_readiness.py `
+  --input data\raw\<run_id>.csv --calib data\metadata\calib_MEASURED.json
 
 # GP 平滑代理（LOOCV 自动选核宽；输出网格 CSV + 双面板图）
 py -3.12 code\processing\gp_surface.py --overwrite
@@ -85,6 +91,13 @@ u(η_sys) = sqrt((1.5u_T)² + (0.5u_ρ)² + u_V² + u_I²)            → U(k=2)
 - 输出网格 `eta_pred`（GP 均值）与 `eta_std`（预测标准差，1σ；边缘/外推处更大）；
 - **预测标准差 ≠ 测量不确定度 U(k=2)**：前者反映代理模型对数据的拟合置信，后者需要标定数据；两者在文档中分开表述；
 - SIM 数据输入时终端与图件均标注非实验；外推区不得用于选型结论。
+
+## MEASURED 通路门禁（v0.1，M0.4）
+
+- 目的：只有"声称实测"的输入（meta `simulated:false`、`mode:"serial"`、标定 `simulated:false`、表头与必需通道齐全、桨径可用）才允许进入 MEASURED 通路；SIM/REFERENCE 输入应被拒绝。
+- 检查器只验证标记与结构，**不修改输入**；数据物理真实性依赖双人签字与现场记录（D032/D035）。
+- 退出码：`0` 就绪、`1` 未就绪（列出错误）、`2` 用法/读取异常；`--json/--output` 输出机器可读报告。
+- 2026-11-19 SIM 拒绝演练：`data\raw\20261117_SIM_22V2_50pct_R1.csv` + `calib_SIM_DEMO.json` → 3 条错误、exit 1，门禁生效。
 
 ## 公式（与 docs/design/processing_pipeline_v0.1/0.2 一致）
 

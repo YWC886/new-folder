@@ -15,6 +15,7 @@ docs\
 │  ├─ processing_pipeline_v0.1.md
 │  ├─ processing_pipeline_v0.2.md
 │  ├─ calibration_fit_v0.1.md
+│  ├─ measured_readiness_v0.1.md
 │  ├─ efficiency_map_v0.1.md
 │  ├─ efficiency_map_v0.3.md
 │  ├─ efficiency_map_v0.4.md
@@ -67,6 +68,7 @@ docs\
 | `design/processing_pipeline_v0.1.md` | v0.1 | 草稿（基础口径；v0.2 为增量，口径不变） | D | 2026-11-19 |
 | `design/processing_pipeline_v0.2.md` | v0.2 | 草稿（稳态 auto + 一阶不确定度，23 项测试） | D | 2026-11-19 |
 | `design/calibration_fit_v0.1.md` | v0.1 | 草稿（静态砝码标定拟合：输入格式、指标、JSON、限制，15 项测试） | C/D | 2026-11-19 |
+| `design/measured_readiness_v0.1.md` | v0.1 | 草稿（MEASURED 门禁：检查项、退出码、SIM 拒绝演练，10 项测试） | C/D | 2026-11-19 |
 | `design/efficiency_map_v0.1.md` | v0.1 | 草稿（aggregate + plot 已验证） | D | 2026-11-19 |
 | `design/efficiency_map_v0.3.md` | v0.3 | 草稿（不确定度渲染：误差棒/格内 ±U，26 项测试） | D/E | 2026-11-19 |
 | `design/efficiency_map_v0.4.md` | v0.4 | 草稿（GP 平滑代理 + LOOCV，38 项测试） | D | 2026-11-19 |
