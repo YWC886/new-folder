@@ -16,6 +16,7 @@ docs\
 │  ├─ processing_pipeline_v0.2.md
 │  ├─ calibration_fit_v0.1.md
 │  ├─ measured_readiness_v0.1.md
+│  ├─ measured_e2e_drill_v0.1.md
 │  ├─ efficiency_map_v0.1.md
 │  ├─ efficiency_map_v0.3.md
 │  ├─ efficiency_map_v0.4.md
@@ -69,6 +70,7 @@ docs\
 | `design/processing_pipeline_v0.2.md` | v0.2 | 草稿（稳态 auto + 一阶不确定度，23 项测试） | D | 2026-11-19 |
 | `design/calibration_fit_v0.1.md` | v0.1 | 草稿（静态砝码标定拟合：输入格式、指标、JSON、限制，15 项测试） | C/D | 2026-11-19 |
 | `design/measured_readiness_v0.1.md` | v0.1 | 草稿（MEASURED 门禁：检查项、退出码、SIM 拒绝演练，10 项测试） | C/D | 2026-11-19 |
+| `design/measured_e2e_drill_v0.1.md` | v0.1 | 草稿（MEASURED 端到端演练：6 项检查 + 负向对照，5 项测试） | D | 2026-11-19 |
 | `design/efficiency_map_v0.1.md` | v0.1 | 草稿（aggregate + plot 已验证） | D | 2026-11-19 |
 | `design/efficiency_map_v0.3.md` | v0.3 | 草稿（不确定度渲染：误差棒/格内 ±U，26 项测试） | D/E | 2026-11-19 |
 | `design/efficiency_map_v0.4.md` | v0.4 | 草稿（GP 平滑代理 + LOOCV，38 项测试） | D | 2026-11-19 |
@@ -128,7 +130,7 @@ docs\
 | `code/simulation/` | 物理仿真模型与仿真战役 | 生成 SIM 数据、效率地图先验与闭环验证 |
 | `code/selection/` | 选型匹配原型（Top-N / Pareto；v0.2 插值、v0.3 GP 连续匹配、v0.4 多目标 Pareto + 补测推荐） | 把效率地图转为任务需求匹配结论（当前 SIM） |
 | `code/reference/` | 公开数据对标（UIUC 单桨 + v0.2 多桨型目录 + v0.3 逐桨参数反推 + bootstrap 95% CI，do_not_apply） | 参考数据来源、许可证与对标记录（结果标 REFERENCE） |
-| `code/tools/` | 软著/复现材料生成器（源代码页、SHA256 清单）、一键 CI（六套测试合跑）与提交前一致性检查 | 把代码与文档稳定导出为登记/复现材料，固化测试与发布前门禁 |
+| `code/tools/` | 软著/复现材料生成器（源代码页、SHA256 清单）、一键 CI（六套测试合跑）、提交前一致性检查与 MEASURED 端到端演练 | 把代码与文档稳定导出为登记/复现材料，固化测试、发布前门禁与 MEASURED 链路演练 |
 | `docs/research/` | 文献、标准、竞赛/软著、项目深读、AI 工具 | 设计选择与成果材料的可核验依据 |
 | `docs/softcopyright/` | 软著说明书、源代码页、复现包清单 | 登记材料与交付复现依据 |
 | `data/` | raw / processed / metadata | 测试记录与标定结果 |
