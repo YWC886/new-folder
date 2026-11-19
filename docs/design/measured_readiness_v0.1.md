@@ -65,7 +65,8 @@ py -3.12 code\processing\measured_readiness.py `
 - 检查器不修改任何输入；发现 SIM 输入应拒绝并保持原样。
 - 阈值（R²/重复性/迟滞）由 `calibration_fit` 在生成标定时给出；门禁只判断"是否声称实测"。
 - 已联动（v0.5，2026-11-19）：`compute_efficiency --require-measured` 复用同一组检查（`assert_measured`），SIM/合成/非 serial 输入直接拒绝（CLI exit 1，错误信息「MEASURED 守门拒绝：…」）；联动演练：SIM 输入 + `--require-measured` → `ValueError: MEASURED 守门拒绝：标定 simulated 必须为 false…`，exit 1。
-- 仍待办：CI 步骤，以及 `aggregate_efficiency` / 选型入口的同类守门（v0.3）。
+- 汇总联动（v0.6，2026-11-19）：`aggregate_efficiency --require-measured` 仅接受 `source=MEASURED` 且 `mode=serial` 的汇总行；`--dir data\metadata` 演练拒绝 17 个 SIM run（exit 2，D037）。
+- 仍待办：CI 步骤，以及选型入口（`match_propulsion`/`gp_match`/`multiobjective`）的同类守门（v0.3）。
 
 ## 6. 变更记录
 

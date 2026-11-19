@@ -21,6 +21,7 @@ def make_summary(
     eta_sys: float = 0.28,
     simulated: bool = True,
     include_uncertainty: bool = False,
+    mode: str = "simulate",
 ) -> dict:
     return {
         "schema_version": "0.2",
@@ -49,7 +50,7 @@ def make_summary(
         },
         "conditions": {
             "run_id": run_id,
-            "mode": "simulate",
+            "mode": mode,
             "combo": combo,
             "repeat": "R1",
             "motor": "未填写",
@@ -148,6 +149,38 @@ class AggregateEfficiencyTest(unittest.TestCase):
             aggregate(paths, self.out, self.grid)
         result = aggregate(paths, self.out, self.grid, overwrite=True)
         self.assertEqual(len(result["rows"]), 1)
+
+    def test_require_measured_rejects_sim_inputs(self) -> None:
+        paths = [self.write_summary("a")]
+        with self.assertRaises(ValueError) as ctx:
+            aggregate(paths, self.out, self.grid, require_measured=True)
+        self.assertIn("MEASURED 守门拒绝", str(ctx.exception))
+        self.assertIn("来源不是 MEASURED", str(ctx.exception))
+        self.assertFalse(self.out.exists())
+
+    def test_require_measured_accepts_measured_inputs(self) -> None:
+        paths = [
+            self.write_summary("m1", simulated=False, mode="serial", voltage=14.8, throttle=30.0),
+            self.write_summary(
+                "m2", run_id="20261119_M0p4_14V8_30pct_R2", simulated=False, mode="serial", voltage=14.8, throttle=30.0, eta_sys=0.20
+            ),
+        ]
+        result = aggregate(paths, self.out, self.grid, require_measured=True)
+        self.assertEqual(result["sources"], ["MEASURED"])
+        self.assertEqual(len(result["rows"]), 2)
+        self.assertTrue(self.out.exists())
+
+    def test_require_measured_default_off_keeps_sim(self) -> None:
+        paths = [self.write_summary("a")]
+        result = aggregate(paths, self.out, self.grid)
+        self.assertEqual(result["sources"], ["SIM"])
+
+    def test_require_measured_rejects_non_serial_mode(self) -> None:
+        paths = [self.write_summary("m", simulated=False, mode="bench")]
+
+        with self.assertRaises(ValueError) as ctx:
+            aggregate(paths, self.out, self.grid, require_measured=True)
+        self.assertIn("mode 不是 'serial'", str(ctx.exception))
 
     def test_flatten_marks_measured_and_keeps_conditions(self) -> None:
         path = self.write_summary("m", simulated=False, voltage=14.8, throttle=30.0)

@@ -220,17 +220,37 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
+def assert_measured(rows: list[dict]) -> None:
+    """MEASURED 联动守门（D035/D036/D037）：拒绝非实测来源或非 serial 模式。"""
+    if not rows:
+        raise ValueError("MEASURED 守门拒绝：没有可校验的汇总行")
+    errors: list[str] = []
+    not_measured = [row for row in rows if str(row.get("source", "")).upper() != "MEASURED"]
+    if not_measured:
+        sample = ", ".join(sorted({str(row.get("run_id", "?")) for row in not_measured})[:5])
+        errors.append(f"{len(not_measured)}/{len(rows)} 个 run 来源不是 MEASURED（示例：{sample}）")
+    not_serial = [row for row in rows if str(row.get("mode", "")) != "serial"]
+    if not_serial:
+        sample = ", ".join(sorted({str(row.get("run_id", "?")) for row in not_serial})[:5])
+        errors.append(f"{len(not_serial)}/{len(rows)} 个 run 的 mode 不是 'serial'（示例：{sample}）")
+    if errors:
+        raise ValueError("MEASURED 守门拒绝：" + "；".join(errors))
+
+
 def aggregate(
     paths: list[Path],
     output_csv: Path,
     grid_output: Path | None = None,
     overwrite: bool = False,
+    require_measured: bool = False,
 ) -> dict:
     if not paths:
         raise ValueError("没有输入文件")
     rows, warnings = load_summaries(paths)
     if not rows:
         raise ValueError("没有可用的 efficiency.json：" + "；".join(warnings[:5]))
+    if require_measured:
+        assert_measured(rows)
 
     targets = [output_csv] + ([grid_output] if grid_output else [])
     for target in targets:
@@ -270,11 +290,18 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output", default="data/processed/efficiency_map_runs.csv", help="runs 明细 CSV")
     parser.add_argument("--grid-output", default="data/processed/efficiency_map_grid.csv", help="网格统计 CSV")
     parser.add_argument("--overwrite", action="store_true", help="允许覆盖已有输出")
+    parser.add_argument("--require-measured", action="store_true", help="MEASURED 守门：仅接受 source=MEASURED 且 mode=serial 的汇总（D035/D036/D037）")
     args = parser.parse_args(argv)
 
     try:
         paths = discover_inputs(args.inputs, args.dir, args.pattern)
-        result = aggregate(paths, Path(args.output), Path(args.grid_output) if args.grid_output else None, args.overwrite)
+        result = aggregate(
+            paths,
+            Path(args.output),
+            Path(args.grid_output) if args.grid_output else None,
+            args.overwrite,
+            args.require_measured,
+        )
     except (FileNotFoundError, ValueError, FileExistsError, OSError) as exc:
         print(f"错误：{exc}", file=sys.stderr)
         return 2

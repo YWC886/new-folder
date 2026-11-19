@@ -21,7 +21,7 @@ py -3.12 code\tools\build_manifest.py --output data\processed\release_manifest_v
 py -3.12 -m unittest discover -s code\tools -p "test_*.py" -v
 ```
 
-当前规模：41 个源文件、11,204 行 → 225 页（每页 50 行）；复现包清单收录 139 个文件、约 7.7 MiB。
+当前规模：41 个源文件、11,264 行 → 226 页（每页 50 行）；复现包清单收录 139 个文件、约 7.7 MiB。
 软著提交一般取前 30 页 + 后 30 页（不足 60 页交全部）。
 
 ## 约定

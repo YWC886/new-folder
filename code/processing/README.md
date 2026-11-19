@@ -1,4 +1,4 @@
-# code/processing · 效率计算流水线 v0.6（含标定拟合 v0.1、MEASURED 门禁 v0.1 + 联动守门 v0.5）
+# code/processing · 效率计算流水线 v0.7（含标定拟合 v0.1、MEASURED 门禁 v0.1 + 联动守门 v0.5）
 
 把台架原始 CSV 换算为物理量，并计算「电机+电调效率 / 螺旋桨品质因数 / 系统效率」三件套；支持稳态窗口自动识别、一阶不确定度传播、效率地图汇总/成图与 GP 平滑代理；另有 M0.4 门禁 `measured_readiness.py`（v0.1）检查输入是否具备实测资格。**当前只用模拟数据验证过，尚无实机数据。**
 
@@ -24,7 +24,7 @@
 ## 快速运行
 
 ```powershell
-# 模块测试（68 项：流水线 12 + 汇总 8 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10 + 联动守门 5）
+# 模块测试（72 项：流水线 12 + 汇总 12 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10 + 联动守门 5）
 py -3.12 -m unittest discover -s code\processing -p "test_*.py" -v
 
 # 用模拟数据 + 合成标定跑通流水线（自动识别稳态窗口，输出带 simulated 标记）
@@ -57,6 +57,9 @@ py -3.12 code\processing\measured_readiness.py `
 py -3.12 code\processing\compute_efficiency.py `
   --input data\raw\<run_id>.csv --calib data\metadata\calib_MEASURED.json `
   --window 1.5 --steady auto --require-measured
+
+# 汇总守门：效率地图汇总同样只接受实测来源（含 SIM 时 exit 2）
+py -3.12 code\processing\aggregate_efficiency.py --dir data\metadata --require-measured
 
 # GP 平滑代理（LOOCV 自动选核宽；输出网格 CSV + 双面板图）
 py -3.12 code\processing\gp_surface.py --overwrite
@@ -105,6 +108,7 @@ u(η_sys) = sqrt((1.5u_T)² + (0.5u_ρ)² + u_V² + u_I²)            → U(k=2)
 - 退出码：`0` 就绪、`1` 未就绪（列出错误）、`2` 用法/读取异常；`--json/--output` 输出机器可读报告。
 - 2026-11-19 SIM 拒绝演练：`data\raw\20261117_SIM_22V2_50pct_R1.csv` + `calib_SIM_DEMO.json` → 3 条错误、exit 1，门禁生效。
 - 联动守门（v0.5）：`compute_efficiency --require-measured` 在解析后调用同一组检查（`assert_measured`），SIM/合成/非 serial 输入直接 `ValueError`（CLI exit 1），默认关闭以保持 SIM 演示兼容（D036）。
+- 汇总守门（v0.6，2026-11-19）：`aggregate_efficiency --require-measured` 仅接受 `source=MEASURED` 且 `mode=serial` 的汇总行（`assert_measured`），混杂 SIM 时直接拒绝（CLI exit 2，D037）；`--dir data\metadata` 演练拒绝 17 个 SIM run。
 
 ## 公式（与 docs/design/processing_pipeline_v0.1/0.2 一致）
 
