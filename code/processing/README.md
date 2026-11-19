@@ -1,4 +1,4 @@
-# code/processing · 效率计算流水线 v0.5（含标定拟合 v0.1、MEASURED 门禁 v0.1）
+# code/processing · 效率计算流水线 v0.6（含标定拟合 v0.1、MEASURED 门禁 v0.1 + 联动守门 v0.5）
 
 把台架原始 CSV 换算为物理量，并计算「电机+电调效率 / 螺旋桨品质因数 / 系统效率」三件套；支持稳态窗口自动识别、一阶不确定度传播、效率地图汇总/成图与 GP 平滑代理；另有 M0.4 门禁 `measured_readiness.py`（v0.1）检查输入是否具备实测资格。**当前只用模拟数据验证过，尚无实机数据。**
 
@@ -18,12 +18,13 @@
 | `test_gp_surface.py` | 12 项测试（读取兼容、LOOCV、核宽搜索、网格输出、CSV/PNG、覆盖保护、错误输入） |
 | `test_calibration_fit.py` | 15 项测试（读数解析、精确 k/b 复原、重复性/迟滞、R² 告警、覆盖保护、CLI 端到端并读回标定） |
 | `test_measured_readiness.py` | 10 项测试（SIM 拒绝、有效样本就绪、缺 meta/通道/桨径、标定标记、CLI 退出码与 JSON 输出） |
+| `test_require_measured.py` | 5 项测试（`--require-measured`：SIM/合成拒绝、有效样本通过、默认关闭、CLI 参数接线） |
 | `../README.md`（本文件） | 用法、公式、数据诚信约定 |
 
 ## 快速运行
 
 ```powershell
-# 模块测试（63 项：流水线 12 + 汇总 8 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10）
+# 模块测试（68 项：流水线 12 + 汇总 8 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10 + 联动守门 5）
 py -3.12 -m unittest discover -s code\processing -p "test_*.py" -v
 
 # 用模拟数据 + 合成标定跑通流水线（自动识别稳态窗口，输出带 simulated 标记）
@@ -51,6 +52,11 @@ py -3.12 code\processing\calibration_fit.py `
 # MEASURED 通路门禁（M0.4；0=就绪，1=未就绪，SIM 输入会被拒绝）
 py -3.12 code\processing\measured_readiness.py `
   --input data\raw\<run_id>.csv --calib data\metadata\calib_MEASURED.json
+
+# 联动守门：在效率计算入口同样拒绝 SIM/合成输入（默认关闭，实测运行显式开启）
+py -3.12 code\processing\compute_efficiency.py `
+  --input data\raw\<run_id>.csv --calib data\metadata\calib_MEASURED.json `
+  --window 1.5 --steady auto --require-measured
 
 # GP 平滑代理（LOOCV 自动选核宽；输出网格 CSV + 双面板图）
 py -3.12 code\processing\gp_surface.py --overwrite
@@ -98,6 +104,7 @@ u(η_sys) = sqrt((1.5u_T)² + (0.5u_ρ)² + u_V² + u_I²)            → U(k=2)
 - 检查器只验证标记与结构，**不修改输入**；数据物理真实性依赖双人签字与现场记录（D032/D035）。
 - 退出码：`0` 就绪、`1` 未就绪（列出错误）、`2` 用法/读取异常；`--json/--output` 输出机器可读报告。
 - 2026-11-19 SIM 拒绝演练：`data\raw\20261117_SIM_22V2_50pct_R1.csv` + `calib_SIM_DEMO.json` → 3 条错误、exit 1，门禁生效。
+- 联动守门（v0.5）：`compute_efficiency --require-measured` 在解析后调用同一组检查（`assert_measured`），SIM/合成/非 serial 输入直接 `ValueError`（CLI exit 1），默认关闭以保持 SIM 演示兼容（D036）。
 
 ## 公式（与 docs/design/processing_pipeline_v0.1/0.2 一致）
 

@@ -64,7 +64,8 @@ py -3.12 code\processing\measured_readiness.py `
 - 只验证标记与结构，**无法验证数据真的来自传感器**；物理真实性依赖双人现场记录与签字。
 - 检查器不修改任何输入；发现 SIM 输入应拒绝并保持原样。
 - 阈值（R²/重复性/迟滞）由 `calibration_fit` 在生成标定时给出；门禁只判断"是否声称实测"。
-- 尚未与 `compute_efficiency` 强制联动；v0.2 考虑增加 `--require-measured` 守门参数与 CI 步骤。
+- 已联动（v0.5，2026-11-19）：`compute_efficiency --require-measured` 复用同一组检查（`assert_measured`），SIM/合成/非 serial 输入直接拒绝（CLI exit 1，错误信息「MEASURED 守门拒绝：…」）；联动演练：SIM 输入 + `--require-measured` → `ValueError: MEASURED 守门拒绝：标定 simulated 必须为 false…`，exit 1。
+- 仍待办：CI 步骤，以及 `aggregate_efficiency` / 选型入口的同类守门（v0.3）。
 
 ## 6. 变更记录
 

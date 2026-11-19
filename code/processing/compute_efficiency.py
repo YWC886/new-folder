@@ -329,6 +329,36 @@ def _uncertainty_block() -> dict:
     }
 
 
+def assert_measured(calibration: dict, meta: dict, rows: list[dict]) -> None:
+    """MEASURED 守门（`--require-measured`，D035/D036）。
+
+    只验证"是否声称实测"的标记与结构，不验证物理真实性；物理真实性仍须
+    双人签字与 M0.4 现场记录。
+    """
+    errors: list[str] = []
+    if calibration.get("simulated") is not False:
+        errors.append(f"标定 simulated 必须为 false（当前 {calibration.get('simulated')!r}）")
+    if meta.get("simulated") is not False:
+        errors.append(f"meta simulated 必须为 false（当前 {meta.get('simulated')!r}）")
+    if meta.get("mode") != "serial":
+        errors.append(f"meta mode 必须为 'serial'（当前 {meta.get('mode')!r}）")
+    if not rows:
+        errors.append("原始 CSV 没有数据行")
+    else:
+        for channel in REQUIRED_CHANNELS:
+            ok = True
+            for row in rows:
+                values = row.get("values") or {}
+                value = values.get(channel)
+                if not isinstance(value, float) or not math.isfinite(value):
+                    ok = False
+                    break
+            if not ok:
+                errors.append(f"必需通道 {channel} 缺少有限数值")
+    if errors:
+        raise ValueError("MEASURED 守门拒绝：" + "；".join(errors))
+
+
 def compute_efficiency(
     input_csv: str | Path,
     calibration: str | Path,
@@ -341,6 +371,7 @@ def compute_efficiency(
     steady_mode: str = "last",
     steady_window_s: float = 0.5,
     steady_threshold: float = 0.01,
+    require_measured: bool = False,
 ) -> dict:
     """执行换算与效率计算，写输出文件并返回汇总字典。"""
     if window_s <= 0:
@@ -369,6 +400,8 @@ def compute_efficiency(
     disk_area = math.pi * prop_diameter**2 / 4.0
 
     rows = _parse_rows(csv_path)
+    if require_measured:
+        assert_measured(calib, meta, rows)
 
     # 空气密度：命令行 > 标定文件 > 实测温压均值 > 默认值
     rho = air_density if air_density is not None else calib["rho"]
@@ -590,6 +623,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output", help="逐样本输出 CSV 路径")
     parser.add_argument("--summary", help="汇总 JSON 路径")
     parser.add_argument("--overwrite", action="store_true", help="允许覆盖输出文件（默认拒绝）")
+    parser.add_argument(
+        "--require-measured",
+        action="store_true",
+        help="MEASURED 守门：拒绝 SIM/合成标定或非 serial 输入（D035/D036）",
+    )
     return parser
 
 
@@ -608,6 +646,7 @@ def main() -> int:
             steady_mode=args.steady,
             steady_window_s=args.steady_window,
             steady_threshold=args.steady_threshold,
+            require_measured=args.require_measured,
         )
     except Exception as exc:  # noqa: BLE001
         print(f"处理失败：{type(exc).__name__}: {exc}", file=sys.stderr)

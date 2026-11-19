@@ -46,6 +46,8 @@
 
 | D035 | 2026-11-19 | **MEASURED 通路就绪门禁 v0.1**（`code/processing/measured_readiness.py`）：只有同时满足 meta `simulated:false`、`mode:"serial"`、标定 `simulated:false` 且 k≠0、原始表头与必需通道齐全、桨径可用时，才允许进入 MEASURED 通路；检查器只验证标记与结构、**不得修改输入绕过检查**，物理真实性仍须双人签字（D032）；SIM 输入拒绝演练（3 错误 + exit 1）已验证 | M0.4 后真实数据将与 SIM/REFERENCE 在同一仓库共存，若无一票否决门禁，极易把模拟或合成标定误接为实测 | 只在文档里写约定（无法执行、易被绕过）；直接信任文件命名/meta（命名可伪造、无强制） | 生效（SIM 拒绝演练通过；实机数据待 M0.4） |
 
+| D036 | 2026-11-19 | **`compute_efficiency --require-measured` 联动守门（v0.5）**：复用 `assert_measured`（与 `measured_readiness` 同一组检查：标定/meta `simulated:false`、`mode:"serial"`、必需通道有限数值），拒绝时抛 `ValueError("MEASURED 守门拒绝：…")` 且 CLI exit 1；**默认关闭**（不改变 SIM 演示与既有测试行为），仅实测运行显式开启 | 门禁若只做独立脚本，实测运行仍可能绕过；把守门放进计算入口可强制执行，同时保持向后兼容 | 默认开启（会拒绝所有 SIM 演示与既有回归测试，破坏演示与测试基线） | 生效（SIM 拒绝演练 exit 1；5 项守门测试） |
+
 ## 待决事项
 
 | 编号 | 事项 | 需在 | 负责人 |
