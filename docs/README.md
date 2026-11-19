@@ -24,6 +24,7 @@ docs\
 │  ├─ simulation_model_v0.4.md
 │  ├─ public_data_benchmark_v0.1.md
 │  ├─ public_data_benchmark_v0.2.md
+│  ├─ public_data_benchmark_v0.3.md
 │  ├─ selection_matching_v0.1.md
 │  ├─ selection_matching_v0.2.md
 │  ├─ selection_matching_v0.3.md
@@ -78,6 +79,7 @@ docs\
 | `design/selection_matching_v0.4.md` | v0.4 | 草稿（GP 多目标 Pareto + 补测点推荐，43 项测试） | D | 2026-11-19 |
 | `design/public_data_benchmark_v0.1.md` | v0.1 | 草稿（UIUC 静态 CT/CP 对标，9 项测试） | D | 2026-11-19 |
 | `design/public_data_benchmark_v0.2.md` | v0.2 | 草稿（多桨型 8 桨/112 点 + pooled 统计 + 分组图，18 项测试） | D | 2026-11-19 |
+| `design/public_data_benchmark_v0.3.md` | v0.3 | 草稿（逐桨参数反推 REFERENCE-derived priors，do_not_apply；10 项测试 = 参考共 28 项） | D | 2026-11-19 |
 | `research/literature_review_v0.1.md` | v0.1 | 草稿（六主题综述 + 差距 G1–G6；40 条参考文献） | lit-researcher | 2026-11-19 |
 | `research/standards_regulation_v0.1.md` | v0.1 | 草稿（国标/团标/计量/安全/伦理，21 条来源） | standards-researcher | 2026-11-19 |
 | `research/competition_softcopyright_v0.1.md` | v0.1 | 草稿（大创/赛事/软著/专利论文，15 条来源） | standards-researcher | 2026-11-19 |
@@ -121,7 +123,7 @@ docs\
 | `code/processing/` | 效率计算流水线 | 处理方案与质量门槛的实现 |
 | `code/simulation/` | 物理仿真模型与仿真战役 | 生成 SIM 数据、效率地图先验与闭环验证 |
 | `code/selection/` | 选型匹配原型（Top-N / Pareto；v0.2 插值、v0.3 GP 连续匹配、v0.4 多目标 Pareto + 补测推荐） | 把效率地图转为任务需求匹配结论（当前 SIM） |
-| `code/reference/` | 公开数据对标（UIUC 单桨 + v0.2 多桨型目录） | 参考数据来源、许可证与对标记录（结果标 REFERENCE） |
+| `code/reference/` | 公开数据对标（UIUC 单桨 + v0.2 多桨型目录 + v0.3 逐桨参数反推，do_not_apply） | 参考数据来源、许可证与对标记录（结果标 REFERENCE） |
 | `code/tools/` | 软著/复现材料生成器（源代码页、SHA256 清单） | 把代码与文档稳定导出为登记/复现材料 |
 | `docs/research/` | 文献、标准、竞赛/软著、项目深读、AI 工具 | 设计选择与成果材料的可核验依据 |
 | `docs/softcopyright/` | 软著说明书、源代码页、复现包清单 | 登记材料与交付复现依据 |

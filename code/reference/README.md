@@ -10,7 +10,8 @@
 | `uiuc_propdb.py` | UIUC Propeller Database 静态数据解析（`RPM CT CP`）；v0.2 起含文件名桨标签解析 `parse_prop_label()` |
 | `benchmark_uiuc.py` | v0.1 单桨对标：仿真 vs UIUC 逐点 CT/CP + CSV + 双面板图 |
 | `catalog_uiuc.py` | v0.2 多桨型对标：目录加载、逐桨 + pooled 统计、逐点/逐桨 CSV、分组图 |
-| `test_reference.py` | 18 项测试（解析 / 文件名 / 目录统计 / CSV / PNG / 覆盖保护） |
+| `calibrate_uiuc.py` | v0.3 逐桨参数反推：log 空间 OLS 拟合 `ct0/a_T/cp0/a_P` → 逐桨 CSV + `uiuc_priors_v0.3.json`（do_not_apply）+ 分组柱状图 |
+| `test_reference.py` + `test_calibration_uiuc.py` | 28 项测试（解析 / 文件名 / 目录统计 / 对标 / 逐桨反推 / CSV / PNG / 覆盖保护） |
 
 ## 用法
 
@@ -25,7 +26,10 @@ py -3.12 code\reference\catalog_uiuc.py --overwrite
 # v0.2 指定子集 / 自定义目录
 py -3.12 code\reference\catalog_uiuc.py --reference-dir data\reference\uiuc --files apce_11x7_static_kt0534.txt ance_8.5x6_static_2848cm.txt --overwrite
 
-# 测试（18 项）
+# v0.3 逐桨参数反推（REFERENCE-derived priors，do_not_apply；产物 uiuc_calibration_v0.3.*）
+py -3.12 code\reference\calibrate_uiuc.py --overwrite
+
+# 测试（28 项）
 py -3.12 -m unittest discover -s code\reference -p "test_*.py" -v
 ```
 
@@ -44,6 +48,14 @@ v0.2（新增，不覆盖 v0.1）：
 - `data/processed/uiuc_benchmark_v0.2.csv`：逐点 16 列（prop/brand/series/brand_series/diameter_in/pitch_in/file + rpm/n_rps/ct_ref/cp_ref/ct_model/cp_model/ct_rel_err/cp_rel_err + data_note），共 112 行数据
 - `data/processed/uiuc_benchmark_v0.2_summary.csv`：逐桨 27 列（点数、RPM 范围、CT/CP 实测均值与极值、模型均值、相对误差带符号均值/均值绝对/最大绝对、all_positive），共 7 行数据
 - `data/processed/figures/uiuc_benchmark_v0.2.png`：CT vs RPM、CP vs RPM 双面板；7 条 REFERENCE 曲线（散点+细线）+ 1 条通用 MODEL 曲线（黑虚线）+ 脚注 `REFERENCE (UIUC, measured) vs MODEL (SIM, generic params) — magnitude/trend check only`
+
+v0.3（新增，不覆盖 v0.1/v0.2）：
+
+- `data/processed/uiuc_calibration_v0.3.csv`：逐桨 19 列（prop/brand/series/diameter_in/pitch_in/points + ct0/aT/cp0/aP + ct_log_r2/cp_log_r2 + 反推前后平均绝对误差 + holdout 误差 + data_note），共 7 行
+- `data/metadata/uiuc_priors_v0.3.json`：先验 JSON（schema 0.3，`do_not_apply:true` + disclaimer；不是本项目实测标定）
+- `data/processed/figures/uiuc_calibration_v0.3.png`：逐桨 C_T / C_P 反推前后平均绝对误差分组柱状图（红字 D033）
+
+结论：逐桨反推内误差 0.3–1.5%（C_T）/0.5–1.2%（C_P）；7 桨 a_T 全为正，通用先验 a_T=−0.02 方向相反；pooled C_T 11.90% / C_P 14.13%。
 
 新增桨型：把镜像文件放进 `data/reference/uiuc/`，文件名需符合
 `<prefix>_<直径>x<螺距>_static_<test_id>.txt`；`--files` 传入，或把文件名加入
