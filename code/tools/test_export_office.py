@@ -31,6 +31,7 @@ class WorkbookTests(unittest.TestCase):
                 "06_UIUC逐桨对标",
                 "07_逐桨先验_v0.3",
                 "08_试验排程_v0.2",
+                "08b_试验执行检查单",
                 "09_测试与材料",
             }
             self.assertTrue(expected.issubset(set(wb.sheetnames)), wb.sheetnames)

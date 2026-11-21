@@ -85,6 +85,6 @@ py -3.12 -c "import csv,hashlib,pathlib; rows=list(csv.DictReader(open('data/pro
 
 - 2026-11-21 prior-profile 对照 v0.4：新增 `code/reference/prior_profile.py` + `test_prior_profile.py` 与设计文档；参考 38→48 项测试（全仓 230→240）、源文件 48→50、行数 12,809→13,194、页数 257→264、清单 154→158 文件（约 8.0 MiB）。
 - 2026-11-21 多工况试验排程 v0.1：新增 `code/processing/design_matrix.py` + 测试；处理 72→82 项（全仓 240→250）、源文件 50→52、行数 13,194→13,613、页数 264→273、清单 158→162 文件。
-- 2026-11-21 Reynolds 修正负结果 v0.5 + 申报表 v3 草稿：新增 `code/reference/re_correction.py` + 测试（参考 48→61 项，全仓 250→263）；源文件 52→54、行数 13,613→15,359、页数 273→284、清单 162→174 文件（约 8.2 MiB）；`docs/申报/申报表/` 增加 v3 草稿 docx 与改动说明（docx 不计入清单）。
+- 2026-11-21 Reynolds 修正负结果 v0.5 + 申报表 v3 草稿：新增 `code/reference/re_correction.py` + 测试（参考 48→61 项，全仓 250→263）；源文件 52→54、行数 13,613→15,381、页数 273→284、清单 162→175 文件（约 8.2 MiB）；`docs/申报/申报表/` 增加 v3 草稿 docx 与改动说明（docx 不计入清单）。
 
-- 2026-11-21 试验排程 v0.2（target-thrust inversion / randomize）+ Round 24 收尾重生成：54 源文件 / 15,359 行 / 308 页；清单 174 文件 / 约 8.2 MiB；全量 281 项测试。
+- 2026-11-21 试验排程 v0.2（target-thrust inversion / randomize）+ Round 24 收尾重生成：54 源文件 / 15,381 行 / 308 页；清单 175 文件 / 约 8.2 MiB；全量 281 项测试。

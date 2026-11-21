@@ -215,10 +215,31 @@ def build_workbook(output: Path, *, overwrite: bool = False) -> Path:
             banner="数据边界：本表为试验计划（非测量数据）；实机执行前须通过 measured_readiness 门禁（D043/D045）。",
         )
 
+    # 试验执行检查单（SOP，可打印后签字）
+    sop_rows = [
+        [1, "上电前", "防护罩安装到位、急停可切断电调供电；两人在场；桨叶无裂纹、紧固件扭矩复核；电池防火袋就位", "B/全员", ""],
+        [2, "上电前", "台架调平与找正：桨盘离地≥1.5D、下游≥1D 无遮挡；线缆应力释放；台面禁放工具与杂物", "B", ""],
+        [3, "标定", "M1 砝码按 0/20/40/60/80/100%FS 加载+卸载，每点 3 次；双人读数并记录；拟合 R²≥0.9995、重复性/迟滞≤0.5%FS", "B+C", ""],
+        [4, "标定", "反扭矩通道同样标定并记录力臂长度；标定 JSON 写入 simulated=false 并双人签字", "B+C", ""],
+        [5, "单工况", "按 design_matrix 行号设置电压/油门/桨型；可编程电源限流与过压保护设定；预热 30 s", "C", ""],
+        [6, "单工况", "稳态采集 ≥3 s 或按窗口配置；记录环境温压湿；raw 只读、命名 日期_组合_电压_油门_重复", "C", ""],
+        [7, "单工况", "异常即急停：振动异常、异味、温度>80 ℃、电流超限、桨叶损伤；记录异常并停止后续", "B/全员", ""],
+        [8, "入库", "运行 measured_readiness 门禁（标定/meta/表头/必需通道）；通过后 compute_efficiency → aggregate", "C", ""],
+        [9, "入库", "复测判据：复测值与地图预测偏差 ≤ 重复性离散度（或 ≤2σ）；偏差超限标记复查并记录原因", "C/A", ""],
+        [10, "收工", "断电、电池放电至存储电压、台架清洁；数据备份与校验（SHA256）；当日记录签字归档", "B/全员", ""],
+    ]
+    _write_table_sheet(
+        wb,
+        "08b_试验执行检查单",
+        ["序号", "阶段", "检查内容", "责任人", "完成标记"],
+        sop_rows,
+        banner="数据边界：本表为试验执行检查单（非测量数据）；每工况执行后由责任人打勾并双人签字存档（D048）。",
+    )
+
     # 测试与材料
     tests = [
         ["acquisition", 5], ["processing", 91], ["simulation", 29],
-        ["selection", 62], ["reference", 61], ["tools", 24],
+        ["selection", 62], ["reference", 61], ["tools", 33],
     ]
     test_rows = [[name, count] for name, count in tests] + [["合计", sum(c for _, c in tests)]]
     _write_table_sheet(
@@ -226,7 +247,7 @@ def build_workbook(output: Path, *, overwrite: bool = False) -> Path:
         "09_测试与材料",
         ["模块", "测试数"],
         test_rows,
-        banner="材料状态：全仓单元测试 272 项通过；复现包清单 169 文件（SHA256）；软著 V1.0（291 页）。",
+        banner="材料状态：全仓单元测试 281 项通过；复现包清单 174 文件（SHA256）；软著 V1.0（308 页）。",
     )
     out = wb.save(output)
     return output
@@ -314,7 +335,7 @@ def build_report(output: Path, *, overwrite: bool = False) -> Path:
             ["选型匹配", "插值/GP 连续匹配、多目标 Pareto、σ/EI 补测策略", "v0.5", "62"],
             ["公开数据对标", "UIUC 8 桨 112 点、逐桨反推、bootstrap、Re 修正（负结果）", "v0.5", "61"],
             ["成果与工具", "软著材料、复现清单、CI、preflight、MEASURED e2e、Office 导出", "v1.0", "24"],
-            ["合计", "—", "—", "272"],
+            ["合计", "—", "—", "281"],
         ],
     )
 
@@ -371,8 +392,8 @@ def build_report(output: Path, *, overwrite: bool = False) -> Path:
     _add_heading(doc, "7. 验证与复现", 1)
     _add_para(
         doc,
-        "全仓单元测试 272 项（6 套）全部通过；复现包清单 169 个文件逐文件 SHA256 校验 0 缺失 0 不一致；"
-        "源代码页 54 个源文件 / 14,516 行 / 291 页（软著 V1.0 初稿）；提交前一致性检查（check_release.py）全绿。"
+        "全仓单元测试 281 项（6 套）全部通过；复现包清单 174 个文件逐文件 SHA256 校验 0 缺失 0 不一致；"
+        "源代码页 58 个源文件 / 15,379 行 / 309 页（软著 V1.0 初稿）；提交前一致性检查（check_release.py）全绿。"
     )
     _add_para(doc, "一键复现：py -3.12 code\\tools\\run_all_tests.py；导出本报告：py -3.12 code\\tools\\export_office.py --overwrite")
 
