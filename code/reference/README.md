@@ -13,7 +13,8 @@
 | `calibrate_uiuc.py` | v0.3 逐桨参数反推：log 空间 OLS 拟合 `ct0/a_T/cp0/a_P` → 逐桨 CSV + `uiuc_priors_v0.3.json`（do_not_apply）+ 分组柱状图 |
 | `bootstrap_priors.py` | v0.1 bootstrap 95% CI：逐点重采样重拟合，输出参数与内误差区间（非 U(k=2)，do_not_apply）+ boxplot/errorbar 图 |
 | `prior_profile.py` | v0.4 prior profile：逐桨先验 → opt-in `ModelParams`，同数据对比通用先验 vs 逐桨先验（样本内上限，非实测；do_not_apply） |
-| `test_reference.py` + `test_calibration_uiuc.py` + `test_bootstrap_priors.py` | 48 项测试（解析 / 文件名 / 目录统计 / 对标 / 逐桨反推 / bootstrap 区间 / prior profile 对照 / CSV / PNG / 覆盖保护） |
+| `re_correction.py` | v0.5 Reynolds 修正对标（负结果）：Re=n·D²/ν，替换式/乘性修正对照 generic/prior；结论不写入默认参数（D044） |
+| `test_reference.py` + `test_calibration_uiuc.py` + `test_bootstrap_priors.py` + `test_prior_profile.py` + `test_re_correction.py` | 61 项测试（解析 / 文件名 / 目录统计 / 对标 / 逐桨反推 / bootstrap 区间 / prior profile 对照 / Re 修正 / CSV / PNG / 覆盖保护） |
 
 ## 用法
 
@@ -35,7 +36,10 @@ py -3.12 code\reference\calibrate_uiuc.py --overwrite
 py -3.12 code\reference\bootstrap_priors.py --overwrite
 py -3.12 code\reference\prior_profile.py --overwrite
 
-# 测试（48 项）
+# v0.5 Reynolds 修正对标（负结果：单一 Re 幂律解释力极低，不写入默认参数）
+py -3.12 code\reference\re_correction.py --overwrite
+
+# 测试（61 项）
 py -3.12 -m unittest discover -s code\reference -p "test_*.py" -v
 ```
 
@@ -103,3 +107,7 @@ v0.1 bootstrap 新增产物：
 
 - `data/processed/prior_profile_vs_generic_v0.1.csv`：逐点 13 列（prop/rpm/ct_ref/cp_ref/ct_generic/cp_generic/ct_prior/cp_prior + 相对误差 + data_note），112 行
 - `data/processed/figures/prior_profile_v0.1.png`：逐桨 CT/CP 平均绝对误差分组柱状图（generic vs opt-in prior，红字 D042）
+
+- `data/processed/re_correction_v0.5.csv`：逐点 Re/CT/CP 参考值与三类模型值 + 相对误差（112 行）
+- `data/processed/figures/re_correction_v0.5.png`：逐桨 CT/CP 平均绝对误差（generic / Re 替换 / Re 乘性 / prior，红字 D044）
+- `data/metadata/re_correction_v0.5.summary.json`：pooled 拟合系数、R²、四方误差汇总与免责声明
