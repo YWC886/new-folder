@@ -24,6 +24,7 @@ docs\
 │  ├─ processing_pipeline_v0.2.md
 │  ├─ calibration_fit_v0.1.md
 │  ├─ measured_readiness_v0.1.md
+│  ├─ design_matrix_v0.1.md
 │  ├─ measured_e2e_drill_v0.1.md
 │  ├─ efficiency_map_v0.1.md
 │  ├─ efficiency_map_v0.3.md
@@ -99,6 +100,7 @@ docs\
 | `design/public_data_benchmark_v0.3.md` | v0.3 | 草稿（逐桨参数反推 REFERENCE-derived priors，do_not_apply；10 项测试 = 参考共 28 项） | D | 2026-11-19 |
 | `design/bootstrap_priors_v0.1.md` | v0.1 | 草稿（bootstrap 95% CI，非 U(k=2)；10 项测试 = 参考共 38 项） | D | 2026-11-19 |
 | `design/prior_profile_v0.1.md` | v0.1 | 草稿（REFERENCE 逐桨先验 opt-in 对照：通用 vs prior，样本内上限；10 项测试 = 参考共 48 项） | D | 2026-11-21 |
+| `design/design_matrix_v0.1.md` | v0.1 | 草稿（多工况试验排程：full/sweep、字段、135 runs 基线；10 项测试 = 处理 82 项） | C/D | 2026-11-21 |
 | `research/literature_review_v0.1.md` | v0.1 | 草稿（六主题综述 + 差距 G1–G6；40 条参考文献） | lit-researcher | 2026-11-19 |
 | `research/standards_regulation_v0.1.md` | v0.1 | 草稿（国标/团标/计量/安全/伦理，21 条来源） | standards-researcher | 2026-11-19 |
 | `research/competition_softcopyright_v0.1.md` | v0.1 | 草稿（大创/赛事/软著/专利论文，15 条来源） | standards-researcher | 2026-11-19 |

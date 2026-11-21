@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1",
+  "data_note": "试验计划（SIM 之外的实机排程）：仅生成采集参数与顺序，不是测量数据；实机采集须通过 measured_readiness 门禁并按 D032 双人标定（D043）",
+  "design": "full",
+  "voltage_points": 3,
+  "throttle_points": 5,
+  "props": [
+    "SIM10x4.5"
+  ],
+  "repeats": 3,
+  "n_runs": 45,
+  "planned_duration_s": 225.0,
+  "duration_s": 5.0,
+  "steady_window_s": 1.5,
+  "blocks": 3,
+  "combo": "SIM10x4.5"
+}
