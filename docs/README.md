@@ -109,7 +109,7 @@ docs\
 | `research/standards_regulation_v0.1.md` | v0.1 | 草稿（国标/团标/计量/安全/伦理，21 条来源） | standards-researcher | 2026-11-19 |
 | `research/competition_softcopyright_v0.1.md` | v0.1 | 草稿（大创/赛事/软著/专利论文，15 条来源） | standards-researcher | 2026-11-19 |
 | `research/project_deep_dive_v0.1.md` | v0.1 | 草稿（37 项能力矩阵、Top3 风险与下一步、给导师 7 问） | gap-analyst | 2026-11-19 |
-| `research/paper_method_draft_v0.1.md` | v0.1 | 草稿（方法骨架：台架/效率口径/DoE/GP/选型/补测；3 图；数值全部 SIM/REFERENCE） | A/D | 2026-11-21 |
+| `research/paper_method_draft_v0.1.md` | v0.1 | 草稿（方法骨架：台架/效率口径/DoE/GP/选型/补测；3 图、23 条参考文献；数值全部 SIM/REFERENCE） | A/D | 2026-11-21 |
 | `research/ai_tooling_v0.1.md` | v0.1 | 草稿（AI 工具链与 4 名 Agent 分工、凭据边界） | Lead | 2026-11-19 |
 | `softcopyright/软件说明书_V1.0.md` | V1.0 | 初稿（软著说明书；附源代码页生成器与复现包清单） | A/E | 2026-11-19 |
 | `plan/拓展方向_v0.1.md` | v0.1 | 草稿（四方向 + 搁置清单） | A/D | 2026-11-19 |
@@ -123,6 +123,7 @@ docs\
 | `规划/申报书对比分析与优化研究路径_v0.1.md` | v0.1 | 完成（改版 vs 原版差异总表、10 条问题清单、五阶段量化路径与门禁、7 条修改建议；docx/pdf 同步） | A/D | 2026-11-21 |
 | `test/静态砝码读数记录_v0.1.md` | v0.1 | 模板 | B/C | 2026-11-19 |
 | `test/试验执行SOP_v0.1.md` | v0.1 | 草稿（上电前检查/砝码标定/单工况流程/异常处置/入库门禁/复测判据；Word 版与 Excel 检查单同步） | B/C | 2026-11-21 |
+| `test/试验执行SOP_一页版_v0.1.md` | v0.1 | 草稿（红线/上电前 6 查/标定/单工况/异常/收工一页速查；打印贴墙用） | B | 2026-11-21 |
 | `test/采集链路自检报告_v0.1.md` | v0.1 | 已完成（仅模拟数据） | C | 2026-11-19 |
 | `decisions.md` | — | 持续更新 | A | 2026-11-19 |
 | `team/roles.md` | v0.1 | 草稿 | A | 2026-11-19 |

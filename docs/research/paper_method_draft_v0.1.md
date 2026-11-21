@@ -17,13 +17,13 @@
 
 ## 2 相关工作
 
-**台架效率测试**。风洞与推力台架测量螺旋桨性能已有成熟做法，UIUC 螺旋桨数据库（Brandt 等）公开了数百个桨型的静态与风速扫描数据，是公开数据对标的常用基准。国内民用多旋翼试验方法可参考 GB/T 38058—2019《民用多旋翼无人机系统试验方法》，电机与电调系统可参考 GB/T 39567—2020《多旋翼无人机用无刷伺服电动机系统通用规范》；螺旋桨—动力系统匹配试验另有团体标准 T/XJBX 001—2024。
+**台架效率测试**。风洞与推力台架测量螺旋桨性能已有成熟做法，UIUC 螺旋桨数据库（Brandt 等）公开了数百个桨型的静态与风速扫描数据，是公开数据对标的常用基准[6][18]。国内民用多旋翼试验方法可参考 GB/T 38058—2019《民用多旋翼无人机系统试验方法》，电机与电调系统可参考 GB/T 39567—2020《多旋翼无人机用无刷伺服电动机系统通用规范》；螺旋桨—动力系统匹配试验另有团体标准 T/XJBX 001—2024。
 
-**电机—螺旋桨匹配选型**。工程实践多采用部件模型加厂商数据表，按拉力/力效排序选择动力组合（如 Piljek 等对多旋翼动力系统选型的系统梳理）；开源工具多停留在"部件级"估算，缺少整链实测闭环。
+**电机—螺旋桨匹配选型**。工程实践多采用部件模型加厂商数据表，按拉力/力效排序选择动力组合[13][15]（如 Piljek 等对多旋翼动力系统选型的系统梳理）；开源工具多停留在"部件级"估算，缺少整链实测闭环。
 
-**效率地图与数据驱动建模**。响应面、GP 与神经网络等代理模型在气动与推进系统建模中应用广泛；GP 的优势是同时给出预测均值与方差，便于主动采样与不确定度量化。但现有效率地图工作多针对单一部件或单一桨型，且较少回到台架做复测闭环。
+**效率地图与数据驱动建模**。响应面、GP 与神经网络等代理模型在气动与推进系统建模中应用广泛；GP 的优势是同时给出预测均值与方差[10][22]，便于主动采样与不确定度量化。但现有效率地图工作多针对单一部件或单一桨型，且较少回到台架做复测闭环。
 
-**控制分配层节能**。多旋翼总推力可在多个电机间分配，不同分配对应不同转速与电功率；已有研究指出分配策略对能耗有影响，但很少用整链实测效率地图量化这一空间。
+**控制分配层节能**。多旋翼总推力可在多个电机间分配，不同分配对应不同转速与电功率；已有研究指出分配策略对能耗有影响[7]，但很少用整链实测效率地图量化这一空间。
 
 **小结**：现有工作分别成熟于"部件测试""选型匹配""代理建模"，缺口在于"整链实测 + 平滑代理 + 不确定度 + 复测"的一体化闭环，以及公开的宽工况系统级效率数据。本文方法针对这一缺口，且把范围收缩到巡检常用推力区间以保证可完成性。
 
@@ -46,7 +46,7 @@
 - 悬停效率（品质因数）`FM = P_ideal / P_shaft`
 - 整链系统效率 `η_sys = P_ideal / P_elec = FM · η_em`
 
-空气密度优先用实测温压计算（`ρ = p·1000/(287.05(T+273.15))`），缺省 1.204 kg/m³。不确定度按 GUM 传播，力/扭矩标定引入的 B 类不确定度与重复性合成，给出 `U(k=2)`；目标为 `η_sys` 相对不确定度 ≤ 3%。预测标准差（GP σ）与测量不确定度（U）严格区分，二者不可相加或互相替代。
+空气密度优先用实测温压计算（`ρ = p·1000/(287.05(T+273.15))`），缺省 1.204 kg/m³。不确定度按 GUM 传播[23]，力/扭矩标定引入的 B 类不确定度与重复性合成，给出 `U(k=2)`；目标为 `η_sys` 相对不确定度 ≤ 3%。预测标准差（GP σ）与测量不确定度（U）严格区分，二者不可相加或互相替代。
 
 ### 3.3 试验设计
 
@@ -92,15 +92,28 @@
 
 本文给出了面向多旋翼动力系统的整链效率地图构建方法与工具链：统一效率口径与不确定度、135 次运行的试验设计、GP 平滑代理与不确定度面、基于地图的匹配与补测策略，以及公开数据对标流程。仿真与公开数据验证了方法的自洽性（277 项自动化测试全绿），下一步是完成最小采集链路与静态标定，把首份 MEASURED 数据按门禁入库并重跑地图，随后按 S2–S4 阶段推进多工况测试、地图 v1.0 与应用复测，并在实测数据上复验补测策略。
 
-## 参考文献（草稿，待补齐至 20 条以上）
+## 参考文献（23 条，DOI/来源已核验；投稿前按 GB/T 7714—2025 统一格式）
 
-[1] GB/T 38058—2019. 民用多旋翼无人机系统试验方法[S]. 2019.
-[2] GB/T 39567—2020. 多旋翼无人机用无刷伺服电动机系统通用规范[S]. 2020.
-[3] GB/T 46460—2025. 无人驾驶航空器用锂离子电池和电池组规范[S]. 2025.
+[1] GB/T 38058—2019. 民用多旋翼无人机系统试验方法[S]. 北京: 中国标准出版社, 2019.
+[2] GB/T 39567—2020. 多旋翼无人机用无刷伺服电动机系统通用规范[S]. 北京: 中国标准出版社, 2020.
+[3] GB/T 46460—2025. 无人驾驶航空器用锂离子电池和电池组规范[S]. 北京: 中国标准出版社, 2025.
 [4] T/XJBX 001—2024. 无人机桨发匹配试验技术规范[S]. 2024.
-[5] Brandt J, Deters R, Ananda G, Dantsker O, Selig M. UIUC Propeller Database, Vols 1–4[DB/OL]. University of Illinois at Urbana-Champaign.
-[6] Nam S, et al. Efficiency map of electric propulsion system for multirotor UAV[J]. IEEE Aerospace Conference, 2023. DOI: 10.1109/AERO55745.2023.10115581.
-[7] Piljek P, Kotarski D, Krznar M. Method for characterization of a multirotor UAV electric propulsion system[J]. Applied Sciences, 2020, 10(22): 8229. DOI: 10.3390/app10228229.
-[8] Røstum J, et al. Test bench for UAV propulsion system characterization[J]. MATEC Web of Conferences, 2026, 422: 02007. DOI: 10.1051/matecconf/202642202007.
-[9] Dai X, et al. Design and control of a multirotor propulsion test platform[J]. IEEE/ASME Transactions on Mechatronics, 2019. DOI: 10.1109/TMECH.2019.2890901.
-[10] GB/T 7714—2025. 信息与文献 参考文献著录规则[S]. 2025.
+[5] GB/T 7714—2025. 信息与文献 参考文献著录规则[S]. 北京: 中国标准出版社, 2025.
+[6] Brandt J B, Deters R W, Ananda G K, Dantsker O D, Selig M S. UIUC Propeller Database, Vols 1–4[DB/OL]. University of Illinois at Urbana-Champaign, 2022.
+[7] Theys B, Dimitriadis G, Hendrick P, De Schutter J. Influence of propeller configuration on propulsion system efficiency of multi-rotor UAVs[C]//2016 International Conference on Unmanned Aircraft Systems (ICUAS). IEEE, 2016. DOI: 10.1109/ICUAS.2016.7502520.
+[8] Brandt J B, Selig M S. Propeller performance data at low Reynolds numbers[C]//49th AIAA Aerospace Sciences Meeting. AIAA 2011-1255, 2011. DOI: 10.2514/6.2011-1255.
+[9] Deters R W, Ananda Krishnan G K, Selig M S. Reynolds number effects on the performance of small-scale propellers[C]//AIAA 2014-2151, 2014. DOI: 10.2514/6.2014-2151.
+[10] Shahriari B, Swersky K, Wang Z, Adams R P, de Freitas N. Taking the human out of the loop: a review of Bayesian optimization[J]. Proceedings of the IEEE, 2016, 104(1): 148–175. DOI: 10.1109/JPROC.2015.2494218.
+[11] Shi D, Dai X, Zhang X, Quan Q. A practical performance evaluation method for electric multicopters[J]. IEEE/ASME Transactions on Mechatronics, 2017. DOI: 10.1109/TMECH.2017.2675913.
+[12] Shin Y T, Teh Y K. Design analysis and considerations of power efficient electronic speed controller for small-scale quadcopter unmanned aerial vehicle[C]//2018 IEEE CCWC, 2018. DOI: 10.1109/CCWC.2018.8301770.
+[13] Piljek P, Kotarski D, Krznar M. Method for characterization of a multirotor UAV electric propulsion system[J]. Applied Sciences, 2020, 10(22): 8229. DOI: 10.3390/app10228229.
+[14] Dantsker O D, Caccamo M, Deters R W, Selig M S. Performance testing of Aero-Naut CAM folding propellers[C]//AIAA AVIATION 2020 Forum, AIAA 2020-2762, 2020. DOI: 10.2514/6.2020-2762.
+[15] Amici C, Ceresoli F, Pasetti M, Saponi M, Tiboni M, Zanoni S. Review of propulsion system design strategies for unmanned aerial vehicles[J]. Applied Sciences, 2021, 11(11): 5209. DOI: 10.3390/app11115209.
+[16] Hernandez J D, Nandar J E, Changoluisa I D, Cruz P J, Valencia E. Test-bench development for the efficiency analysis of UAV motor-propeller sets[C]//2021 IEEE ETCM, 2021. DOI: 10.1109/ETCM53643.2021.9590717.
+[17] Dantsker O D, Caccamo M, Deters R W, Selig M S. Performance testing of APC electric fixed-blade UAV propellers[C]//AIAA AVIATION 2022 Forum, AIAA 2022-4020, 2022. DOI: 10.2514/6.2022-4020.
+[18] Nam H S, Hwang H S, Lee S H, Lee H T. Electric propulsion system optimization using performance maps[C]//2023 IEEE Aerospace Conference, 2023. DOI: 10.1109/AERO55745.2023.10115581.
+[19] Goli S, Kurtuluş D F, Alhems L M, Memon A M, Imran I H. Experimental study on efficient propulsion system for multicopter UAV design applications[J]. Results in Engineering, 2023, 20: 101555. DOI: 10.1016/j.rineng.2023.101555.
+[20] Xu J, Jin W, Lin H, Zhang B, Guo H. Multiobjective optimization method to maximize power density and efficiency of an electric propulsion motor in UAV applications[J]. IEEE Transactions on Transportation Electrification, 2024. DOI: 10.1109/TTE.2023.3319008.
+[21] Cox B, Dantsker O D, Deters R W. Propulsion system testing instrumentation for multi-rotor and lighter-than-air UAVs[C]//AIAA SCITECH 2025 Forum, AIAA 2025-0252, 2025. DOI: 10.2514/6.2025-0252.
+[22] Røstum H H, Afonso F, Morlier J. Deep Gaussian processes for probabilistic prediction of UAV propeller aerodynamics[C]//MATEC Web of Conferences, 2026, 422: 02007. DOI: 10.1051/matecconf/202642202007.
+[23] JCGM. Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM), JCGM 100:2008[R]. BIPM, 2008.
