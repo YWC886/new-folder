@@ -69,5 +69,10 @@ for i, (title, bullets, img) in enumerate(SLIDES):
         if f.exists():
             s.shapes.add_picture(str(f), Inches(5.2), Inches(2.6), width=Inches(7.6))
 OUT.parent.mkdir(parents=True, exist_ok=True)
-prs.save(OUT)
-print("saved", OUT, OUT.stat().st_size)
+try:
+    prs.save(OUT)
+    print("saved", OUT, OUT.stat().st_size)
+except PermissionError:
+    fallback = OUT.with_name(OUT.stem + "_新.pptx")
+    prs.save(fallback)
+    print("fallback", fallback, fallback.stat().st_size)
