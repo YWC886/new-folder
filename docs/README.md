@@ -109,7 +109,7 @@ docs\
 | `research/standards_regulation_v0.1.md` | v0.1 | 草稿（国标/团标/计量/安全/伦理，21 条来源） | standards-researcher | 2026-11-19 |
 | `research/competition_softcopyright_v0.1.md` | v0.1 | 草稿（大创/赛事/软著/专利论文，15 条来源） | standards-researcher | 2026-11-19 |
 | `research/project_deep_dive_v0.1.md` | v0.1 | 草稿（37 项能力矩阵、Top3 风险与下一步、给导师 7 问） | gap-analyst | 2026-11-19 |
-| `research/paper_method_draft_v0.1.md` | v0.1 | 草稿（方法骨架：台架/效率口径/DoE/GP/选型/补测；3 图、23 条参考文献、4 篇最接近工作对比表、§4.1 实测替换清单；数值全部 SIM/REFERENCE） | A/D | 2026-11-21 |
+| `research/paper_method_draft_v0.1.md` | v0.1 | 草稿（方法骨架：台架/效率口径/DoE/GP/选型/补测；3 图、23 条参考文献、4 篇最接近工作对比表、§4.1 实测替换清单、§5.1 贡献、§5.2 风险表；数值全部 SIM/REFERENCE） | A/D | 2026-11-21 |
 | `research/ai_tooling_v0.1.md` | v0.1 | 草稿（AI 工具链与 4 名 Agent 分工、凭据边界） | Lead | 2026-11-19 |
 | `softcopyright/软件说明书_V1.0.md` | V1.0 | 初稿（软著说明书；附源代码页生成器与复现包清单） | A/E | 2026-11-19 |
 | `plan/拓展方向_v0.1.md` | v0.1 | 草稿（四方向 + 搁置清单） | A/D | 2026-11-19 |
