@@ -25,6 +25,7 @@ docs\
 │  ├─ calibration_fit_v0.1.md
 │  ├─ measured_readiness_v0.1.md
 │  ├─ design_matrix_v0.1.md
+│  ├─ design_matrix_v0.2.md
 │  ├─ measured_e2e_drill_v0.1.md
 │  ├─ efficiency_map_v0.1.md
 │  ├─ efficiency_map_v0.3.md
@@ -103,6 +104,7 @@ docs\
 | `design/prior_profile_v0.1.md` | v0.1 | 草稿（REFERENCE 逐桨先验 opt-in 对照：通用 vs prior，样本内上限；10 项测试 = 参考共 48 项） | D | 2026-11-21 |
 | `design/re_correction_v0.5.md` | v0.5 | 草稿（Reynolds 修正负结果：单一 Re 幂律 R² 0.03–0.05，不写入默认参数；13 项测试 = 参考共 61 项，D044） | D | 2026-11-21 |
 | `design/design_matrix_v0.1.md` | v0.1 | 草稿（多工况试验排程：full/sweep、字段、135 runs 基线；10 项测试 = 处理 82 项） | C/D | 2026-11-21 |
+| `design/design_matrix_v0.2.md` | v0.2 | 草稿（目标推力反解 + 不可达跳过 + 顺序随机化；19 项测试 = 处理 91 项；D045） | C/D | 2026-11-21 |
 | `research/literature_review_v0.1.md` | v0.1 | 草稿（六主题综述 + 差距 G1–G6；40 条参考文献） | lit-researcher | 2026-11-19 |
 | `research/standards_regulation_v0.1.md` | v0.1 | 草稿（国标/团标/计量/安全/伦理，21 条来源） | standards-researcher | 2026-11-19 |
 | `research/competition_softcopyright_v0.1.md` | v0.1 | 草稿（大创/赛事/软著/专利论文，15 条来源） | standards-researcher | 2026-11-19 |

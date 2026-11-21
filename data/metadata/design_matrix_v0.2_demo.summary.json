@@ -1,0 +1,157 @@
+{
+  "schema_version": "0.2",
+  "data_note": "试验计划（SIM 之外的实机排程）：仅生成采集参数与顺序，不是测量数据；实机采集须通过 measured_readiness 门禁并按 D032 双人标定（D043）",
+  "design": "full-thrust",
+  "voltage_points": 3,
+  "throttle_points": null,
+  "props": [
+    "SIM10x4.5"
+  ],
+  "repeats": 3,
+  "n_runs": 30,
+  "planned_duration_s": 150.0,
+  "duration_s": 5.0,
+  "steady_window_s": 1.5,
+  "blocks": 3,
+  "combo": "PROP-SET",
+  "mode": "thrust",
+  "randomized": false,
+  "thrust_levels": [
+    1.0,
+    2.0,
+    3.0,
+    5.0,
+    8.0,
+    12.0
+  ],
+  "thrust_map": "data\\processed\\efficiency_map_runs.csv",
+  "map_prop": "SIM10x4.5",
+  "thrust_map_fit": {
+    "n": 16,
+    "length_scale": 0.8,
+    "loocv_rmse": 0.20644388270936395,
+    "r2": 0.9981888551461027
+  },
+  "skipped": [
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 3.0,
+      "reason": "目标推力 3 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 5.0,
+      "reason": "目标推力 5 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 8.0,
+      "reason": "目标推力 8 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 3.0,
+      "reason": "目标推力 3 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 5.0,
+      "reason": "目标推力 5 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 8.0,
+      "reason": "目标推力 8 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 3.0,
+      "reason": "目标推力 3 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 5.0,
+      "reason": "目标推力 5 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 8.0,
+      "reason": "目标推力 8 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 11.1,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 11.1 V 的代理上限 2.741 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 5.0,
+      "reason": "目标推力 5 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 8.0,
+      "reason": "目标推力 8 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 5.0,
+      "reason": "目标推力 5 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 8.0,
+      "reason": "目标推力 8 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 5.0,
+      "reason": "目标推力 5 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 8.0,
+      "reason": "目标推力 8 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 14.8,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 14.8 V 的代理上限 4.788 N"
+    },
+    {
+      "voltage_set_v": 22.2,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 22.2 V 的代理上限 10.626 N"
+    },
+    {
+      "voltage_set_v": 22.2,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 22.2 V 的代理上限 10.626 N"
+    },
+    {
+      "voltage_set_v": 22.2,
+      "planned_thrust_n": 12.0,
+      "reason": "目标推力 12 N 超出 22.2 V 的代理上限 10.626 N"
+    }
+  ]
+}

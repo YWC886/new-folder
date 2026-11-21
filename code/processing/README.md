@@ -1,4 +1,4 @@
-# code/processing · 效率计算流水线 v0.8（含标定拟合 v0.1、MEASURED 门禁 v0.1、联动守门 v0.5、试验排程 v0.1）
+# code/processing · 效率计算流水线 v0.8（含标定拟合 v0.1、MEASURED 门禁 v0.1、联动守门 v0.5、试验排程 v0.2）
 
 把台架原始 CSV 换算为物理量，并计算「电机+电调效率 / 螺旋桨品质因数 / 系统效率」三件套；支持稳态窗口自动识别、一阶不确定度传播、效率地图汇总/成图与 GP 平滑代理；另有 M0.4 门禁 `measured_readiness.py`（v0.1）检查输入是否具备实测资格。**当前只用模拟数据验证过，尚无实机数据。**
 
@@ -18,15 +18,15 @@
 | `test_gp_surface.py` | 12 项测试（读取兼容、LOOCV、核宽搜索、网格输出、CSV/PNG、覆盖保护、错误输入） |
 | `test_calibration_fit.py` | 15 项测试（读数解析、精确 k/b 复原、重复性/迟滞、R² 告警、覆盖保护、CLI 端到端并读回标定） |
 | `test_measured_readiness.py` | 10 项测试（SIM 拒绝、有效样本就绪、缺 meta/通道/桨径、标定标记、CLI 退出码与 JSON 输出） |
-| `design_matrix.py` | 多工况试验排程（v0.1）：电压×油门×桨型×重复 → `full`/`sweep` 计划 CSV + 汇总 JSON；不产生数据（D043） |
-| `test_design_matrix.py` | 10 项测试（全因子/阶梯行数与唯一 run_id、排序、确定性、汇总、非法输入、CSV/JSON 覆盖保护、CLI 端到端） |
+| `design_matrix.py` | 多工况试验排程（v0.2）：`full`/`sweep` 计划 + `--thrust-levels` 目标推力反解（GP 代理二分反查油门，不可达跳过）+ `--randomize` 顺序随机化（D043/D045） |
+| `test_design_matrix.py` | 19 项测试（全因子/阶梯行数与唯一 run_id、排序、确定性、汇总、非法输入、CSV/JSON 覆盖保护、CLI；推力反解精确性/越界拒绝/随机化可复现/THRUST_FIELDS） |
 | `test_require_measured.py` | 5 项测试（`--require-measured`：SIM/合成拒绝、有效样本通过、默认关闭、CLI 参数接线） |
 | `../README.md`（本文件） | 用法、公式、数据诚信约定 |
 
 ## 快速运行
 
 ```powershell
-# 模块测试（82 项：流水线 12 + 汇总 12 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10 + 联动守门 5 + 试验排程 10）
+# 模块测试（91 项：流水线 12 + 汇总 12 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10 + 联动守门 5 + 试验排程 19）
 py -3.12 -m unittest discover -s code\processing -p "test_*.py" -v
 
 # 用模拟数据 + 合成标定跑通流水线（自动识别稳态窗口，输出带 simulated 标记）
