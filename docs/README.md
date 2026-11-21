@@ -1,6 +1,6 @@
 # docs/ 团队文档索引
 
-> 本目录存放项目的过程文档（设计、采购、测试、会议、文献）。规划与申报正文不在此目录，见项目根目录的 `.docx` 文件。
+> 本目录存放项目的过程文档（设计、采购、测试、会议、文献）。规划与申报正文已归档到 `docs/规划/` 与 `docs/申报/`。
 
 ## 目录结构
 
@@ -8,6 +8,14 @@
 docs\
 ├─ README.md                本索引（文档清单、写作与评审规范）
 ├─ decisions.md             技术决策记录（ADR）
+├─ 申报\                    申报材料（申报表、4 份附件 PDF、清单、预算）
+│  ├─ README.md              申报材料索引与更新记录
+│  ├─ 申报表\               附件3 模板与两版已填写、2026-11-21 导师改版（docx + 预览 PDF）
+│  ├─ 附件\                 01 前期基础摘要 / 02 团队分工与实施计划 / 03 指导教师简介 / 04 已有成果佐证（PDF）
+│  ├─ 申报附件清单_v0.1.md
+│  └─ 经费预算_5000元_v0.1.md
+├─ 规划\                    推进规划 v1/v1.1 + 第一阶段启动计划 + 申报书改版对比分析（docx + 预览 PDF）
+├─ 参考\                    软件环境与使用说明、项目技能清单、2023 年范本 PDF（非本项目）
 ├─ design\                  台架、采集、数据处理方案
 │  ├─ bench_v0.1.md
 │  ├─ daq_v0.1.md
@@ -31,7 +39,8 @@ docs\
 │  ├─ selection_matching_v0.1.md
 │  ├─ selection_matching_v0.2.md
 │  ├─ selection_matching_v0.3.md
-│  └─ selection_matching_v0.4.md
+│  ├─ selection_matching_v0.4.md
+│  └─ selection_strategies_v0.5.md
 ├─ procurement\             采购 BOM、询价、到货验收
 │  ├─ bom_v0.1.md
 │  └─ 询价单模板.md
@@ -53,7 +62,8 @@ docs\
 ├─ literature\              文献检索与阅读记录
 │  └─ 检索记录模板.md
 ├─ team\                    分工、看板、周报
-│  └─ roles.md
+│  ├─ roles.md
+│  └─ task_division_3person_v0.1.md
 ├─ softcopyright\           软著与复现材料（说明书、源代码页、复现包清单）
 ├─ meeting\                 会议纪要与行动项
 │  └─ 会议纪要模板.md
@@ -82,6 +92,7 @@ docs\
 | `design/selection_matching_v0.2.md` | v0.2 | 草稿（油门插值 + 多目标 + U 过滤，20 项测试） | D | 2026-11-19 |
 | `design/selection_matching_v0.3.md` | v0.3 | 草稿（GP 连续匹配 + σ 合成保守效率，34 项测试） | D | 2026-11-19 |
 | `design/selection_matching_v0.4.md` | v0.4 | 草稿（GP 多目标 Pareto + 补测点推荐，43 项测试；v0.5 三入口守门后共 47 项） | D | 2026-11-19 |
+| `design/selection_strategies_v0.5.md` | v0.5 | 草稿（补测策略对比：σ/EI/随机/不补测，闭环模拟，15 项测试 = 选型 62 项） | D | 2026-11-19 |
 | `design/public_data_benchmark_v0.1.md` | v0.1 | 草稿（UIUC 静态 CT/CP 对标，9 项测试） | D | 2026-11-19 |
 | `design/public_data_benchmark_v0.2.md` | v0.2 | 草稿（多桨型 8 桨/112 点 + pooled 统计 + 分组图，18 项测试） | D | 2026-11-19 |
 | `design/public_data_benchmark_v0.3.md` | v0.3 | 草稿（逐桨参数反推 REFERENCE-derived priors，do_not_apply；10 项测试 = 参考共 28 项） | D | 2026-11-19 |
@@ -96,6 +107,11 @@ docs\
 | `procurement/bom_v0.1.md` | v0.1 | 草稿（11-25 询价） | C | 2026-11-19 |
 | `procurement/询价单模板.md` | v0.1 | 可直接使用 | C | 2026-11-19 |
 | `inputs/被测对象与实验室条件确认单_v0.1.md` | v0.1 | 待填写（11-21 冻结） | A | 2026-11-19 |
+| `申报/README.md` | v0.1 | 已建立（申报材料索引与更新记录） | A | 2026-11-20 |
+| `申报/申报附件清单_v0.1.md` | v0.2 | 可直接使用（附件为选填，01–04 PDF 已生成并归档） | A/D | 2026-11-20 |
+| `申报/经费预算_5000元_v0.1.md` | v0.1 | 已录入申报系统并暂存（5000 元口径） | A/C | 2026-11-20 |
+| `team/task_division_3person_v0.1.md` | v0.1 | 草稿（3 人小组分工与阶段计划） | A | 2026-11-20 |
+| `规划/申报书对比分析与优化研究路径_v0.1.md` | v0.1 | 完成（改版 vs 原版差异总表、10 条问题清单、五阶段量化路径与门禁、7 条修改建议；docx/pdf 同步） | A/D | 2026-11-21 |
 | `test/静态砝码读数记录_v0.1.md` | v0.1 | 模板 | B/C | 2026-11-19 |
 | `test/采集链路自检报告_v0.1.md` | v0.1 | 已完成（仅模拟数据） | C | 2026-11-19 |
 | `decisions.md` | — | 持续更新 | A | 2026-11-19 |

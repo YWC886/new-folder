@@ -5,21 +5,22 @@
 
 **一句话**：把效率评价对象从单个部件扩展到“电调—电机—螺旋桨”整体，搭地面测试台架、建系统效率地图、做参数匹配优化，为多旋翼动力系统选型与能耗分析提供量化依据。
 
-## 当前状态（2026-11-19）
+## 当前状态（2026-11-21）
 
 | 事项 | 状态 |
 | --- | --- |
-| 大创申报表填写 | 已完成两版：`…_已填写_大一新生版.docx`（按 2026 级新生条件改写，待补个人信息） |
+| 大创申报表填写 | 已完成两版：`…_已填写_大一新生版.docx`（按 2026 级新生条件改写，待补个人信息）；2026-11-21 收导师改版 `申报表-修改版.docx/.pdf`（已归档 `docs/申报/申报表/`） |
+| 申报书改版分析 | `docs/规划/申报书对比分析与优化研究路径_v0.1.md`（+ `.docx` / `.pdf`）：11 章差异总表、10 条问题清单（名称—目标—成果不一致、量化指标缺位、预算—BOM 未对齐等）、优化后的五阶段研究路径与量化门禁、7 条可直接插入申报书的修改建议 |
 | 项目推进规划 | **v1.1**：30 页，11 章 + 4 附录（WBS、进度、分工、环境、技术预研、风险、技能清单、启动清单） |
 | 第一阶段启动计划 | 2026-11-17 至 11-30 逐日安排、5 个里程碑、技能分配与交付物清单 |
-| 环境搭建 | Python 科学计算/建模/优化工具链可用（见 `软件环境与使用说明.md`）；VS Code 扩展已装 |
+| 环境搭建 | Python 科学计算/建模/优化工具链可用（见 `docs/参考/软件环境与使用说明.md`）；VS Code 扩展已装 |
 | 技术预研 | 效率链/效率地图/Pareto 演示 + GP 代理模型预研（学习曲线、不确定度、补测点推荐） |
 | 最小采集链路 | 模拟采集与只读校验已通过（5000 行、1000 S/s、5 项测试）；标定拟合工具 `calibration_fit.py` 已就绪（读数 CSV → `simulated:false` 标定 JSON，15 项测试）；MEASURED 通路门禁 `measured_readiness.py` v0.1 已就绪（10 项测试，SIM 输入拒绝演练 exit 1）；实机串口与砝码标定待验证 |
 | 数据处理流水线 | **v0.2 + 地图 v0.3 + GP v0.4**：原始 CSV + 标定 → 逐样本推力/扭矩/轴功率/电功率/η_em/FM/η_sys + 稳态汇总 JSON；稳态自动识别（`--steady auto`，推力/转速相对标准差 ≤1%）+ 一阶不确定度传播（U(k=2)：η_em 1.44%、FM/η_sys 2.26%）；效率地图汇总（runs/grid 带 U 列）+ 热力图（v0.3 支持 `--uncertainty`：误差棒与格内 ±U）；GP 平滑代理 v0.4（LOOCV 核宽 0.550、RMSE 0.001662、R² 0.9999，21×21 预测均值/标准差面）；72 项测试通过；`compute_efficiency --require-measured` 与 `aggregate_efficiency --require-measured` 联动/汇总守门（拒绝 SIM/合成输入）；SIM 单点预览（9.799 N / 0.100 N·m / η_sys 0.2843） |
 | 物理仿真与战役 | **v0.2 + v0.3 + v0.4**：准稳态推进—螺旋桨—电调模型 + 可选 `PackModel`（电池内阻压降 + 温升/铜温漂）；16 工况敏感性：η_sys 最大相对降幅约 2.09%、最高电机温度约 125 °C；v0.3 一阶热瞬态（`C_th`，τ≈112.5 s）给出 T(t)/η_sys(t)（22.2 V 满油门 300 s：24→80 °C）；v0.4 双节点热网络（绕组 + 定子/机壳，总热阻/热容与 v0.3 等价）给出加热—冷却曲线（22.2 V 满油门 300 s→停机 300 s：绕组峰值 82.9 °C、机壳 66.2 °C，单节点低估绕组约 2.9 K；冷却至 35 °C 用时 132 s）；v0.1 一键战役闭环（推力/η_sys 复原误差 <0.3% / <1.6%）；29 项测试通过；全部标注 SIM |
-| 选型匹配原型 | **v0.1 + v0.2 + v0.3 + v0.4**：效率地图 → 推力需求 → 候选组合 + Pareto 图；v0.2 增加油门插值（精确命中需求推力）、多目标排序（`--objective eta_sys/current/balanced`）、U(k=2) 过滤与保守效率列；v0.3 引入 GP 连续匹配（thrust/η 双 GP → 每电压油门扫描 → `σ_gp` 与 U 合成保守效率）；v0.4 真多目标 Pareto（η — 电池电流 — 保守效率；5 N ±10% → 28 可行/5 前沿，knee 29.60 V/52.5%）+ GP σ 补测点推荐（5 点，限定已测油门区间）；SIM 演示（5 N ±10% → 3 个 GP 候选，22.2 V/68.2% 最优）；47 项测试通过；三入口 `--require-measured` 守门（仅接受 MEASURED runs CSV）；结果强制 SIM 标注，非选型结论 |
+| 选型匹配原型 | **v0.1 + v0.2 + v0.3 + v0.4 + v0.5**：效率地图 → 推力需求 → 候选组合 + Pareto 图；v0.2 增加油门插值（精确命中需求推力）、多目标排序（`--objective eta_sys/current/balanced`）、U(k=2) 过滤与保守效率列；v0.3 引入 GP 连续匹配（thrust/η 双 GP → 每电压油门扫描 → `σ_gp` 与 U 合成保守效率）；v0.4 真多目标 Pareto（η — 电池电流 — 保守效率；5 N ±10% → 28 可行/5 前沿，knee 29.60 V/52.5%）+ GP σ 补测点推荐（5 点，限定已测油门区间）；v0.5 补测策略对比（σ/EI/随机/不补测，10 轮闭环模拟：σ 策略网格 RMSE 0.00634→0.00102、holdout 0.0191→0.0015；SIM 方法学证据）；SIM 演示（5 N ±10% → 3 个 GP 候选，22.2 V/68.2% 最优）；62 项测试通过；三入口 `--require-measured` 守门（仅接受 MEASURED runs CSV）；结果强制 SIM 标注，非选型结论 |
 | 公开数据对标 | **v0.1 + v0.2 + v0.3**：UIUC Propeller Database 静态数据入库（8 个桨、112 点、3 品牌/6 系列、RPM 1,655–6,897，全部 REFERENCE）+ 解析/目录化对标；单桨 APC 10x7E：C_T 均值误差 6.14%、C_P 13.83%；多桨 pooled：C_T 绝对均值 11.37%（带符号 −0.69%）、C_P 16.68%（带符号 −13.62%，系统性低估）；v0.3 逐桨反推 CT/CP 幂律参数：内误差 0.3–1.5%（C_T）/0.5–1.2%（C_P），7 桨 a_T 全为正（通用先验 −0.02 方向相反），输出 `data/metadata/uiuc_priors_v0.3.json`（`do_not_apply:true`，仅参照、非本项目标定）；bootstrap 不确定度 v0.1：7/7 桨 a_T 的 95% CI 均在 0 以上且远离通用 −0.02（稳健）、pooled a_T CI [+0.028,+0.177] 很宽（不可靠先验），该区间非 U(k=2)；38 项测试通过 |
-| 软著与复现材料 | **v1.0**：软件说明书 + 自动生成源代码页（46 个源文件 / 12,186 行 / 244 页，含前 30+后 30 页提交指引）+ 复现包 SHA256 清单（145 个文件，约 7.8 MiB）+ 一键 CI、提交前一致性检查与 MEASURED 端到端演练（六套 215 项测试）；产物在 `docs/softcopyright/`；24 项工具测试 |
+| 软著与复现材料 | **v1.0**：软件说明书 + 自动生成源代码页（48 个源文件 / 12,809 行 / 257 页，含前 30+后 30 页提交指引）+ 复现包 SHA256 清单（154 个文件，约 7.9 MiB）+ 一键 CI、提交前一致性检查与 MEASURED 端到端演练（六套 230 项测试）；产物在 `docs/softcopyright/`；24 项工具测试 |
 | 软件拓展方向 | `docs/plan/拓展方向_v0.1.md`：处理与效率地图自动化、公开数据对标、选型匹配原型、软著/竞赛/复现包；实机依赖项已按用户要求搁置 |
 | 科研调研与资料 | `docs/research/`（索引 `docs/research/README.md`）：文献综述 40 条（36 DOI 经 Crossref 核验）、标准法规（GB/T 38058—2019、GB/T 39567—2020、T/XJBX 001—2024 等）、竞赛/软著登记要求、项目深读（37 项能力矩阵、Top3 风险与下一步）；4 名 Agent 完成、Lead 复核集成 |
 | Python 解释器 | 已修复：系统默认 `python` 升至 3.15 与 `work/pylibs`（cp312）不兼容 → 安装 3.12.10，项目命令统一用 `py -3.12`（FAQ 第 10 条） |
@@ -33,21 +34,23 @@
 
 | 文件 | 说明 |
 | --- | --- |
-| `大创项目_推进规划与技术预研_v1.1.docx` / `_预览.pdf` | 项目推进规划（主文档） |
-| `大创项目_第一阶段启动计划_2026-11-17至11-30.docx` / `_预览.pdf` | 两周启动计划（可直接执行） |
-| `项目技能清单.md` | 6 类 30+ 项技能、L1—L3 标准、三阶段学习路径 |
-| `软件环境与使用说明.md` | 环境总览、安装步骤、复现命令、FAQ、火山引擎 CLI（v1.2，2026-11-19） |
+| `docs/规划/大创项目_推进规划与技术预研_v1.1.docx` / `_预览.pdf` | 项目推进规划（主文档） |
+| `docs/规划/大创项目_第一阶段启动计划_2026-11-17至11-30.docx` / `_预览.pdf` | 两周启动计划（可直接执行） |
+| `docs/规划/申报书对比分析与优化研究路径_v0.1.md` / `.docx` / `.pdf` | 申报书改版对比分析（差异总表、问题清单、五阶段优化路径与量化门禁、修改建议） |
+| `docs/参考/项目技能清单.md` | 6 类 30+ 项技能、L1—L3 标准、三阶段学习路径 |
+| `docs/参考/软件环境与使用说明.md` | 环境总览、安装步骤、复现命令、FAQ、火山引擎 CLI（v1.2，2026-11-19） |
+| `docs/申报/` | 申报材料：`申报表/`（附件3 模板与已填写两版 + 预览 PDF）、`附件/`（01 前期基础摘要 / 02 团队分工与实施计划 / 03 指导教师简介与指导条件 / 04 已有成果佐证，PDF 可直接上传）、`申报附件清单_v0.1.md`、`经费预算_5000元_v0.1.md` |
 | `docs/` | 团队过程文档：`design/`（台架、采集、处理流水线）、`plan/`（拓展方向）、`procurement/`（BOM）、`inputs/`（确认单）、`test/`（标定记录）、`research/`（文献/标准/竞赛/项目深读）、`literature/`、`team/`、`meeting/` |
 | `docs/research/` | 科研调研资料：`literature_review_v0.1.md` + `references.csv`（40 条）、`standards_regulation_v0.1.md`、`competition_softcopyright_v0.1.md`、`project_deep_dive_v0.1.md`、`ai_tooling_v0.1.md`；索引与引用约定见 `docs/research/README.md` |
 | `code/acquisition/` | 最小采集链路：模拟/串口采集、数据字典、只读校验与回归测试 |
 | `code/processing/` | 效率计算与效率地图：`compute_efficiency.py`（流水线，含稳态 auto + 不确定度）、`aggregate_efficiency.py`（多 run 汇总）、`plot_efficiency_map.py`（成图，v0.3 支持 `--uncertainty`）、`gp_surface.py`（v0.4 GP 平滑代理 + LOOCV）、`calibration_fit.py`（v0.1 静态砝码标定拟合 → `simulated:false` 标定 JSON）、`measured_readiness.py`（v0.1 MEASURED 通路门禁）、`compute_efficiency --require-measured` 联动守门、68 项测试 |
-| `code/selection/` | 选型匹配原型：`match_propulsion.py`（v0.2 推力需求 → 插值/网格候选 → 多目标 Top-N + Pareto 图）、`gp_match.py`（v0.3 GP 连续匹配 + σ 合成保守效率）、`multiobjective.py`（v0.4 GP 多目标 Pareto + knee + GP σ 补测点推荐）、47 项测试、三入口 `--require-measured` 守门；当前仅 SIM 原型 |
+| `code/selection/` | 选型匹配原型：`match_propulsion.py`（v0.2 推力需求 → 插值/网格候选 → 多目标 Top-N + Pareto 图）、`gp_match.py`（v0.3 GP 连续匹配 + σ 合成保守效率）、`multiobjective.py`（v0.4 GP 多目标 Pareto + knee + GP σ 补测点推荐）、`bo_suggest.py`（v0.5 补测策略对比：σ/EI/随机/不补测，闭环模拟）、62 项测试、三入口 `--require-measured` 守门；当前仅 SIM 原型 |
 | `code/simulation/` | 物理仿真：`propulsion_model.py`（准稳态模型 + v0.2 `PackModel` 电池内阻/温升）、`simulate_campaign.py`（一键仿真战役）、`sensitivity_pack_model.py`（电池/温升敏感性）、`transient_thermal.py`（v0.3 一阶热瞬态）、`two_node_thermal.py`（v0.4 双节点热网络 + 冷却曲线）、29 项测试；产物 `efficiency_map_v0.1.png`（16 工况 SIM 地图）、`pack_model_impact_v0.2.png`、`transient_thermal_v0.3.png`、`two_node_thermal_v0.4.png` 与 `simulation_campaign_summary.csv` |
 | `code/reference/` | 公开数据对标：`uiuc_propdb.py`（单桨解析）、`benchmark_uiuc.py`（单桨 CT/CP 对标）、`catalog_uiuc.py`（v0.2 多桨目录 + pooled 统计 + 分组图）、`calibrate_uiuc.py`（v0.3 逐桨参数反推，REFERENCE-derived priors，do_not_apply）、`bootstrap_priors.py`（bootstrap 95% CI，非 U(k=2)）、38 项测试；参考数据非本项目实测 |
 | `code/tools/` | 软著/复现材料、CI、提交前检查与 MEASURED 演练：`source_pages.py`（源代码页 + 清单 JSON）、`build_manifest.py`（复现包 SHA256 清单）、`run_all_tests.py`（六套测试一键合跑）、`check_release.py`（提交前：测试 + 清单 + 源代码页新鲜度）、`measured_e2e_drill.py`（MEASURED 端到端演练，临时夹具）、24 项测试 |
-| `docs/softcopyright/` | 软著材料：`软件说明书_V1.0.md`、`复现包清单_V1.0.md`、`build/`（自动生成源代码页 237 页 + 文件清单） |
+| `docs/softcopyright/` | 软著材料：`软件说明书_V1.0.md`、`复现包清单_V1.0.md`、`build/`（自动生成源代码页 257 页 + 文件清单） |
 | `data/raw/`、`data/processed/`、`data/metadata/`、`data/reference/` | 原始（只读）/处理后/校验与标定/公开参考数据；样例为模拟或参考数据（分别带 `SIM`、`REFERENCE` 标记） |
-| `附件3：…_已填写_大一新生版.docx` | 已填写的申报表（个人信息待补） |
+| `docs/申报/申报表/附件3：…_已填写_大一新生版.docx` | 已填写的申报表（个人信息待补；原件保留在 `docs/申报/申报表/`） |
 | `work/research/` | 调研报告：`bench_tech.md`（台架/测量）、`modeling_opt.md`（建模/优化）、`research_brief.md`（文献综述） |
 | `work/prestudy/` | 预研代码与图件：`efficiency_demo.py`、`prestudy_gp.py`、`fig1—fig5`、CSV/JSON |
 | `work/plan/` | 规划源文件（Markdown）、拼装与转换脚本、各版渲染图 |
@@ -113,6 +116,9 @@ py -3.12 code\selection\gp_match.py --input data\processed\efficiency_map_runs.c
 py -3.12 code\selection\multiobjective.py --input data\processed\efficiency_map_runs.csv --thrust 5 --tolerance 0.1 --output data\processed\selection_v0.4_pareto.csv --figure data\processed\figures\selection_v0.4.png --overwrite
 # v0.4：GP σ 补测点推荐（限定已测油门区间，间距 ≥0.12）
 py -3.12 code\selection\multiobjective.py --input data\processed\efficiency_map_runs.csv --suggest --n 5 --min-distance 0.12 --output data\processed\gp_suggestions_v0.4.csv --figure data\processed\figures\gp_suggestions_v0.4.png --overwrite
+
+# v0.5：补测策略对比（σ / EI / 随机 / 不补测；10 轮闭环模拟，SIM 方法学）
+py -3.12 code\selection\bo_suggest.py --rounds 10 --overwrite
 py -3.12 -m unittest discover -s code\selection -p "test_*.py" -v
 
 # 公开数据对标：UIUC 静态数据解析 + 模型对标（参考数据非本项目实测，结果标 REFERENCE）
@@ -139,7 +145,7 @@ py -3.12 code\tools\check_release.py
 py -3.12 code\tools\measured_e2e_drill.py
 ```
 
-> 依赖安装在 `work/pylibs/`（不污染系统环境，且不入 Git）；完整安装步骤见 `软件环境与使用说明.md`。
+> 依赖安装在 `work/pylibs/`（不污染系统环境，且不入 Git）；完整安装步骤见 `docs/参考/软件环境与使用说明.md`。
 
 ## 目录约定
 
@@ -147,7 +153,8 @@ py -3.12 code\tools\measured_e2e_drill.py
 - `code/acquisition/` 采集程序与数据字典 · `code/processing/` 效率流水线 · `code/simulation/` 物理仿真 · `code/selection/` 选型匹配 · `code/reference/` 公开数据对标 · `code/tools/` 软著/复现材料生成
 - `data/raw/` 原始数据（禁止覆盖） · `data/processed/` 处理后数据 · `data/metadata/` 校验与标定记录 · `data/reference/` 公开参考数据（只读，注明来源/许可）
 - `docs/` 团队过程文档（设计、采购、确认单、测试、文献、会议、分工） · `docs/research/` 科研调研资料 · `docs/softcopyright/` 软著与复现材料
-- 申报表相关：模板 `附件3：…（创新训练项目）.docx` 保持未改动；填写结果另存新文件
+- `docs/申报/` 申报材料（申报表、4 份附件 PDF、清单、预算） · `docs/规划/` 推进规划与阶段计划（docx + 预览 PDF） · `docs/参考/` 环境说明、技能清单、2023 年范本 PDF
+- 申报表相关：模板 `docs/申报/申报表/附件3：…（创新训练项目）.docx` 保持未改动；填写结果另存新文件
 
 ## 下一步
 
@@ -156,14 +163,14 @@ py -3.12 code\tools\measured_e2e_drill.py
 1. ✅ 效率地图 v0.2 + v0.3 + v0.4：不确定度传播、稳态自动识别、`--uncertainty` 误差棒/格内 ±U、GP 平滑代理（LOOCV 核宽 0.550、RMSE 0.001662、R² 0.9999，21×21 预测面）已完成（38 项测试，`docs/design/processing_pipeline_v0.2.md`、`efficiency_map_v0.3.md`、`efficiency_map_v0.4.md`）；剩余：与 prestudy 口径统一（GP 已并入选型 v0.3，见 D027）；
 2. ✅ 仿真模型 v0.2 + v0.3 + v0.4：电池内阻压降、温升/铜温漂敏感性（16 工况）、一阶热瞬态 T(t)/η_sys(t) 与双节点热网络（绕组/机壳 + 冷却曲线）已完成（29 项测试，`docs/design/simulation_model_v0.2.md`、`simulation_model_v0.3.md`、`simulation_model_v0.4.md`）；剩余：v0.5 用实测温升/冷却曲线辨识热参数（公开桨数据校核已由 `code/reference/` 承接）；
 3. ✅ 公开数据对标 v0.1 + v0.2 + v0.3：单桨 UIUC 入库 + 解析器 + CT/CP 对标（v0.1，9 项测试）→ 多桨目录 v0.2（8 桨 112 点、per-prop/pooled 统计、分组图，18 项测试）→ 逐桨参数反推 v0.3（7 桨内误差 0.3–1.5%/0.5–1.2%，a_T 方向与通用先验相反；输出 do_not_apply）→ bootstrap 不确定度 v0.1（7/7 桨 a_T CI 远离 0、pooled CI 很宽；非 U(k=2)，38 项测试，`docs/design/bootstrap_priors_v0.1.md`）；剩余：更多桨型/风速扫描、Re 修正、与实测标定同图对比、联合置信椭圆；
-4. ✅ 选型匹配原型 v0.1 + v0.2 + v0.3 + v0.4：离散网格 → 油门插值/多目标 → GP 连续匹配 → 真多目标 Pareto + knee + GP σ 补测点推荐（47 项测试，`docs/design/selection_matching_v0.1.md`、`selection_matching_v0.2.md`、`selection_matching_v0.3.md`、`selection_matching_v0.4.md`）；三入口 `--require-measured` 守门（D038）；剩余：成本项（需真实产品参数/价格表）、贝叶斯优化补测、实机数据重跑；
-5. ✅ 软著材料（`软件说明书_V1.0.md`、自动生成的源代码页 237 页、复现包 SHA256 清单 142 文件）已完成（19 项工具测试，`docs/softcopyright/`）；剩余：按登记系统模板转换格式与学校审核。
+4. ✅ 选型匹配原型 v0.1 + v0.2 + v0.3 + v0.4 + v0.5：离散网格 → 油门插值/多目标 → GP 连续匹配 → 真多目标 Pareto + knee + GP σ 补测点推荐 → 补测策略对比（σ/EI/随机/不补测，闭环模拟验证补测收益约 6.2×；62 项测试，`docs/design/selection_matching_v0.1.md`、`selection_matching_v0.2.md`、`selection_matching_v0.3.md`、`selection_matching_v0.4.md`、`selection_strategies_v0.5.md`）；三入口 `--require-measured` 守门（D038）；剩余：成本项（需真实产品参数/价格表）、把 EI/σ 输出接入实机补测清单、实机数据重跑；
+5. ✅ 软著材料（`软件说明书_V1.0.md`、自动生成的源代码页 257 页、复现包 SHA256 清单 154 文件）已完成（24 项工具测试，`docs/softcopyright/`）；剩余：按登记系统模板转换格式与学校审核。
 5b. ✅ 静态砝码标定拟合工具 v0.1（`calibration_fit.py`：读数 CSV → `simulated:false` 标定 JSON，k/b + R²/重复性/迟滞指标 + warnings，15 项测试，D032）已完成；M0.4 实测读数到位后直接生成 MEASURED 标定并重跑流水线。
 5c. ✅ MEASURED 通路就绪门禁 v0.1（`measured_readiness.py`：检查 meta/标定/表头/必需通道/桨径，SIM 输入拒绝演练通过，10 项测试，D035）；M0.4 后先过门禁再进 MEASURED 通路。
 5d. ✅ 联动守门（`compute_efficiency --require-measured`：复用同一组检查，SIM/合成/非 serial 拒绝，默认关闭，5 项测试，D036）已完成；剩余：CI 步骤与选型入口同类守门。
 5e. ✅ 汇总守门（`aggregate_efficiency --require-measured`：仅接受 `MEASURED`/`serial` 汇总，`--dir data\metadata` 演练拒绝 17 个 SIM run、exit 2，4 项测试，D037）已完成；剩余：MEASURED e2e 演练。
 5f. ✅ 选型入口守门 + 一键 CI（三入口 `--require-measured`，2/1/1 项拒绝测试；`code/tools/run_all_tests.py` 六套 203 项一键合跑、全绿 exit 0，D038）已完成；剩余：把 CI 接入提交前检查清单与后续 e2e 演练。
-5g. ✅ 提交前一致性检查（`check_release.py`：六套测试 + 复现包清单逐文件 SHA256 + 软著源代码页新鲜度，全部通过 exit 0；真实仓库演练 210 项测试 / 142 文件 / 44 源文件 237 页全 OK，7 项测试，D039）已完成；剩余：纳入每次提交前的固定动作与后续 MEASURED e2e 演练。
+5g. ✅ 提交前一致性检查（`check_release.py`：六套测试 + 复现包清单逐文件 SHA256 + 软著源代码页新鲜度，全部通过 exit 0；真实仓库演练 230 项测试 / 154 文件 / 48 源文件 257 页全 OK，7 项测试，D039）已完成；剩余：纳入每次提交前的固定动作与后续 MEASURED e2e 演练。
 5h. ✅ MEASURED 端到端演练（`measured_e2e_drill.py`：临时合成夹具串起门禁 → 流水线 → 汇总 → 选型 + SIM 负向对照，6 项检查全通过；仓库 `data/` 无残留；5 项测试，D040）已完成；剩余：M0.4 真实读数后重跑并归档演练报告。
 
 **硬件与数据（线下推进，按启动计划里程碑）**

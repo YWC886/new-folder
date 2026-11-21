@@ -1,8 +1,8 @@
-# code/selection · 选型匹配原型 v0.4（守门 v0.5）
+# code/selection · 选型匹配原型 v0.5（守门 v0.5）
 
 把「任务推力需求」映射为效率地图上的候选电压/油门组合，输出 Pareto 图与补测建议。**当前输入只有 SIM 模拟效率地图，输出仅用于验证软件链路，不是真实选型结论。**
 
-v0.1 离散网格 → v0.2 油门线性插值 + 多目标排序 + U 过滤 → v0.3 GP 连续匹配 → v0.4 真多目标 Pareto（η/电流/稳健性）+ GP 补测点推荐 → v0.5 三入口 `--require-measured` 守门（仅接受 MEASURED runs CSV）。
+v0.1 离散网格 → v0.2 油门线性插值 + 多目标排序 + U 过滤 → v0.3 GP 连续匹配 → v0.4 真多目标 Pareto（η/电流/稳健性）+ GP 补测点推荐 → v0.5 补测策略对比（σ/EI/随机/不补测，闭环模拟量化补测收益）+ 三入口 `--require-measured` 守门（仅接受 MEASURED runs CSV）。
 
 ## 文件
 
@@ -14,11 +14,13 @@ v0.1 离散网格 → v0.2 油门线性插值 + 多目标排序 + U 过滤 → v
 | `test_gp_match.py` | v0.3 共 15 项测试（拟合、精确命中、过滤、排序、输出、CLI、`--require-measured` 拒绝） |
 | `multiobjective.py` | v0.4：GP 多目标 Pareto（η/电流/保守 η）+ knee + GP σ 补测点推荐（13×41 网格，自写非支配筛选） |
 | `test_multiobjective.py` | v0.4 共 10 项测试（Pareto 性质、前沿排序、非法参数、CSV/PNG、推荐点边界与端到端、`--require-measured` 拒绝） |
+| `bo_suggest.py` | v0.5：补测策略对比（σ 贪心 / EI / 随机 / 不补测；GP 代理闭环模拟，10 轮量化网格与 holdout 误差） |
+| `test_bo_suggest.py` | v0.5 共 15 项测试（拟合/LOOCV、EI 非负、建议约束与距离、随机可复现、闭环基线、CSV/PNG、CLI） |
 
 ## 快速运行
 
 ```powershell
-# 测试（22 + 15 + 10 = 47 项）
+# 测试（22 + 15 + 10 + 15 = 62 项）
 py -3.12 -m unittest discover -s code\selection -p "test_*.py" -v
 
 # v0.4 示例：5 N ±10% 真多目标 Pareto（η / 电流 / 稳健性）+ knee
@@ -36,6 +38,9 @@ py -3.12 code\selection\multiobjective.py `
   --output data\processed\gp_suggestions_v0.4.csv `
   --figure data\processed\figures\gp_suggestions_v0.4.png `
   --overwrite
+
+# v0.5 示例：补测策略对比（σ / EI / 随机 / 不补测；10 轮闭环模拟，SIM 方法学）
+py -3.12 code\selection\bo_suggest.py --rounds 10 --overwrite
 
 # v0.3 示例：5 N ±10%，GP 连续匹配，eta_sys 排序
 py -3.12 code\selection\gp_match.py `
@@ -64,6 +69,7 @@ py -3.12 code\selection\gp_match.py `
 | `--voltage-points` / `--throttle-points` | ★ v0.4：Pareto 候选网格（默认 13×41） |
 | `--suggest` | ★ v0.4：切换到补测点推荐模式 |
 | `--n` / `--min-distance` | ★ v0.4：推荐点数（默认 5）/ 与已测点最小归一化距离（默认 0.12） |
+| `--rounds` / `--strategy` | ★ v0.5（`bo_suggest.py`）：闭环模拟轮数（默认 3，策略对比用 10）/ 只跑单策略（`sigma`/`ei`/`random`/`none`） |
 | `--output` / `--figure` | 报告 CSV / 图件 PNG；默认拒绝覆盖，加 `--overwrite` |
 
 ## 匹配逻辑
@@ -103,9 +109,9 @@ Pareto 图规则：灰色为全部观测工况，红线为推力—效率非支�
 
 - **无成本项**：没有真实产品价格表就不做成本目标（不伪造数据）；
 - 目标未含重量、噪声、寿命、温升余量；
-- 补测推荐是贪心启发式，未做贝叶斯优化收益量化；
+- 补测策略收益已在 v0.5 闭环模拟中量化（σ 策略网格 RMSE 约为不补测的 1/6），但仍是 GP 代理层面，非实机验证；
 - 候选网格分辨率有限（13×41），边界附近有离散化误差；
 - GP 外推区（低油门/超已测范围）不可用于选型或安全结论；
 - 实机数据到位后复核插值/GP 误差与 σ 合成公式。
 
-设计文档：`docs/design/selection_matching_v0.1.md`、`selection_matching_v0.2.md`、`selection_matching_v0.3.md`、`selection_matching_v0.4.md`。
+设计文档：`docs/design/selection_matching_v0.1.md`、`selection_matching_v0.2.md`、`selection_matching_v0.3.md`、`selection_matching_v0.4.md`、`selection_strategies_v0.5.md`。
