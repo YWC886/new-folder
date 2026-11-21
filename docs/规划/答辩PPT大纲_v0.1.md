@@ -15,7 +15,7 @@
 | 9 | 选型与补测 | 多目标 Pareto、σ/EI 补测收益 | `selection_v0.4.png`、`bo_strategies_v0.5.png` |
 | 10 | 公开数据对标 | UIUC 8 桨/112 点、先验反推 | `uiuc_benchmark_v0.2.png` |
 | 11 | 仿真与热 | 电池压降、单/双节点热网络 | `pack_model_impact_v0.2.png`、`two_node_thermal_v0.4.png` |
-| 12 | 当前成果（原型） | 281 测试、60 文件、314 页软著、Excel/Word | Excel「10_材料总目录」 |
+| 12 | 当前成果（原型） | 281 测试、60 文件、315 页软著、Excel/Word | Excel「10_材料总目录」 |
 | 13 | 风险与对策 | 采购/标定/温升/外推/进度 | 论文 §5.2 |
 | 14 | 实测计划 | M0.4 起 135 工况排程与替换表 | 论文 §4.1、`design_matrix_v0.2.md` |
 | 15 | 预期成果 | 台架/数据集/地图/工具/论文 | 论文 §5.1 |
