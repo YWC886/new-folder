@@ -26,6 +26,16 @@ SLIDES = [
     ("15. 致谢 / Q&A", ["感谢指导教师与实验室支持", "Q&A"]),
 ]
 
+IMGS = {
+    2: "paper_method_evolution_v0.1.png",
+    3: "plan_gantt_v0.1.png",
+    7: "efficiency_map_v0.4.png",
+    8: "selection_v0.4.png",
+    9: "uiuc_benchmark_v0.2.png",
+    10: "two_node_thermal_v0.4.png",
+}
+FIGDIR = ROOT / "data" / "processed" / "figures"
+
 prs = Presentation()
 prs.slide_width = Inches(13.333)
 prs.slide_height = Inches(7.5)
@@ -42,6 +52,10 @@ for i, (title, bullets) in enumerate(SLIDES):
         p.font.size = Pt(20 if i == 0 else 18)
     if i > 0:
         body.paragraphs[0].font.size = Pt(20)
+    if i in IMGS:
+        img = FIGDIR / IMGS[i]
+        if img.exists():
+            s.shapes.add_picture(str(img), Inches(4.9), Inches(2.45), width=Inches(7.9))
 out = ROOT / "docs" / "规划" / "答辩PPT骨架_v0.1.pptx"
 prs.save(out)
 print("saved", out, out.stat().st_size)
