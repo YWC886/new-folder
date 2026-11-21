@@ -12,7 +12,8 @@
 | `catalog_uiuc.py` | v0.2 多桨型对标：目录加载、逐桨 + pooled 统计、逐点/逐桨 CSV、分组图 |
 | `calibrate_uiuc.py` | v0.3 逐桨参数反推：log 空间 OLS 拟合 `ct0/a_T/cp0/a_P` → 逐桨 CSV + `uiuc_priors_v0.3.json`（do_not_apply）+ 分组柱状图 |
 | `bootstrap_priors.py` | v0.1 bootstrap 95% CI：逐点重采样重拟合，输出参数与内误差区间（非 U(k=2)，do_not_apply）+ boxplot/errorbar 图 |
-| `test_reference.py` + `test_calibration_uiuc.py` + `test_bootstrap_priors.py` | 38 项测试（解析 / 文件名 / 目录统计 / 对标 / 逐桨反推 / bootstrap 区间 / CSV / PNG / 覆盖保护） |
+| `prior_profile.py` | v0.4 prior profile：逐桨先验 → opt-in `ModelParams`，同数据对比通用先验 vs 逐桨先验（样本内上限，非实测；do_not_apply） |
+| `test_reference.py` + `test_calibration_uiuc.py` + `test_bootstrap_priors.py` | 48 项测试（解析 / 文件名 / 目录统计 / 对标 / 逐桨反推 / bootstrap 区间 / prior profile 对照 / CSV / PNG / 覆盖保护） |
 
 ## 用法
 
@@ -32,8 +33,9 @@ py -3.12 code\reference\calibrate_uiuc.py --overwrite
 
 # v0.1 逐桨先验 bootstrap 95% CI（REFERENCE 稳健性检查，非 U(k=2)）
 py -3.12 code\reference\bootstrap_priors.py --overwrite
+py -3.12 code\reference\prior_profile.py --overwrite
 
-# 测试（38 项）
+# 测试（48 项）
 py -3.12 -m unittest discover -s code\reference -p "test_*.py" -v
 ```
 
@@ -98,3 +100,6 @@ v0.1 bootstrap 新增产物：
 - `data/processed/uiuc_bootstrap_priors_v0.1.csv`：逐桨 23 列（参数点估计 + 95% CI + 内误差 + CI）
 - `data/metadata/uiuc_priors_bootstrap_v0.1.json`：`do_not_apply:true` + disclaimer（非 U(k=2)）
 - `data/processed/figures/uiuc_bootstrap_priors_v0.1.png`：a_T boxplot + ct0±CI 双面板
+
+- `data/processed/prior_profile_vs_generic_v0.1.csv`：逐点 13 列（prop/rpm/ct_ref/cp_ref/ct_generic/cp_generic/ct_prior/cp_prior + 相对误差 + data_note），112 行
+- `data/processed/figures/prior_profile_v0.1.png`：逐桨 CT/CP 平均绝对误差分组柱状图（generic vs opt-in prior，红字 D042）
