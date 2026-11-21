@@ -46,3 +46,6 @@ work/plan/render*/
 # ---- 其它 ----
 *.bak
 .cache/
+
+# Office/WPS 锁文件
+~$*
