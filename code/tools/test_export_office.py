@@ -33,6 +33,7 @@ class WorkbookTests(unittest.TestCase):
                 "08_试验排程_v0.2",
                 "08b_试验执行检查单",
                 "09_测试与材料",
+                "10_材料总目录",
             }
             self.assertTrue(expected.issubset(set(wb.sheetnames)), wb.sheetnames)
             self.assertGreaterEqual(wb["01_效率地图_runs"].max_row, 3)

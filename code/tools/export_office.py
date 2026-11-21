@@ -249,6 +249,31 @@ def build_workbook(output: Path, *, overwrite: bool = False) -> Path:
         test_rows,
         banner="材料状态：全仓单元测试 281 项通过；复现包清单 174 文件（SHA256）；软著 V1.0（308 页）。",
     )
+    # 材料总目录（交付物索引）
+    material_rows = [
+        ["可研申报", "docs/申报/申报表/申报表-修改版_v3草稿.docx", "已生成", "申报表 v3 草稿（含 7 处修改与说明）"],
+        ["可研申报", "docs/申报/附件/01–04*.pdf", "已生成", "申报附件 4 份（1–2 页，标注 SIM/REFERENCE）"],
+        ["过程文档", "docs/design/*.md（40+ 篇）", "随代码迭代", "设计/口径/数据字典/工艺规范"],
+        ["过程文档", "docs/test/试验执行SOP_v0.1.docx / 一页版", "已生成", "台架执行 SOP 与贴墙速查"],
+        ["调研", "docs/research/literature_review_v0.1.md", "已完成", "40 篇文献（36 DOI 核验）"],
+        ["调研", "docs/research/project_deep_dive_v0.1.md", "已完成", "能力矩阵/风险/下一步"],
+        ["调研", "docs/research/paper_method_draft_v0.1.docx", "v0.1 草稿", "论文/结题方法骨架（23 条参考文献）"],
+        ["规划", "docs/规划/申报书对比分析与优化研究路径_v0.1.docx", "已完成", "11 章差异 + 10 条问题 + 五阶段路径"],
+        ["软著", "docs/softcopyright/软件说明书_V1.0.md", "初稿", "软著说明书（281 项测试）"],
+        ["软著", "docs/softcopyright/build/源代码页_V1.0.txt", "自动生成", "308 页连续编号源代码页"],
+        ["数据", "data/processed/*.csv/*.json", "随轮次更新", "地图/选型/对标/排程等中间数据（SIM/REFERENCE 标注）"],
+        ["数据", "data/exports/项目成果总览_*.xlsx", "自动生成", "Excel 成果总览（本工作簿）"],
+        ["材料", "data/processed/release_manifest_v0.1.csv", "自动生成", "复现包 176 文件 SHA256 清单"],
+        ["说明", "README.md / 软件环境与使用说明.md", "维护中", "项目状态、复现与导出命令"],
+    ]
+    _write_table_sheet(
+        wb,
+        "10_材料总目录",
+        ["类别", "路径", "状态", "说明"],
+        material_rows,
+        banner="材料索引：只列交付物位置与状态；数据边界以各文件内容与 D012/D031/D046 为准。",
+    )
+
     out = wb.save(output)
     return output
 
