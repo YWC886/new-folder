@@ -86,3 +86,9 @@ seq,device_time_ms,thrust_raw,torque_raw,rpm,voltage_v,current_a,motor_temp_c,am
 | 分流器共模电压损坏 ADC | 隔离放大器 + TVS，先低压验证 |
 | 串口丢包 | 提高波特率或 USB CDC，固件加环形缓冲，上位机校验 seq |
 | 时间同步 | 以 MCU 时间戳为准，上位机记录 host_ts 仅作参考 |
+
+## 补充（2026-11-21）：电调输出功率 P3 测点
+
+- 电调作为被测环节时，通道表增加 P3：电调三相输出 U/I（或相电流+母线电压推算），用于 η_esc = P_esc,out / P_elec,in。
+- 若首版台架暂无法测三相功率：只测 P_elec,in（P1×P2）与轴功率，η_esc 记"未测"，不得用厂商曲线替代（D012）。
+- 测点定义、接线要求与记录字段见 `docs/design/esc_efficiency_measurement_v0.1.md`。
