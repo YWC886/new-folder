@@ -1,0 +1,592 @@
+Rebuild started: Project: at32f403a_motor_ctrl
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin'
+Rebuild target 'motor'
+compiling at32f403a_407_int.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User\at32f403a_407_int.c: 4 warnings, 4 errors
+compiling at32f403a_407_adc.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_adc.c: 4 warnings, 4 errors
+compiling at32f403a_407_can.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_can.c: 4 warnings, 4 errors
+compiling at32f403a_407_clock.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User\at32f403a_407_clock.c: 4 warnings, 4 errors
+compiling can.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User\can.c(50): warning:  #1294-D: Old-style function CanDataUpFerSet
+  void CanDataUpFerSet(pamr)
+..\User\can.c(50): warning:  #1079-D: standard requires that parameter "pamr"  be given a type by a subsequent declaration ("int" assumed)
+  void CanDataUpFerSet(pamr)
+..\User\can.c: 6 warnings, 4 errors
+compiling motor_open_loop.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User\motor_open_loop.c: 4 warnings, 4 errors
+compiling main.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User\main.c: 4 warnings, 4 errors
+compiling pwm_input.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User\pwm_input.c: 4 warnings, 4 errors
+compiling mcu_hardware_config.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Bsp\mcu_hardware_config.c(249): warning:  #177-D: variable "can_baudrate_struct"  was declared but never referenced
+    can_baudrate_type can_baudrate_struct;
+..\Bsp\mcu_hardware_config.c: 5 warnings, 4 errors
+compiling CommandSignal.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User\CommandSignal.c: 4 warnings, 4 errors
+compiling motor_close_loop.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User\motor_close_loop.c(56): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		LPF_100Hz_UqMax.SigIn = sqrtf( myabs( MAX_VOLT_CIRCLE_LIMIT - foc.v_d * foc.v_d ) );
+..\User\motor_close_loop.c(56): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		LPF_100Hz_UqMax.SigIn = sqrtf( myabs( MAX_VOLT_CIRCLE_LIMIT - foc.v_d * foc.v_d ) );
+..\User\motor_close_loop.c: 6 warnings, 4 errors
+compiling at32f403a_407_crm.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_crm.c: 4 warnings, 4 errors
+compiling at32f403a_407_dma.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_dma.c: 4 warnings, 4 errors
+compiling at32f403a_407_gpio.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_gpio.c: 4 warnings, 4 errors
+compiling at32f403a_407_spi.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_spi.c: 4 warnings, 4 errors
+assembling startup_at32f403a_407.s...
+compiling at32f403a_407_tmr.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_tmr.c: 4 warnings, 4 errors
+compiling at32f403a_407_misc.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_misc.c: 4 warnings, 4 errors
+compiling at32f403a_407_exint.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\src\at32f403a_407_exint.c: 4 warnings, 4 errors
+compiling system_at32f403a_407.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\system_at32f403a_407.c: 4 warnings, 4 errors
+compiling FastMathFunctions.c...
+compiling motor_analog_sampled.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Motor\motor_analog_sampled.c: 4 warnings, 4 errors
+compiling motor_ctrl_process.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Motor\motor_ctrl_process.c(177): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+              if (myabs(velocity.real_velocity) > 0.13 )  //锟斤拷锟斤拷甩锟斤拷锟劫讹拷650rpm,维锟斤拷1s
+..\Motor\motor_ctrl_process.c(188): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+            if (set_spd > 0.23) ADDVAL = 0.0012;  else ADDVAL = 0.0004;        // 1150rpm     
+..\Motor\motor_ctrl_process.c(226): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+              if( set_demand_velocity < 0.18)  //900rpm    
+..\Motor\motor_ctrl_process.c(234): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                if( set_demand_velocity < 0.2)  //1000rpm      
+..\Motor\motor_ctrl_process.c(240): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                  velocity_pid.kp = set_demand_velocity * 86.67 - 11.4f; //Kp=12
+..\Motor\motor_ctrl_process.c(277): warning:  #188-D: enumerated type mixed with another type
+                      motor_ctrl_state = 0;                        // 锟斤拷状态锟斤拷锟叫伙拷锟斤拷停锟斤拷模式
+..\Motor\motor_ctrl_process.c(115): warning:  #546-D: transfer of control bypasses initialization of:
+            variable "set_spd"  (declared at line 187)
+            variable "set_demand_velocity"  (declared at line 215)
+      switch (motor_ctrl_state)
+      ^
+..\Motor\motor_ctrl_process.c: 11 warnings, 4 errors
+compiling motor_current_process.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Motor\motor_current_process.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		current.i_bus = (foc.Ta + 1)*0.5 * current.i_u_filter + (foc.Tb + 1)*0.5 * current.i_v_filter + (foc.Tc + 1)*0.5 * current.i_w_filter;
+..\Motor\motor_current_process.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		current.i_bus = (foc.Ta + 1)*0.5 * current.i_u_filter + (foc.Tb + 1)*0.5 * current.i_v_filter + (foc.Tc + 1)*0.5 * current.i_w_filter;
+..\Motor\motor_current_process.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		current.i_bus = (foc.Ta + 1)*0.5 * current.i_u_filter + (foc.Tb + 1)*0.5 * current.i_v_filter + (foc.Tc + 1)*0.5 * current.i_w_filter;
+..\Motor\motor_current_process.c: 7 warnings, 4 errors
+compiling motor_foc_core.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Motor\motor_foc_core.c(128): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		theta_delay = foc.angle + 1.5 * tmp;
+..\Motor\motor_foc_core.c(121): warning:  #177-D: variable "tmpTheta"  was declared but never referenced
+  		float tmp, tmpTheta;
+..\Motor\motor_foc_core.c: 6 warnings, 4 errors
+compiling motor_pid_calc.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Motor\motor_pid_calc.c: 4 warnings, 4 errors
+compiling motor_velocity_process.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Motor\motor_velocity_process.c: 4 warnings, 4 errors
+compiling motor_protect_process.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Motor\motor_protect_process.c: 4 warnings, 4 errors
+compiling motor_hall.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\Motor\motor_hall.c: 4 warnings, 4 errors
+compiling LB_MotionObserv.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User_ywb\LB_MotionObserv.c(37): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		SpeedAvg = (v->EstSpd_Regu + v->EstSpd_Regu_Old) * 0.5;
+..\User_ywb\LB_MotionObserv.c: 5 warnings, 4 errors
+compiling motor_hall2angle.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User_ywb\motor_hall2angle.c(282): warning:  #177-D: variable "TmpAngle"  was declared but never referenced
+  		float TmpAngle;
+..\User_ywb\motor_hall2angle.c(349): warning:  #177-D: variable "i"  was declared but never referenced
+      uint8_t i = 0;
+..\User_ywb\motor_hall2angle.c: 6 warnings, 4 errors
+compiling low_pass_filter.c...
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(287): error:  #67: expected a "}"
+      ADC1_2_IRQn                 = 18,     /*!< adc1 and adc2 global interrupt                       */
+..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\device_support\at32f403a_407.h(348): warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(161): error:  #67: expected a "}"
+    CRM_DMA1_PERIPH_CLOCK                  = MAKE_VALUE(0x14, 0),  /*!< dma1 periph clock */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(221): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_clock_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(282): error:  #67: expected a "}"
+    CRM_EMAC_PERIPH_RESET                  = MAKE_VALUE(0x28, 14), /*!< emac periph reset */
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(334): warning:  #12-D: parsing restarts here after previous syntax error
+  } crm_periph_reset_type;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): error:  #101: "ahben_bit" has already been declared in the current scope
+      } ahben_bit;
+..\libraries\AT32F403A_407_Firmware_Library\drivers\inc\at32f403a_407_crm.h(853): warning:  #1366-D: this anonymous union/struct field is hidden by field "ahben_bit"  (declared at line 829)
+      } ahben_bit;
+..\User_ywb\low_pass_filter.c: 4 warnings, 4 errors
+compiling CommonTables.c...
+".\Objects\at32f403a_motor_ctrl.axf" - 120 Error(s), 140 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:02

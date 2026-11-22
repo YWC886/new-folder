@@ -1,0 +1,139 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: D dang, 111, LIC=IK1BF-6LCGA-NNEAF-65LFA-HDEA8-2ZKFM
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+D:\×ÀÃæ\202606ÎÞÈË»úµçµ÷\airscrew_Segmented_PI_6\airscrew_Segmented_PI_6\MDK_V5\at32f403a_motor_ctrl.uvprojx
+Project File Date:  08/01/2026
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin'
+Rebuild target 'motor'
+compiling at32f403a_407_int.c...
+compiling at32f403a_407_adc.c...
+compiling at32f403a_407_clock.c...
+compiling main.c...
+compiling motor_speed_output.c...
+..\User\motor_speed_output.c(47): warning:  #1-D: last line of file ends without a newline
+    }
+..\User\motor_speed_output.c: 1 warning, 0 errors
+compiling CommandSignal.c...
+compiling motor_open_loop.c...
+compiling pwm_input.c...
+compiling mcu_hardware_config.c...
+..\Bsp\mcu_hardware_config.c(250): warning:  #177-D: variable "can_baudrate_struct"  was declared but never referenced
+    can_baudrate_type can_baudrate_struct;
+..\Bsp\mcu_hardware_config.c: 1 warning, 0 errors
+compiling motor_close_loop.c...
+..\User\motor_close_loop.c(56): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		LPF_100Hz_UqMax.SigIn = sqrtf( myabs( MAX_VOLT_CIRCLE_LIMIT - foc.v_d * foc.v_d ) );
+..\User\motor_close_loop.c(56): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		LPF_100Hz_UqMax.SigIn = sqrtf( myabs( MAX_VOLT_CIRCLE_LIMIT - foc.v_d * foc.v_d ) );
+..\User\motor_close_loop.c: 2 warnings, 0 errors
+compiling can.c...
+..\User\can.c(50): warning:  #1294-D: Old-style function CanDataUpFerSet
+  void CanDataUpFerSet(pamr)
+..\User\can.c(50): warning:  #1079-D: standard requires that parameter "pamr"  be given a type by a subsequent declaration ("int" assumed)
+  void CanDataUpFerSet(pamr)
+..\User\can.c: 2 warnings, 0 errors
+assembling startup_at32f403a_407.s...
+compiling at32f403a_407_dma.c...
+compiling at32f403a_407_crm.c...
+compiling at32f403a_407_can.c...
+compiling at32f403a_407_gpio.c...
+compiling at32f403a_407_misc.c...
+compiling at32f403a_407_exint.c...
+compiling at32f403a_407_spi.c...
+compiling at32f403a_407_dac.c...
+compiling at32f403a_407_tmr.c...
+compiling FastMathFunctions.c...
+compiling system_at32f403a_407.c...
+compiling motor_analog_sampled.c...
+compiling motor_ctrl_process.c...
+..\Motor\motor_ctrl_process.c(181): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+              if (myabs(velocity.real_velocity) > 0.13 )  //ï¿½ï¿½ï¿½ï¿½Ë¦ï¿½ï¿½ï¿½Ù¶ï¿½650rpm,Î¬ï¿½ï¿½1s
+..\Motor\motor_ctrl_process.c(192): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+            if (set_spd > 0.23) ADDVAL = 0.0012;  else ADDVAL = 0.0004;        // 1150rpm     
+..\Motor\motor_ctrl_process.c(231): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+              if( set_demand_velocity < 0.18)  //900rpm    
+..\Motor\motor_ctrl_process.c(239): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                if( set_demand_velocity < 0.2)  //1000rpm      
+..\Motor\motor_ctrl_process.c(245): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                  velocity_pid.kp = set_demand_velocity * 86.67 - 11.4f; //Kp=12
+..\Motor\motor_ctrl_process.c(282): warning:  #188-D: enumerated type mixed with another type
+                      motor_ctrl_state = 0;                        // ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½Í£ï¿½ï¿½Ä£Ê½
+..\Motor\motor_ctrl_process.c(115): warning:  #546-D: transfer of control bypasses initialization of:
+            variable "set_spd"  (declared at line 191)
+            variable "set_demand_velocity"  (declared at line 220)
+      switch (motor_ctrl_state)
+      ^
+..\Motor\motor_ctrl_process.c: 7 warnings, 0 errors
+compiling motor_current_process.c...
+..\Motor\motor_current_process.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		current.i_bus = (foc.Ta + 1)*0.5 * current.i_u_filter + (foc.Tb + 1)*0.5 * current.i_v_filter + (foc.Tc + 1)*0.5 * current.i_w_filter;
+..\Motor\motor_current_process.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		current.i_bus = (foc.Ta + 1)*0.5 * current.i_u_filter + (foc.Tb + 1)*0.5 * current.i_v_filter + (foc.Tc + 1)*0.5 * current.i_w_filter;
+..\Motor\motor_current_process.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		current.i_bus = (foc.Ta + 1)*0.5 * current.i_u_filter + (foc.Tb + 1)*0.5 * current.i_v_filter + (foc.Tc + 1)*0.5 * current.i_w_filter;
+..\Motor\motor_current_process.c: 3 warnings, 0 errors
+compiling motor_pid_calc.c...
+compiling motor_velocity_process.c...
+compiling motor_foc_core.c...
+..\Motor\motor_foc_core.c(128): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		theta_delay = foc.angle + 1.5 * tmp;
+..\Motor\motor_foc_core.c(121): warning:  #177-D: variable "tmpTheta"  was declared but never referenced
+  		float tmp, tmpTheta;
+..\Motor\motor_foc_core.c: 2 warnings, 0 errors
+compiling motor_protect_process.c...
+compiling LB_MotionObserv.c...
+..\User_ywb\LB_MotionObserv.c(37): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		SpeedAvg = (v->EstSpd_Regu + v->EstSpd_Regu_Old) * 0.5;
+..\User_ywb\LB_MotionObserv.c: 1 warning, 0 errors
+compiling motor_hall.c...
+compiling motor_hall2angle.c...
+..\User_ywb\motor_hall2angle.c(282): warning:  #177-D: variable "TmpAngle"  was declared but never referenced
+  		float TmpAngle;
+..\User_ywb\motor_hall2angle.c(349): warning:  #177-D: variable "i"  was declared but never referenced
+      uint8_t i = 0;
+..\User_ywb\motor_hall2angle.c: 2 warnings, 0 errors
+compiling CommonTables.c...
+compiling low_pass_filter.c...
+linking...
+Program Size: Code=16984 RO-data=2540 RW-data=352 ZI-data=2288  
+FromELF: creating hex file...
+After Build - User command #1: fromelf.exe --bin --output .\Listings\at32f403a_motor_ctrl.bin .\Objects\at32f403a_motor_ctrl.axf
+".\Objects\at32f403a_motor_ctrl.axf" - 0 Error(s), 21 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ArteryTek
+                
+                ArteryTek.AT32F403A_407_DFP.2.2.3
+                ArteryTek AT32F403A_407 Series Device Support,Drivers
+
+<h2>Collection of Component include folders:</h2>
+  C:/Users/dang/AppData/Local/Arm/Packs/ArteryTek/AT32F403A_407_DFP/2.2.3/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import docx; print\\('docx available'\\)\")",
+      "Bash(python -m pip install python-docx)",
+      "Bash(python *)",
+      "Bash(python3 generate_doc.py)",
+      "Bash(powershell *)",
+      "Bash(cmd *)",
+      "Bash(zip -r \"../无人机电机驱动器程序分析报告.docx\" \"[Content_Types].xml\" \"_rels\" \"word\")",
+      "Bash(bash *)",
+      "Bash(pip install *)",
+      "Read(//c/Users/dang/AppData/Local/Programs/**)",
+      "Bash(ls /c/Python*/)",
+      "Bash(python3 *)",
+      "Bash(cmd.exe *)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files \\(x86\\)/**)"
+    ]
+  }
+}

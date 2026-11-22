@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>无人机电机驱动器（ESC）程序分析报告</title>
+<style>
+body { font-family: "Microsoft YaHei", "宋体", SimSun, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+h1 { text-align: center; font-size: 22pt; color: #1a1a2e; border-bottom: 3px solid #16213e; padding-bottom: 15px; margin-top: 30px; }
+h2 { font-size: 16pt; color: #0f3460; border-bottom: 2px solid #533483; padding-bottom: 8px; margin-top: 25px; }
+h3 { font-size: 13pt; color: #533483; margin-top: 20px; }
+table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+th, td { border: 1px solid #999; padding: 8px 12px; text-align: left; }
+th { background-color: #16213e; color: white; font-weight: bold; }
+tr:nth-child(even) { background-color: #f0f0f5; }
+tr:nth-child(odd) { background-color: #ffffff; }
+p { text-indent: 2em; margin: 8px 0; }
+p.no_indent { text-indent: 0; }
+ul, ol { margin: 8px 0 8px 2em; }
+li { margin: 4px 0; }
+.info-box { background-color: #e8f4f8; border-left: 4px solid #0f3460; padding: 10px 15px; margin: 15px 0; }
+.warn-box { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 15px; margin: 15px 0; }
+.page-break { page-break-before: always; }
+.subtitle { text-align: center; color: #666; font-size: 11pt; margin-bottom: 25px; }
+code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: Consolas, monospace; font-size: 10pt; }
+strong { color: #16213e; }
+</style>
+</head>
+<body>
+
+<h1>无人机电机驱动器（ESC）程序分析报告</h1>
+<p class="subtitle">——基于AT32F403A/407的分段PI FOC无刷直流电机控制器</p>
+<p class="subtitle">文档生成日期：2026年6月12日 &nbsp;|&nbsp; 项目名称：airscrew_Segmented_PI_6</p>
+
+<hr>
+
+<h2>目录</h2>
+<ol>
+<li>项目总体概述</li>
+<li>硬件平台参数</li>
+<li>系统时钟配置</li>
+<li>PWM输出配置</li>
+<li>ADC采样配置</li>
+<li>霍尔传感器配置</li>
+<li>通信接口配置</li>
+<li>FOC矢量控制算法</li>
+<li>闭环控制结构</li>
+<li>分段PI控制器</li>
+<li>状态机架构</li>
+<li>保护机制</li>
+<li>运动观测器与滤波器</li>
+<li>关键参数汇总表</li>
+<li>程序执行流程</li>
+</ol>
+
+<!-- ==================== 第一章 ==================== -->
+<div class="page-break"></div>
+<h1>一、项目总体概述</h1>
+
+<p>本项目是一个基于<strong>FOC（Field Oriented Control，磁场定向控制）</strong>算法的无人机用无刷直流电机（BLDC/PMSM）<strong>电子调速器（ESC）</strong>固件程序。系统采用<strong>Artery（雅特力）AT32F403A/407</strong>系列ARM Cortex-M4微控制器，主频<strong>240MHz</strong>，通过<strong>霍尔传感器</strong>获取转子位置信息，使用<strong>分段PI控制策略</strong>实现电机速度闭环控制。系统支持<strong>CAN总线</strong>和<strong>PWM信号</strong>两种控制方式，适用于多旋翼无人机动力系统。</p>
+
+<h2>1.1 项目文件结构</h2>
+<table>
+<tr><th>目录</th><th>内容说明</th><th>核心文件</th></tr>
+<tr><td>User/</td><td>用户应用程序入口及通信模块</td><td>main.c, can.c, pwm_input.c, CommandSignal.c</td></tr>
+<tr><td>Motor/</td><td>电机控制核心算法</td><td>motor_ctrl_process.c, motor_foc_core.c, motor_pid_calc.c, motor_hall.c 等8个模块</td></tr>
+<tr><td>User_ywb/</td><td>观测器与滤波器模块</td><td>motor_hall2angle.c, LB_MotionObserv.c, low_pass_filter.c</td></tr>
+<tr><td>BSP/</td><td>板级硬件配置</td><td>mcu_hardware_config.c/.h</td></tr>
+<tr><td>libraries/</td><td>AT32F4固件库与CMSIS-DSP库</td><td>ARM Cortex-M4标准外设驱动库</td></tr>
+<tr><td>MDK_V5/</td><td>Keil MDK V5工程文件</td><td>工程配置与编译文件</td></tr>
+</table>
+
+<h2>1.2 关键特性</h2>
+<ul>
+<li><strong>FOC磁场定向矢量控制</strong>，支持SVPWM空间矢量调制</li>
+<li><strong>分段PI速度控制器</strong>：根据转速自动切换PI参数，实现全速域最优控制</li>
+<li><strong>基于霍尔传感器的转子位置估计</strong></li>
+<li><strong>Luenberger运动观测器</strong>实现角度滤波和平滑</li>
+<li><strong>CAN总线通信</strong>（默认500Kbps，支持1Mbps~50Kbps多档切换）</li>
+<li><strong>PWM信号输入</strong>（标准RC电调信号 1040-1940μs）</li>
+<li><strong>完备的保护机制</strong>：过流、过压/欠压、堵转、Hall异常检测</li>
+<li><strong>弱磁控制支持</strong>（Field Weakening）</li>
+<li><strong>母线电压/电流实时监测</strong></li>
+</ul>
+
+<!-- ==================== 第二章 ==================== -->
+<div class="page-break"></div>
+<h1>二、硬件平台参数</h1>
+
+<h2>2.1 微控制器</h2>
+<table>
+<tr><th width="35%">参数</th><th width="65%">值</th></tr>
+<tr><td>MCU型号</td><td>AT32F403A/407 (Artery Technology)</td></tr>
+<tr><td>内核</td><td>ARM Cortex-M4F (带FPU浮点单元，支持DSP指令)</td></tr>
+<tr><td>最高主频</td><td>240 MHz</td></tr>
+<tr><td>Flash / SRAM</td><td>最高1MB Flash / 96KB+128KB SRAM</td></tr>
+<tr><td>开发环境</td><td>Keil MDK V5 (ARM Compiler)</td></tr>
+</table>
+
+<h2>2.2 电机参数</h2>
+<table>
+<tr><th width="35%">参数</th><th width="65%">值</th></tr>
+<tr><td>电机型号</td><td>60ST-M10A (60框伺服电机, 2500PPR增量编码器)</td></tr>
+<tr><td>极对数 (Pole Pairs)</td><td><strong>21</strong></td></tr>
+<tr><td>最低转速 (Hall有效)</td><td>10 RPM</td></tr>
+<tr><td>最高转速 (Hall有效)</td><td>4600 RPM</td></tr>
+<tr><td>旋转方向</td><td>顺时针 CW (SPEED_DIR = -1)</td></tr>
+<tr><td>位置传感器</td><td>绝对值编码器 (MOTOR_POSITION_SENSOR_ABS_ENCODER)，配合Hall传感器</td></tr>
+<tr><td>电流采样方式</td><td>采样电阻 1mΩ，运放增益 10倍</td></tr>
+</table>
+
+<!-- ==================== 第三章 ==================== -->
+<div class="page-break"></div>
+<h1>三、系统时钟配置</h1>
+
+<p>系统时钟配置在 <code>at32f403a_407_clock.c</code> 中的 <code>system_clock_config()</code> 函数完成：</p>
+
+<table>
+<tr><th width="40%">时钟节点</th><th width="60%">配置值</th></tr>
+<tr><td>外部高速晶振 (HEXT)</td><td><strong>12 MHz</strong></td></tr>
+<tr><td>HEXT分频</td><td>2分频 → 6 MHz (CRM_HEXT_DIV_2)</td></tr>
+<tr><td>PLL源选择</td><td>HEXT_DIV (6MHz)</td></tr>
+<tr><td>PLL倍频系数</td><td>×40 (CRM_PLL_MULT_40)</td></tr>
+<tr><td>PLL VCO输出</td><td><strong>240 MHz</strong></td></tr>
+<tr><td>AHB总线时钟 (HCLK)</td><td>1分频 → <strong>240 MHz</strong></td></tr>
+<tr><td>APB2时钟 (PCLK2)</td><td>2分频 → 120 MHz (最大120MHz限制)</td></tr>
+<tr><td>APB1时钟 (PCLK1)</td><td>2分频 → 120 MHz (最大120MHz限制)</td></tr>
+<tr><td>ADC时钟</td><td>6分频 → <strong>20 MHz</strong> (CRM_ADC_DIV_6, 来自APB2 120MHz)</td></tr>
+<tr><td>SysTick时钟</td><td>AHB/8 = 30 MHz, 1ms中断周期 (240000时钟周期)</td></tr>
+</table>
+
+<div class="info-box">
+<strong>时钟计算公式：</strong><br>
+PLL = HEXT / HEXT_DIV &times; PLL_MULT = 12MHz / 2 &times; 40 = <strong>240 MHz</strong><br>
+ADC_CLK = PCLK2 / 6 = 120MHz / 6 = <strong>20 MHz</strong>
+</div>
+
+<!-- ==================== 第四章 ==================== -->
+<div class="page-break"></div>
+<h1>四、PWM输出配置</h1>
+
+<p>PWM信号由定时器<strong>TMR1</strong>产生，采用<strong>中心对齐</strong>计数模式，输出三对互补PWM信号驱动三相逆变桥的6个MOSFET。通道4用于产生ADC触发信号，实现PWM-ADC同步采样。</p>
+
+<h2>4.1 PWM关键参数</h2>
+<table>
+<tr><th width="40%">参数</th><th width="60%">值</th></tr>
+<tr><td>PWM定时器</td><td><strong>TMR1</strong></td></tr>
+<tr><td>PWM时钟源</td><td>CPU_SYSTEM_CLOCK = <strong>240 MHz</strong></td></tr>
+<tr><td>PWM载波频率</td><td><strong>16,000 Hz (16 kHz)</strong></td></tr>
+<tr><td>PWM周期 (PWM_FOC_PERIOD)</td><td><strong>62.5 μs</strong> (1/16000)</td></tr>
+<tr><td>PWM比较值 (PWM_TIM_PULSE)</td><td><strong>7,499</strong> = 240MHz / 16000 / 2 - 1</td></tr>
+<tr><td>计数模式</td><td>中心对齐双向计数 (TMR_COUNT_TWO_WAY_1)</td></tr>
+<tr><td>CH1~3输出模式</td><td>PWM Mode A, 互补输出, 同步高有效/互补低有效</td></tr>
+<tr><td>CH4输出模式</td><td>PWM Mode B, 用于ADC触发</td></tr>
+<tr><td>死区时间</td><td><strong>1,000 ns (1 μs)</strong> ON+OFF</td></tr>
+<tr><td>上管引脚</td><td>PA8 (U相), PA9 (V相), PA10 (W相)</td></tr>
+<tr><td>下管引脚</td><td>PB13 (U相), PB14 (V相), PB15 (W相)</td></tr>
+<tr><td>Break引脚</td><td>PB12 (输入, BREAK功能禁用)</td></tr>
+</table>
+
+<h2>4.2 关键计算</h2>
+<ul>
+<li>PWM_TIM_PULSE = 240,000,000 / 16,000 / 2 - 1 = <strong>7,499</strong></li>
+<li>PWM周期 = 1 / 16,000 = <strong>62.5 μs</strong></li>
+<li>死区时间寄存器值 ≈ (240MHz/2) × 1000ns / 1e9 ≈ <strong>120</strong></li>
+<li>TMR1 CH4在PWM周期中心触发ADC采样，实现PWM-ADC同步</li>
+</ul>
+
+<!-- ==================== 第五章 ==================== -->
+<div class="page-break"></div>
+<h1>五、ADC采样配置</h1>
+
+<p>ADC采样用于获取<strong>三相电流</strong>和<strong>母线电压</strong>，是FOC电流闭环控制的基础。系统配置ADC1为抢占序列模式，由TMR1 CH4事件触发转换，在ADC中断中执行核心FOC控制算法。</p>
+
+<h2>5.1 ADC参数</h2>
+<table>
+<tr><th width="40%">参数</th><th width="60%">值</th></tr>
+<tr><td>ADC时钟</td><td><strong>20 MHz</strong> (APB2 120MHz / 6)</td></tr>
+<tr><td>ADC模式</td><td>独立模式 (ADC_INDEPENDENT_MODE)</td></tr>
+<tr><td>工作模式</td><td>抢占序列模式 (sequence_mode=TRUE), 单次转换 (repeat=FALSE)</td></tr>
+<tr><td>数据对齐</td><td>右对齐 (ADC_RIGHT_ALIGNMENT)</td></tr>
+<tr><td>采样时间</td><td><strong>13.5 ADC周期</strong> (ADC_SAMPLETIME_13_5)</td></tr>
+<tr><td>触发源</td><td>TMR1 CH4 (ADC12_PREEMPT_TRIG_TMR1CH4)</td></tr>
+<tr><td>采样频率</td><td><strong>16 kHz</strong> (与PWM同频)</td></tr>
+<tr><td>ADC1抢占通道数</td><td>4通道 (ADC_PCCE_INT)</td></tr>
+</table>
+
+<h2>5.2 ADC通道分配</h2>
+<table>
+<tr><th>通道</th><th>ADC输入</th><th>GPIO</th><th>采样对象</th><th>排序</th></tr>
+<tr><td>ADC1 CH0</td><td>电流A相</td><td>PA0</td><td>电机U相电流 (Iu)</td><td>第1</td></tr>
+<tr><td>ADC1 CH1</td><td>电流B相</td><td>PA1</td><td>电机V相电流 (Iv)</td><td>第2</td></tr>
+<tr><td>ADC1 CH2</td><td>电流C相</td><td>PA2</td><td>电机W相电流 (Iw)</td><td>第3</td></tr>
+<tr><td>ADC1 CH5</td><td>母线电压</td><td>PA5</td><td>直流母线电压 (Vbus)</td><td>第4</td></tr>
+</table>
+
+<h2>5.3 ADC采样换算</h2>
+<table>
+<tr><th width="35%">参数</th><th width="35%">公式/宏定义</th><th width="30%">数值</th></tr>
+<tr><td>ADC参考电压</td><td>ADC_REF_V</td><td>3.3 V</td></tr>
+<tr><td>母线电压分压</td><td>上拉 10kΩ / 下拉 330Ω</td><td>分压比 ≈ 31.3 : 1</td></tr>
+<tr><td>母线电压换算</td><td>VBUS_CONVERSION_FACTOR</td><td>3.3 × (10000+330) / 330 / 4095</td></tr>
+<tr><td>电流采样电阻</td><td>SAMPLE_RES</td><td><strong>0.001 Ω (1 mΩ)</strong></td></tr>
+<tr><td>电流放大器增益</td><td>AMP_GAIN</td><td><strong>10 倍</strong></td></tr>
+<tr><td>电流换算因子</td><td>SAMPLE_CURR_CON_FACTOR</td><td>3.3 / 4095 / 10 / 0.001</td></tr>
+</table>
+
+<!-- ==================== 第六章 ==================== -->
+<div class="page-break"></div>
+<h1>六、霍尔传感器配置</h1>
+
+<p>系统使用<strong>3路霍尔传感器</strong>获取转子位置信息。霍尔信号通过<strong>TMR3进行输入捕获</strong>，在捕获中断中计算扇区变化和速度，再通过主循环中的软件算法（<strong>motor_hall2angle</strong>模块）进行角度插值和滤波。</p>
+
+<h2>6.1 霍尔传感器引脚与参数</h2>
+<table>
+<tr><th width="30%">参数</th><th width="70%">值</th></tr>
+<tr><td>Hall A 引脚</td><td>PA6</td></tr>
+<tr><td>Hall B 引脚</td><td>PA7</td></tr>
+<tr><td>Hall C 引脚</td><td>PB0</td></tr>
+<tr><td>Hall值组合宏</td><td>((GPIOB->idt & 0x0001) << 2) | ((GPIOA->idt & 0x00C0) >> 6)</td></tr>
+<tr><td>捕获定时器</td><td><strong>TMR3</strong></td></tr>
+<tr><td>捕获时钟源</td><td>CPU_SYSTEM_CLOCK = 240 MHz</td></tr>
+<tr><td>捕获计数最大值</td><td>0xFFFF (65535)</td></tr>
+<tr><td>捕获触发模式</td><td>双边沿触发 (TMR_INPUT_BOTH_EDGE)</td></tr>
+<tr><td>输入滤波</td><td>0x6 (数字滤波等级)</td></tr>
+<tr><td>XOR模式</td><td>CH1 XOR连接 (三路Hall信号综合)</td></tr>
+<tr><td>圈时测量定时器</td><td><strong>TMR5</strong> (32位模式), 时钟 = 240MHz/12 = <strong>20 MHz</strong></td></tr>
+</table>
+
+<h2>6.2 霍尔扇区映射表</h2>
+<table>
+<tr><th>Hall值 (CBA)</th><th>扇区编号</th><th>扇区边界电角度</th><th>角度值(rad)</th></tr>
+<tr><td>0 (000)</td><td>-1 (无效)</td><td>-</td><td>-</td></tr>
+<tr><td>1 (001)</td><td>4</td><td>150° ~ 210°</td><td>5.760 rad (330°)</td></tr>
+<tr><td>2 (010)</td><td>6</td><td>270° ~ 330°</td><td>0.524 rad (30°)</td></tr>
+<tr><td>3 (011)</td><td>5</td><td>210° ~ 270°</td><td>1.571 rad (90°)</td></tr>
+<tr><td>4 (100)</td><td>2</td><td>30° ~ 90°</td><td>2.618 rad (150°)</td></tr>
+<tr><td>5 (101)</td><td>3</td><td>90° ~ 150°</td><td>3.665 rad (210°)</td></tr>
+<tr><td>6 (110)</td><td>1</td><td>330° ~ 30°</td><td>4.712 rad (270°)</td></tr>
+<tr><td>7 (111)</td><td>-1 (无效)</td><td>-</td><td>-</td></tr>
+</table>
+
+<div class="info-box">
+<strong>扇区角度计算：</strong>每个扇区跨 <strong>60°电角度</strong> (π/3)。对于21极对电机，机械转一圈有21×6=126次Hall状态变化。<br>
+<strong>Hall捕获速度计算：</strong>捕获速度(rad/s) = (π/3 × 捕获时钟频率) / 捕获计数值 = HALL_CAPTURE_RAD_S_SCALE / hall_edgeTime
+</div>
+
+<!-- ==================== 第七章 ==================== -->
+<div class="page-break"></div>
+<h1>七、通信接口配置</h1>
+
+<h2>7.1 CAN总线通信</h2>
+<p>CAN总线是系统的主要通信方式，用于接收飞行控制器（FC）的控制指令并上报ESC状态数据。通信基于CAN2.0B规范，使用<strong>扩展帧格式（29-bit ID）</strong>。</p>
+
+<table>
+<tr><th width="35%">参数</th><th width="65%">值</th></tr>
+<tr><td>CAN控制器</td><td>CAN1</td></tr>
+<tr><td>CAN引脚</td><td><strong>PB8 (RX), PB9 (TX)</strong>，重映射模式 CAN1_GMUX_0010</td></tr>
+<tr><td>默认波特率</td><td><strong>500 Kbps</strong> (CAN_BAUDRATE_500KBPS)</td></tr>
+<tr><td>支持波特率</td><td><strong>1M / 500K / 250K / 125K / 100K / 50K</strong> bps (6档可切换)</td></tr>
+<tr><td>波特率参数</td><td>baudrate_div=30, BTS1=6TQ, BTS2=1TQ, RSAW=1TQ (500Kbps时)</td></tr>
+<tr><td>采样点</td><td>(1+6)/(1+6+1) = <strong>87.5%</strong> (500Kbps时)</td></tr>
+<tr><td>CAN模式</td><td>通信模式, 自动退出离线/睡眠</td></tr>
+<tr><td>帧格式</td><td>扩展帧 (29-bit ID), 数据帧</td></tr>
+<tr><td>过滤器设置</td><td>32位ID掩码模式, 掩码=0 (接收所有帧)</td></tr>
+<tr><td>接收中断</td><td>USBFS_L_CAN1_RX0_IRQn, 抢占优先级4</td></tr>
+<tr><td>时钟要求</td><td><strong>必须使用外部晶振HEXT</strong> (内部HICK精度不满足CAN协议要求)</td></tr>
+</table>
+
+<h2>7.2 CAN消息协议</h2>
+
+<h3>7.2.1 接收消息 (FC → ESC)</h3>
+<table>
+<tr><th>消息ID</th><th>用途</th><th>数据格式</th></tr>
+<tr><td><strong>1160</strong> (扩展ID)</td><td>油门控制指令</td><td>8字节：通道1~4各14位 (10位油门+3位ID+1位使能)</td></tr>
+<tr><td><strong>1000</strong> (扩展ID)</td><td>配置指令</td><td>0xAA 0x55 + CMD(1B) + Pram(1B) + 填充</td></tr>
+</table>
+
+<p><strong>配置指令 (ID=1000) 子命令：</strong></p>
+<ul>
+<li>CMD=<strong>0x01</strong>: 设置节点ID (Pram=新ID)</li>
+<li>CMD=<strong>0x02</strong>: 设置油门优先级 (Pram=0为PWM优先, 1为CAN优先)</li>
+<li>CMD=<strong>0x03</strong>: 设置CAN波特率 (Pram=0~5对应6档波特率)</li>
+<li>CMD=<strong>0x04</strong>: 设置数据上传频率 (Pram=0→50Hz, 1→25Hz, 2→5Hz)</li>
+</ul>
+
+<h3>7.2.2 上报消息 (ESC → FC)</h3>
+<table>
+<tr><th>消息ID</th><th>消息名称</th><th>主要内容</th></tr>
+<tr><td><strong>1150</strong></td><td>ESC状态1</td><td>运行模式, 油门指令(esc_cmd), 电机转速(spd_rpm)</td></tr>
+<tr><td><strong>1151</strong></td><td>ESC状态2</td><td>母线电压(vdc_100mv, 单位0.1V), 电流有效值, dq轴电流</td></tr>
+<tr><td><strong>1152</strong></td><td>ESC状态3</td><td>算法错误码(alg_err), 算法警告(alg_warn), dq轴占空比</td></tr>
+<tr><td><strong>1153</strong></td><td>ESC状态4</td><td>MOS温度(mos_temp), dq轴电流2, dq轴占空比2</td></tr>
+<tr><td><strong>1154</strong></td><td>ESC状态5</td><td>母线电流(idc), 电容温度, 电机温度</td></tr>
+</table>
+
+<div class="info-box">
+<strong>CAN上报频率：</strong>默认每<strong>2ms上报一帧</strong>（500Hz），5种状态帧轮询发送。<br>
+<strong>CAN消息帧尾：</strong>每帧第8字节 = 0xC0 | TransferID (含帧开始位SOF=1, 帧结束位EOF=1, 和0~31循环切换位)<br>
+<strong>节点ID (NOTE_ID)：</strong>3 (可通过CAN配置指令更改)
+</div>
+
+<h2>7.3 PWM信号输入</h2>
+<p>系统同时支持标准RC遥控器PWM信号输入（PB3引脚），作为CAN控制之外的备选控制信号源。</p>
+
+<table>
+<tr><th width="35%">参数</th><th width="65%">值</th></tr>
+<tr><td>输入引脚</td><td><strong>PB3</strong> (通过EXTI Line3)</td></tr>
+<tr><td>信号类型</td><td>标准RC PWM信号 (50-500Hz)</td></tr>
+<tr><td>脉宽范围</td><td><strong>1040 ~ 1940 μs</strong></td></tr>
+<tr><td>信号对应</td><td>1040μs = 0%油门, 1940μs = 100%油门</td></tr>
+<tr><td>脉宽测量</td><td>TMR2 (32位, 240MHz时钟) 双边沿捕获，1μs = 240计数值</td></tr>
+<tr><td>信号丢失检测</td><td>TMR6溢出中断 (2400×3=7200个计数, 约3ms超时)</td></tr>
+<tr><td>触发沿</td><td>双边沿 (EXINT_TRIGGER_BOTH_EDGE)</td></tr>
+</table>
+
+<!-- ==================== 第八章 ==================== -->
+<div class="page-break"></div>
+<h1>八、FOC矢量控制算法</h1>
+
+<p>系统采用标准<strong>FOC（磁场定向控制）</strong>算法，包含完整的坐标变换链。所有计算均采用<strong>标幺化（Normalized）</strong>，基值电流=100A，基值速度=5000RPM。</p>
+
+<h2>8.1 FOC变换链</h2>
+
+<table>
+<tr><th>步骤</th><th>变换名称</th><th>公式</th></tr>
+<tr>
+  <td>1</td>
+  <td><strong>Clarke变换</strong><br>三相静止 → 两相静止</td>
+  <td>Iα = Iu<br>Iβ = (Iu + 2·Iv) / √3</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>Park变换</strong><br>两相静止 → 两相旋转</td>
+  <td>Id = Iα·cos(θ) + Iβ·sin(θ)<br>Iq = -Iα·sin(θ) + Iβ·cos(θ)</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>PI电流控制</strong><br>在d-q坐标系中</td>
+  <td>Id_ref = 0 (Id=0控制策略)<br>Iq_ref = 速度环输出</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong>逆Park变换</strong><br>(含1.5Ts延迟补偿)</td>
+  <td>Vα = cos(θ+1.5ωTs)·Vd - sin(θ+1.5ωTs)·Vq<br>Vβ = sin(θ+1.5ωTs)·Vd + cos(θ+1.5ωTs)·Vq</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>逆Clarke变换</strong><br>两相静止 → 三相静止</td>
+  <td>Vu = Vβ<br>Vv = (√3·Vα + Vβ) / 2<br>Vw = (√3·Vα - Vβ) / 2</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>SVPWM调制</strong><br>电压 → PWM占空比</td>
+  <td>扇区判断 → 时间计算 → PWM比较值</td>
+</tr>
+</table>
+
+<h2>8.2 SVPWM实现</h2>
+<p>系统提供了两种SVPWM实现，当前使用归一化的TI风格SVPWM：</p>
+<ul>
+<li><code>motor_foc_svpwm()</code>：基于扇区判断的传统七段式SVPWM（需传入母线电压进行换算）</li>
+<li><code>motor_foc_svpwm_normal()</code>：<strong>归一化的TI风格SVPWM（当前使用）</strong>，电压基准为Udc/√3 = 1</li>
+</ul>
+<p><strong>电压圆限制：</strong>MAX_VOLT_CIRCLE_LIMIT = <strong>0.81</strong>，防止过调制，保障调制波形不失真。</p>
+
+<!-- ==================== 第九章 ==================== -->
+<div class="page-break"></div>
+<h1>九、闭环控制结构</h1>
+
+<p>系统采用<strong>级联式双闭环</strong>控制结构：外环为<strong>速度环</strong>，内环为<strong>电流环</strong>。速度环的输出作为q轴电流给定值，电流环输出d-q轴电压指令，再经SVPWM调制生成PWM占空比。</p>
+
+<h2>9.1 控制回路时序</h2>
+<table>
+<tr><th>控制回路</th><th>执行频率</th><th>执行周期</th><th>执行上下文</th></tr>
+<tr><td><strong>电流环</strong> (内环, FOC)</td><td><strong>16,000 Hz</strong></td><td>62.5 μs</td><td>ADC1中断 (ADC1_2_IRQHandler)</td></tr>
+<tr><td><strong>速度环</strong> (外环)</td><td><strong>1,600 Hz</strong></td><td>625 μs (10 PWM)</td><td>ADC1中断中的 motor_speed_ctrl()</td></tr>
+<tr><td><strong>状态机/保护</strong></td><td><strong>1,000 Hz</strong></td><td>1 ms</td><td>SysTick中断 (SysTick_Handler)</td></tr>
+<tr><td><strong>CAN数据上传</strong></td><td><strong>500 Hz</strong></td><td>2 ms</td><td>主循环 can_updata()</td></tr>
+</table>
+
+<h2>9.2 电流环执行流程</h2>
+<p>电流环在每次ADC转换完成后（16kHz）执行：</p>
+<ol>
+<li>读取ADC寄存器获取三相电流原始值（CURR_PHASE_A/B/C_REGISTER）</li>
+<li>减去偏置值，乘以换算因子（SAMPLE_CURR_CON_FACTOR / BASE_CURRENT）</li>
+<li>应用5kHz一阶低通滤波器</li>
+<li>执行Clarke变换 → Park变换，得到Id和Iq</li>
+<li><strong>d轴PI控制</strong>：Id_ref=0（Id=0控制策略，最大转矩电流比）</li>
+<li><strong>q轴PI控制</strong>：Iq_ref来自速度环输出</li>
+<li>电压圆限制：计算可用Vq_max = sqrt(0.81 - Vd²)，经100Hz低通滤波</li>
+<li>执行逆Park变换：<strong>含1.5Ts采样延迟补偿</strong>（motor_foc_invpark_delay_compensation）</li>
+<li>SVPWM调制 → 输出PWM占空比到 TMR1->c1dt/c2dt/c3dt</li>
+<li>计算母线电流估算值：ibus = f(Ta,Tb,Tc, Iu,Iv,Iw)</li>
+</ol>
+
+<h2>9.3 速度环执行流程</h2>
+<p>速度环每10个PWM周期（1.6kHz）执行一次：</p>
+<ol>
+<li>从hall2angle.pll_speed_rpm_filter获取滤波后的实际转速</li>
+<li>归一化：real_velocity = speed_rpm / BASE_SPEED (5000)</li>
+<li>调用分段PI控制器：motor_pid_calc(demand_velocity, real_velocity, &iq_demand, &velocity_pid)</li>
+<li>电流环：motor_current_ctrl() 嵌套执行</li>
+</ol>
+
+<!-- ==================== 第十章 ==================== -->
+<div class="page-break"></div>
+<h1>十、分段PI控制器（Segmented PI）</h1>
+
+<p>这是本项目的<strong>核心特色</strong>——根据电机转速实时调整速度PI控制器的<strong>Kp和Ki参数</strong>。在低速、中速、高速区域使用不同的PI参数组，中速区域采用线性插值过渡，实现全速范围内的最优控制性能和最小超调。</p>
+
+<h2>10.1 PI算法实现</h2>
+<p><code>motor_pid_calc()</code> 实现带有<strong>抗积分饱和（Anti-Windup / Back-Calculation）</strong>的增量式PI算法：</p>
+<ol>
+<li>err = ref - fdb (计算偏差)</li>
+<li>temp = sum + Kp × err (比例+积分输出)</li>
+<li>out = clamp(temp, min_out, max_out) (输出限幅)</li>
+<li>exc = temp - out (计算饱和差值)</li>
+<li>sum = sum + Ki × err - Kb × exc (积分更新，Kb项实现退饱和)</li>
+</ol>
+
+<div class="info-box">
+<strong>PI参数结构体 (PID_UDT)：</strong>包含 Kp(比例), Ki(积分), Kb(退积分/微分前馈), max_out, min_out, sum(积分累加器), period, err
+</div>
+
+<h2>10.2 速度环分段PI参数</h2>
+<table>
+<tr><th>转速 (归一化)</th><th>转速 (RPM)</th><th>Kp</th><th>Ki</th><th>说明</th></tr>
+<tr><td>< 0.18</td><td>< 900</td><td><strong>4.2</strong></td><td><strong>0.004</strong></td><td>低速段：较小增益防止震荡</td></tr>
+<tr><td>0.18 ~ 0.20</td><td>900 ~ 1000</td><td><strong>86.67×spd - 11.4</strong></td><td><strong>0.002</strong></td><td>过渡段：Kp从4.2线性过渡到12</td></tr>
+<tr><td>> 0.20</td><td>> 1000</td><td><strong>12</strong></td><td><strong>0.02</strong> (velocity_ki)</td><td>高速段：高增益快速响应</td></tr>
+</table>
+
+<h2>10.3 电流环PI参数 (全速域固定)</h2>
+<table>
+<tr><th>控制轴</th><th>Kp</th><th>Ki</th><th>Kb</th><th>输出限幅</th></tr>
+<tr><td>d轴 (Id=0)</td><td>1.2</td><td>0.08</td><td>0.2</td><td>±0.9 (固定)</td></tr>
+<tr><td>q轴 (Iq)</td><td>1.2</td><td>0.08</td><td>0.2</td><td>±√(0.81-Vd²) (动态电压圆限制)</td></tr>
+</table>
+
+<h2>10.4 油门-转速映射 (pwm_to_ref_velocity)</h2>
+<p>油门指令通过<strong>分段线性插值</strong>映射到目标转速（归一化pu值，乘以BASE_SPEED=5000得到实际RPM）：</p>
+<table>
+<tr><th>油门值</th><th>斜率/公式 (y=输出转速)</th><th>说明</th></tr>
+<tr><td>< 12 (CMD_START_TH)</td><td>y = 0</td><td>死区/停止</td></tr>
+<tr><td>12 ~ 30</td><td>y = 0.0105 × x</td><td>低速线性区</td></tr>
+<tr><td>30 ~ 44</td><td>y = 0.008038 × x + 0.0784</td><td>中低速区</td></tr>
+<tr><td>44 ~ 68</td><td>y = 0.006313 × x + 0.1543</td><td>中高速区</td></tr>
+<tr><td>68 ~ 100</td><td>y = 0.0056325 × x + 0.2006</td><td>高速区</td></tr>
+</table>
+
+<div class="info-box">
+<strong>正弦扫频信号叠加：</strong>在正常工作模式下，系统叠加一个振幅0.07、周期1ms的正弦扫频信号用于频率响应测试（SinSignal），通过 SinSig_Cal() 函数生成。
+</div>
+
+<!-- ==================== 第十一章 ==================== -->
+<div class="page-break"></div>
+<h1>十一、状态机架构</h1>
+
+<p>系统采用<strong>有限状态机（FSM）</strong>管理电机运行状态，状态转换在1ms SysTick中断中执行（motor_ctrl_state_loop）。</p>
+
+<h2>11.1 状态定义</h2>
+<table>
+<tr><th>编号</th><th>状态名</th><th>功能说明</th><th>实现状态</th></tr>
+<tr><td>0</td><td>INIT</td><td>系统初始化，执行一次后自动进入STOP</td><td>✅ 已实现</td></tr>
+<tr><td>1</td><td>STOP</td><td>停止状态，等待启动指令</td><td>✅ 已实现</td></tr>
+<tr><td>2</td><td>START</td><td>启动状态，采集128次ADC偏置并校准</td><td>✅ 已实现</td></tr>
+<tr><td>3</td><td>MOTOR_IDENTIFICATION</td><td>电机参数辨识</td><td>🔲 预留</td></tr>
+<tr><td>4</td><td>BOOTSTRAP</td><td>自举电容预充电</td><td>🔲 预留</td></tr>
+<tr><td>5</td><td>HALL_LEARNING</td><td>Hall安装角度学习</td><td>🔲 预留</td></tr>
+<tr><td>6</td><td>ROTOR_POS_ID</td><td>转子初始位置识别</td><td>🔲 预留</td></tr>
+<tr><td>7</td><td>TRANSITION</td><td>开环→闭环过渡</td><td>🔲 预留</td></tr>
+<tr><td>8</td><td><strong>NORMAL_OPERATION</strong></td><td><strong>正常闭环运行</strong></td><td>✅ 已实现</td></tr>
+<tr><td>9</td><td>ERROR</td><td>错误状态，触发停机</td><td>✅ 已实现</td></tr>
+<tr><td>10</td><td>IDLE</td><td>空闲状态（转速为0）</td><td>🔲 预留</td></tr>
+<tr><td>11</td><td>RAMP_DOWN</td><td>斜坡减速停机</td><td>✅ 已实现</td></tr>
+<tr><td>12</td><td>ZERO_CHECK</td><td>零点校验（跳转STOP）</td><td>✅ 已实现</td></tr>
+</table>
+
+<h2>11.2 状态转换</h2>
+
+<p><strong>正常启动流程：</strong></p>
+<ol>
+<li>INIT(0) → 初始化各模块 → STOP(1)</li>
+<li>STOP(1) → CAN指令≥12启动阈值 → start标志 → START(2)</li>
+<li>START(2) → 采集128次ADC偏置值 → 计算平均值 → 使能PWM输出 → NORMAL_OPERATION(8)</li>
+<li>NORMAL_OPERATION(8) → 速度环+电流环闭环控制</li>
+</ol>
+
+<p><strong>启动阶段的特殊处理：</strong></p>
+<ul>
+<li>启动后前1秒，强制将油门设为14（低速），等待电机转速超过约650RPM后切换到实际油门</li>
+<li>如果油门信号低于12（停止阈值），触发disable信号 → STOP</li>
+</ul>
+
+<p><strong>停机流程：</strong></p>
+<ul>
+<li>CAN指令 ≤ 11 (CMD_STOP_TH) → disable标志 → STOP（快速停机）</li>
+<li>或 stop标志 → RAMP_DOWN → 速度降至0 → STOP（慢速斜坡停机）</li>
+</ul>
+
+<!-- ==================== 第十二章 ==================== -->
+<div class="page-break"></div>
+<h1>十二、保护机制</h1>
+
+<h2>12.1 错误类型定义</h2>
+<table>
+<tr><th>错误码</th><th>错误名称</th><th>触发条件</th></tr>
+<tr><td>0x0000</td><td>NO_ERROR</td><td>无错误</td></tr>
+<tr><td>0x0001</td><td>OVERCURRENT</td><td>母线电流 > <strong>10.0A</strong></td></tr>
+<tr><td>0x0002</td><td>SHORTCIRCUIT</td><td>硬件短路检测（预留）</td></tr>
+<tr><td>0x0004</td><td>WRONGHALL</td><td>Hall值持续为0或7（无效状态）</td></tr>
+<tr><td>0x0008</td><td>HALL_LEARNING_TIMEOUT</td><td>Hall学习超时（预留）</td></tr>
+<tr><td>0x0010</td><td>STALL</td><td>电机堵转保护</td></tr>
+<tr><td>0x0020</td><td>UNDER_OVER_VOLTAGE</td><td>母线电压 < <strong>15V</strong> 或 > <strong>28V</strong></td></tr>
+<tr><td>0x0040</td><td>MOTOR_FREE_RUNNING</td><td>失控正转</td></tr>
+<tr><td>0x0080</td><td>MOTOR_FREE_REV_RUNNING</td><td>失控反转</td></tr>
+<tr><td>0x0100</td><td>STARTUP_FAILURE</td><td>启动失败</td></tr>
+</table>
+
+<div class="warn-box">
+<strong>⚠ 保护触发动作：</strong>任意错误标志 (motor_error_status != 0) → 状态机立即转入 <strong>ERROR 状态</strong>并停机
+</div>
+
+<h2>12.2 已实现的保护功能</h2>
+<ul>
+<li><strong>过流保护：</strong>motor_protect_bus_current() 检测 ibus > 10A</li>
+<li><strong>Hall异常检测：</strong>Hall值0或7持续20次，置error_flag（当前仅标记，未触发停机）</li>
+<li><strong>速度限制：</strong>超过4600RPM后，禁止加速度继续增大</li>
+<li><strong>PWM信号丢失检测：</strong>TMR6 3ms超时检测</li>
+<li><strong>电压圆限制：</strong>Vd²+Vq² ≤ 0.81，防止过调制</li>
+<li><strong>CAN时钟保护：</strong>HEXT不稳定时进入死循环，防止CAN通信异常</li>
+</ul>
+
+<!-- ==================== 第十三章 ==================== -->
+<div class="page-break"></div>
+<h1>十三、运动观测器与滤波器</h1>
+
+<h2>13.1 Luenberger运动观测器 (LB_MotionObserv)</h2>
+<p>龙伯格型运动观测器，对Hall传感器计算出的原始角度进行<strong>滤波和平滑</strong>，该观测器是一个<strong>二阶状态观测器</strong>，基于简化的电机运动方程：</p>
+<ul>
+<li>J · dω/dt = TE + TL （转动惯量×角加速度=电磁转矩+负载转矩）</li>
+<li>dθ/dt = ω</li>
+</ul>
+
+<table>
+<tr><th width="35%">参数</th><th width="65%">值</th></tr>
+<tr><td>比例增益 Kp</td><td><strong>12,980</strong></td></tr>
+<tr><td>积分增益 Ki</td><td><strong>10.0</strong></td></tr>
+<tr><td>微分增益 Kb</td><td><strong>16.57</strong></td></tr>
+<tr><td>惯量倒数 Inertia_Inv</td><td><strong>189.4</strong></td></tr>
+<tr><td>计算周期 Ts</td><td>62.5 μs (PWM_FOC_PERIOD, 16kHz)</td></tr>
+</table>
+
+<p><strong>观测器输入输出：</strong></p>
+<ul>
+<li><strong>输入：</strong>ActTheta（原始Hall角度 0~2π）、TE（电磁转矩，当前恒为0）</li>
+<li><strong>输出：</strong>EstTheta（估计角度）、EstSpd_Filt（滤波转速）、EstMechTheta（机械角度）</li>
+</ul>
+
+<p><strong>角度计算流程（motor_hall_to_angle_cal）：</strong></p>
+<ol>
+<li>低速时（<最小Hall转速）：直接使用Hall边沿角度</li>
+<li>正常转速时：raw_angle = hall_edgeAngle + ω_filtered × capture_time</li>
+<li>角度限制在 (hall_edgeAngle ± π/3) 范围内</li>
+<li>将原始角度输入Luenberger观测器进行滤波</li>
+<li>输出滤波后的角度和速度</li>
+</ol>
+
+<h2>13.2 低通滤波器汇总</h2>
+<table>
+<tr><th>滤波器名称</th><th>截止频率</th><th>滤波对象</th><th>运行周期</th></tr>
+<tr><td>电流LPF (current.filterK1)</td><td><strong>5,000 Hz</strong></td><td>三相电流 Iu/Iv/Iw</td><td>62.5 μs (PWM)</td></tr>
+<tr><td>母线电流LPF (current.filter500HzK1)</td><td><strong>500 Hz</strong></td><td>母线估算电流 Ibus</td><td>62.5 μs</td></tr>
+<tr><td>捕获速度LPF (hall2angle.filterK1)</td><td><strong>50 Hz</strong></td><td>Hall捕获速度 cap_speed_rad_s</td><td>62.5 μs</td></tr>
+<tr><td>速度输出LPF (hall2angle.filterK1)</td><td><strong>50 Hz</strong></td><td>输出转速 pll_speed_rpm</td><td>62.5 μs</td></tr>
+<tr><td>UqMax LPF (LPF_100Hz_UqMax)</td><td><strong>100 Hz</strong></td><td>Vq电压最大限幅值</td><td>62.5 μs</td></tr>
+<tr><td>电压LPF (analog.filterK1)</td><td><strong>30 Hz</strong></td><td>母线电压 volt_bus</td><td>1 ms (SysTick)</td></tr>
+<tr><td>温度LPF (analog.filterK1)</td><td><strong>30 Hz</strong></td><td>温度采样 temper</td><td>1 ms (SysTick)</td></tr>
+</table>
+
+<div class="info-box">
+<strong>一阶低通滤波器公式：</strong>y[n] = K1·y[n-1] + K2·x[n]<br>
+其中 K1 = 1/(1 + Ts·2π·fc)，K2 = 1 - K1<br>
+Ts为采样周期，fc为截止频率
+</div>
+
+<!-- ==================== 第十四章 ==================== -->
+<div class="page-break"></div>
+<h1>十四、关键参数汇总表</h1>
+
+<h2>14.1 系统级参数</h2>
+<table>
+<tr><th width="35%">参数</th><th width="35%">值</th><th width="30%">宏定义</th></tr>
+<tr><td>CPU主频</td><td>240 MHz</td><td>CPU_SYSTEM_CLOCK</td></tr>
+<tr><td>PWM频率</td><td>16,000 Hz</td><td>PWM_TIM_FREQ</td></tr>
+<tr><td>PWM周期</td><td>62.5 μs</td><td>PWM_FOC_PERIOD</td></tr>
+<tr><td>PWM比较值</td><td>7,499</td><td>PWM_TIM_PULSE</td></tr>
+<tr><td>死区时间</td><td>1,000 ns</td><td>PWM_DEAD_TIME_NS</td></tr>
+<tr><td>ADC时钟</td><td>20 MHz</td><td>CRM_ADC_DIV_6</td></tr>
+<tr><td>ADC采样时间</td><td>13.5 cycles</td><td>ADC_SAMPLETIME_13_5</td></tr>
+<tr><td>电流环频率</td><td>16,000 Hz</td><td>PWM_TIM_FREQ</td></tr>
+<tr><td>速度环频率</td><td>1,600 Hz</td><td>VELOCITY_CALC_FREQ</td></tr>
+<tr><td>速度环分频</td><td>10 PWM周期</td><td>VELOCITY_CALC_PERIOD</td></tr>
+<tr><td>状态机频率</td><td>1,000 Hz</td><td>SysTick/1ms</td></tr>
+<tr><td>CAN波特率(默认)</td><td>500 Kbps</td><td>CAN_BAUDRATE_500KBPS</td></tr>
+<tr><td>CAN上传频率</td><td>500 Hz</td><td>CanDataUpTimes=2ms</td></tr>
+</table>
+
+<h2>14.2 信号频率汇总</h2>
+<table>
+<tr><th>信号/功能</th><th>频率</th><th>周期</th><th>实现方式</th></tr>
+<tr><td>PWM载波</td><td><strong>16 kHz</strong></td><td>62.5 μs</td><td>TMR1中心对齐</td></tr>
+<tr><td>ADC采样</td><td><strong>16 kHz</strong></td><td>62.5 μs</td><td>TMR1 CH4触发</td></tr>
+<tr><td>FOC电流环</td><td><strong>16 kHz</strong></td><td>62.5 μs</td><td>ADC1中断</td></tr>
+<tr><td>FOC速度环</td><td><strong>1.6 kHz</strong></td><td>625 μs</td><td>每次ADC中断计数，第10次执行</td></tr>
+<tr><td>SysTick/状态机</td><td><strong>1 kHz</strong></td><td>1 ms</td><td>SysTick中断</td></tr>
+<tr><td>CAN数据上报</td><td><strong>500 Hz</strong></td><td>2 ms</td><td>main()循环中的can_updata()</td></tr>
+<tr><td>PWM输入信号</td><td><strong>50~500 Hz</strong></td><td>2~20 ms</td><td>标准RC遥控器信号</td></tr>
+<tr><td>Hall捕获</td><td><strong>事件触发</strong></td><td>转速相关</td><td>TMR3捕获中断</td></tr>
+</table>
+
+<h2>14.3 保护阈值</h2>
+<table>
+<tr><th>保护项</th><th>阈值</th><th>宏定义</th></tr>
+<tr><td>过流保护</td><td>10.0 A</td><td>MOTOR_OVER_CURRENT</td></tr>
+<tr><td>过压保护</td><td>28.0 V</td><td>MOTOR_HIGH_VOLT</td></tr>
+<tr><td>欠压保护</td><td>15.0 V</td><td>MOTOR_LOW_VOLT</td></tr>
+<tr><td>最大转速</td><td>4600 RPM</td><td>MOTOR_MAX_HALL_SPEED_RPM</td></tr>
+<tr><td>最小转速</td><td>10 RPM</td><td>MOTOR_MIN_HALL_SPEED_RPM</td></tr>
+<tr><td>电压圆限制</td><td>0.81</td><td>MAX_VOLT_CIRCLE_LIMIT</td></tr>
+</table>
+
+<h2>14.4 标幺化基值</h2>
+<table>
+<tr><th>参数</th><th>基值</th><th>宏定义</th></tr>
+<tr><td>电流基值</td><td>100 A</td><td>BASE_CURRENT</td></tr>
+<tr><td>速度基值</td><td>5000 RPM</td><td>BASE_SPEED</td></tr>
+</table>
+
+<!-- ==================== 第十五章 ==================== -->
+<div class="page-break"></div>
+<h1>十五、程序执行流程</h1>
+
+<h2>15.1 主程序 (main.c)</h2>
+<p>main()函数极简——仅执行<strong>外设初始化</strong>和<strong>CAN数据更新主循环</strong>。所有实时控制逻辑都通过<strong>中断驱动</strong>：</p>
+
+<pre><code>int main(void)
+{
+    mcu_peripheral_init();    // 外设初始化
+    while(1)
+    {
+        can_updata();           // CAN数据上传 (500Hz)
+    }
+}</code></pre>
+
+<h2>15.2 mcu_peripheral_init() 初始化顺序</h2>
+<ol>
+<li><code>system_clock_config()</code> —— 系统时钟配置 (HEXT 12MHz → PLL 240MHz)</li>
+<li><code>systick_clock_source_config()</code> —— SysTick时钟源 AHB/8</li>
+<li><code>SysTick_Config()</code> —— SysTick 1ms中断</li>
+<li><code>nvic_priority_group_config()</code> —— 优先级分组4 (4位抢占优先级)</li>
+<li><code>timer5_init()</code> —— TMR5初始化 (32位, 20MHz, Hall圈时测量)</li>
+<li><code>pwm_init()</code> —— TMR1 PWM初始化 (16kHz, 6路互补输出+CH4触发)</li>
+<li><code>hall_init()</code> —— TMR3 Hall捕获初始化</li>
+<li><code>adc_config()</code> —— ADC1/ADC2初始化 (4通道, TMR1 CH4触发)</li>
+<li><code>PWM_Input_Init()</code> —— PWM信号输入捕获 (PB3/TMR2/TMR6)</li>
+<li><code>can_configuration()</code> —— CAN1初始化 (500Kbps)</li>
+</ol>
+
+<h2>15.3 中断服务程序 (ISR) 汇总</h2>
+
+<table>
+<tr><th>中断名</th><th>抢占优先级</th><th>触发源</th><th>功能</th></tr>
+<tr><td>SysTick_Handler</td><td>0 (最高)</td><td>1ms定时</td><td>状态机 + 电压采样 + 启停控制 + 油门映射 + PI参数切换</td></tr>
+<tr><td>ADC1_2_IRQHandler</td><td>2</td><td>ADC1转换完成 (16kHz)</td><td><strong>核心FOC控制</strong>：Hall角度→电流采样→速度环→电流环→SVPWM</td></tr>
+<tr><td>HALL_CAPTURE_IRQHandler<br>(TMR3_GLOBAL_IRQHandler)</td><td>1</td><td>Hall边沿捕获 / 溢出</td><td>读取Hall值→扇区→方向→速度→角度校准</td></tr>
+<tr><td>CAN1_RX1_IRQHandler<br>(USBFS_L_CAN1_RX0_IRQn)</td><td>4</td><td>CAN接收FIFO1</td><td>解析CAN指令 (油门/配置)</td></tr>
+<tr><td>USBFS_H_CAN1_TX_IRQnHandler</td><td>-</td><td>CAN发送完成</td><td>清除CAN发送标志</td></tr>
+<tr><td>EXINT3_IRQHandler (PWM输入)</td><td>0</td><td>PB3边沿触发</td><td>PWM脉宽测量</td></tr>
+<tr><td>TMR6_GLOBAL_IRQHandler (PWM输入)</td><td>3</td><td>TMR6溢出 (3ms)</td><td>PWM信号丢失检测 / 脉宽计算</td></tr>
+<tr><td>CAN1_SE_IRQHandler</td><td>-</td><td>CAN状态错误</td><td>CAN错误处理</td></tr>
+</table>
+
+<h2>15.4 实时控制时序图</h2>
+
+<div class="info-box">
+<strong>PWM同步链（硬件触发）：</strong><br>
+TMR1 CH4 (PWM周期中点) → ADC触发 → ADC转换完成 → ADC1_2中断 → FOC控制算法
+</div>
+
+<pre>
+[16kHz PWM载波]
+    │
+    ├── TMR1 CH4触发ADC ──→ ADC转换 ──→ ADC1_2中断 (16kHz)
+    │                                        │
+    │                                        ├── motor_hall_to_angle_cal()
+    │                                        ├── motor_current_read()
+    │                                        ├── [每10次] motor_speed_ctrl()
+    │                                        │       └── 速度环PI → iq_demand
+    │                                        └── motor_current_ctrl()
+    │                                                ├── 电流环PI (d轴+q轴)
+    │                                                ├── 逆Park + SVPWM
+    │                                                └── 更新PWM占空比
+    │
+    └── [SysTick 1kHz]
+            │
+            └── motor_ctrl_state_loop()
+                    ├── motor_volt_bus()
+                    ├── motor_ctrl_start_stop()
+                    ├── 状态机调度
+                    └── 油门映射 + PI参数更新
+
+[main() 循环]
+    └── can_updata() (500Hz轮询发送状态数据)
+</pre>
+
+<h2>15.5 NVIC中断优先级安排</h2>
+<table>
+<tr><th>优先级 (抢占)</th><th>中断</th><th>设计原因</th></tr>
+<tr><td>0 (最高)</td><td>SysTick, EXINT3 (PWM)</td><td>状态机/保护优先级最高</td></tr>
+<tr><td>1</td><td>TMR3 (Hall捕获)</td><td>位置信息需要及时处理</td></tr>
+<tr><td>2</td><td>ADC1_2 (FOC核心)</td><td>实时控制链</td></tr>
+<tr><td>3</td><td>TMR6 (PWM超时)</td><td>信号丢失检测</td></tr>
+<tr><td>4</td><td>CAN1 RX</td><td>通信中断优先级最低</td></tr>
+</table>
+
+<!-- ==================== 结束 ==================== -->
+<div class="page-break"></div>
+<h1 style="text-align:center; border:none; font-size:24pt; color:#16213e;">—— 文档结束 ——</h1>
+
+<p style="text-align:center; margin-top:30px; color:#888;">
+本文档详细分析了无人机电机驱动器（ESC）固件程序 v6<br>
+基于 AT32F403A/407 | FOC矢量控制 | 分段PI | CAN 500Kbps | 16kHz PWM<br>
+项目路径：airscrew_Segmented_PI_6
+</p>
+
+</body>
+</html>

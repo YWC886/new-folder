@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [B-60-30-B.PrjPcb]
+   Generated File[B-60-30-B-Plated.TXT]
+   Generated File[B-60-30-B.LDP]
+   Generated File[B-60-30-B.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 17:16:22 On 2025/12/29

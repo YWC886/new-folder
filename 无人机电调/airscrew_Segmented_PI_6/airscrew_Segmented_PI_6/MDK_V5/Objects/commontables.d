@@ -1,0 +1,14 @@
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\dsp\Source\CommonTables\CommonTables.c
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\dsp\Source\CommonTables\arm_common_tables.c
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\dsp\include\arm_math.h
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\core_support\cmsis_compiler.h
+.\objects\commontables.o: C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\cm4\core_support\cmsis_armcc.h
+.\objects\commontables.o: C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin\..\include\string.h
+.\objects\commontables.o: C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin\..\include\math.h
+.\objects\commontables.o: C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin\..\include\float.h
+.\objects\commontables.o: C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin\..\include\limits.h
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\dsp\include\arm_common_tables.h
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\dsp\Source\CommonTables\arm_const_structs.c
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\dsp\include\arm_const_structs.h
+.\objects\commontables.o: ..\libraries\AT32F403A_407_Firmware_Library\cmsis\dsp\Source\CommonTables\arm_mve_tables.c
