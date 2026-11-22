@@ -49,3 +49,4 @@ work/plan/render*/
 
 # Office/WPS 锁文件
 ~$*
+data/exports/*.zip
