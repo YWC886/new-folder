@@ -1,5 +1,5 @@
 {
-  "files": 87,
+  "files": 88,
   "hard": [],
   "soft": [
     {
@@ -57,6 +57,20 @@
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "data/metadata/calib_"
+    },
+    {
+      "file": "docs\\plan\\v4口径四线核对表_V4ConsistencyCrossCheck_v0.1.md",
+      "line": 10,
+      "word": "更换桨型",
+      "severity": "SOFT",
+      "text": "| 申报附件 01（前期基础摘要） | 未提\"更换桨型\"；UIUC 8 桨仅作 REFERENCE 方法验证 | 测量与解耦 + 建模与应用（见附件 04/说明） | 保留并加注「非项目主线；v4 口径为同一桨型」 | ✅ 一致 |"
+    },
+    {
+      "file": "docs\\plan\\v4口径四线核对表_V4ConsistencyCrossCheck_v0.1.md",
+      "line": 14,
+      "word": "多桨对比",
+      "severity": "SOFT",
+      "text": "| 开题答辩 PPT v0.2 | 「同一桨型·电压对比」页；地图页「电压×油门」 | 两条关键问题已写入 | 多桨对比页已删除 | ✅ 一致 |"
     },
     {
       "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
