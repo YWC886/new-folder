@@ -3,7 +3,7 @@
 本目录存放**软件著作权登记**与**复现包**相关材料，由脚本从仓库内容生成/维护，不手工复制代码。
 
 > 软件全称：**多旋翼动力系统效率地图构建与匹配优化软件**
-> 版本：**V1.0**（对应仓库 2026-11-21 状态，代码测试 308 项全绿）
+> 版本：**V1.0**（对应仓库 2026-11-21 状态，代码测试 310 项全绿）
 > 状态：材料初稿，未提交登记；学校/著作权人信息待项目组确认后补填。
 
 ## 1. 目录
@@ -44,7 +44,7 @@ py -3.12 code\tools\build_manifest.py --output data\processed\release_manifest_v
 $env:PYTHONIOENCODING = 'utf-8'
 py -3.12 work\env\check_env.py
 
-# 2) 全部分模块测试（当前 308 项）
+# 2) 全部分模块测试（当前 310 项）
 foreach ($d in 'acquisition','processing','simulation','selection','reference','tools') {
     py -3.12 -m unittest discover -s "code\$d" -p "test_*.py"
 }
@@ -87,4 +87,4 @@ py -3.12 -c "import csv,hashlib,pathlib; rows=list(csv.DictReader(open('data/pro
 - 2026-11-21 多工况试验排程 v0.1：新增 `code/processing/design_matrix.py` + 测试；处理 72→82 项（全仓 240→250）、源文件 50→52、行数 13,194→13,613、页数 264→273、清单 158→231 文件。
 - 2026-11-21 Reynolds 修正负结果 v0.5 + 申报表 v3 草稿：新增 `code/reference/re_correction.py` + 测试（参考 48→61 项，全仓 250→263）；源文件 52→54、行数 13,613→15,407、页数 273→284、清单 162→231 文件（约 8.2 MiB）；`docs/申报/申报表/` 增加 v3 草稿 docx 与改动说明（docx 不计入清单）。
 
-- 2026-11-21 试验排程 v0.2（target-thrust inversion / randomize）+ Round 24 收尾重生成：73 源文件 / 16,726 行 / 335 页；清单 231 文件 / 约 8.2 MiB；全量 308 项测试。
+- 2026-11-21 试验排程 v0.2（target-thrust inversion / randomize）+ Round 24 收尾重生成：73 源文件 / 16,726 行 / 335 页；清单 231 文件 / 约 8.2 MiB；全量 310 项测试。
