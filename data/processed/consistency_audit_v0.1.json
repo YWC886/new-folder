@@ -67,20 +67,6 @@
     },
     {
       "file": "docs\\plan\\Round20推进计划_UQ与DoE口径统一_v0.1.md",
-      "line": 29,
-      "word": "broken-ref",
-      "severity": "SOFT",
-      "text": "code/selection/uq_consistency.py"
-    },
-    {
-      "file": "docs\\plan\\Round20推进计划_UQ与DoE口径统一_v0.1.md",
-      "line": 31,
-      "word": "broken-ref",
-      "severity": "SOFT",
-      "text": "data/processed/selection_uq_consistency_v0.1.csv"
-    },
-    {
-      "file": "docs\\plan\\Round20推进计划_UQ与DoE口径统一_v0.1.md",
       "line": 32,
       "word": "broken-ref",
       "severity": "SOFT",

@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：104；HARD 0；SOFT 70
+文件数：104；HARD 0；SOFT 68
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -17,8 +17,6 @@
 - docs\design\processing_pipeline_v0.1.md:59 [broken-ref] data/metadata/calib_
 - docs\design\public_data_benchmark_v0.1.md:28 [broken-ref] data/apce_10x7_static_pg0811.txt
 - docs\design\数据采集方案_DAQ_v0.1.md:57 [broken-ref] data/metadata/calib_
-- docs\plan\Round20推进计划_UQ与DoE口径统一_v0.1.md:29 [broken-ref] code/selection/uq_consistency.py
-- docs\plan\Round20推进计划_UQ与DoE口径统一_v0.1.md:31 [broken-ref] data/processed/selection_uq_consistency_v0.1.csv
 - docs\plan\Round20推进计划_UQ与DoE口径统一_v0.1.md:32 [broken-ref] data/processed/figures/selection_uq_consistency_v0.1.png
 - docs\plan\Round20推进计划_UQ与DoE口径统一_v0.1.md:34 [broken-ref] docs/design/uq_selection_consistency_v0.1.md
 - docs\plan\v4口径四线核对表_V4ConsistencyCrossCheck_v0.1.md:10 [更换桨型] | 申报附件 01（前期基础摘要） | 未提"更换桨型"；UIUC 8 桨仅作 REFERENCE 方法验证 | 测量与解耦 + 建模与应用（见附件 04/说明） | 保留并加注「非项目主线；v4 口径为同一桨型」 | ✅ 一致 |
