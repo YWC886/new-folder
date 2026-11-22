@@ -25,6 +25,9 @@ def main() -> int:
     if rc != 0:
         return rc
     rc = run("check_release.py")
+    if rc != 0:
+        return rc
+    rc = run("audit_consistency.py")
     print("结论：round_close", "PASS" if rc == 0 else "FAIL")
     return rc
 

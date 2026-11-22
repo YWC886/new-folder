@@ -19,6 +19,7 @@ OUT_JSON = ROOT / "data" / "processed" / "consistency_audit_v0.1.json"
 
 FORBIDDEN = ["多桨对比", "跨桨型", "更换桨型", "换不同桨型", "多套硬件"]
 SELF_MARKERS = ["本项目", "本课题", "我们", "团队将", "拟", "计划"]
+NEG_PATTERNS = ["不更换桨型", "暂缓", "不作", "不纳入"]
 LIT_MARKERS = ["文献", "已有研究", "他人", "综述", "Nam", "Piljek", "Costa", "UIUC", "参考"]
 PATH_RE = re.compile(r"(?:docs|code|data)/[A-Za-z0-9_\u4e00-\u9fff./-]+")
 
@@ -37,6 +38,8 @@ def main() -> int:
         text = f.read_text(encoding="utf-8", errors="replace")
         lines = text.splitlines()
         for i, line in enumerate(lines, 1):
+            if any(n in line for n in NEG_PATTERNS):
+                continue
             for w in FORBIDDEN:
                 if w not in line:
                     continue

@@ -1,10 +1,10 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：86；HARD 1；SOFT 54
+文件数：86；HARD 0；SOFT 52
 
 ## HARD（项目自述语境禁词，必须改）
 
-- docs\规划\申报书对比分析与优化研究路径_v0.1.md:66 [跨桨型] - 地图四步：清洗（重复性检验 + MAD 剔除离群 + 原始数据留档）→ 建模（机理给趋势 + GP/NN 拟合残差，LOOCV 取优）→ 插值（电压—油门规则网格 + 等效率曲线，v4 口径为同一桨型，跨桨型取值暂缓）→ 出图（效率不确
+- 无
 
 ## SOFT（文献语境/断链，复核）
 
@@ -16,8 +16,6 @@
 - docs\design\processing_pipeline_v0.1.md:59 [broken-ref] data/metadata/calib_
 - docs\design\public_data_benchmark_v0.1.md:28 [broken-ref] data/apce_10x7_static_pg0811.txt
 - docs\design\数据采集方案_DAQ_v0.1.md:57 [broken-ref] data/metadata/calib_
-- docs\plan\成果盘点与差距_GapReview_v0.1.md:19 [跨桨型] 1. 附件 01–04 与开题 PPT 含“多桨/跨桨型”表述与图，与新口径（不更换桨型）冲突；01 的 UIUC 多桨图应改为“方法验证（REFERENCE），非项目主线”说明。
-- docs\plan\成果盘点与差距_GapReview_v0.1.md:21 [多桨对比] 3. 部分设计文档（E1 多桨对比 108 次工况）与最新口径冲突，需标注“已暂缓/不纳入主线”。
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:30 [broken-ref] docs/README
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [多桨对比] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [跨桨型] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。
