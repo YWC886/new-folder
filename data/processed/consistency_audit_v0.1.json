@@ -1,0 +1,441 @@
+{
+  "files": 86,
+  "hard": [
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 61,
+      "word": "更换桨型",
+      "severity": "HARD",
+      "text": "按“不更换桨型”要求，拟解决的关键问题由 3 条改为 2 条："
+    },
+    {
+      "file": "docs\\规划\\申报书对比分析与优化研究路径_v0.1.md",
+      "line": 66,
+      "word": "跨桨型",
+      "severity": "HARD",
+      "text": "- 地图四步：清洗（重复性检验 + MAD 剔除离群 + 原始数据留档）→ 建模（机理给趋势 + GP/NN 拟合残差，LOOCV 取优）→ 插值（电压—油门规则网格 + 等效率曲线，按桨型分图，跨桨型固定推力点取值）→ 出图（效率不确定度"
+    }
+  ],
+  "soft": [
+    {
+      "file": "docs\\decisions.md",
+      "line": 31,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "code/docs/data"
+    },
+    {
+      "file": "docs\\design\\calibration_fit_v0.1.md",
+      "line": 16,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/metadata/calib_SIM_"
+    },
+    {
+      "file": "docs\\design\\expansion_E1_multi_prop_v0.1.md",
+      "line": 3,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/规划/开题拓展方向_ExpansionDirections_v0.1.md"
+    },
+    {
+      "file": "docs\\design\\expansion_E1_multi_prop_v0.1.md",
+      "line": 27,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/processed/design_matrix_E1.csv"
+    },
+    {
+      "file": "docs\\design\\expansion_E1_multi_prop_v0.1.md",
+      "line": 27,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/metadata/design_matrix_E1.summary.json"
+    },
+    {
+      "file": "docs\\design\\expansion_E2_thermal_coupling_v0.1.md",
+      "line": 3,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/规划/开题拓展方向_ExpansionDirections_v0.1.md"
+    },
+    {
+      "file": "docs\\design\\expansion_E3_allocation_v0.1.md",
+      "line": 3,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/规划/开题拓展方向_ExpansionDirections_v0.1.md"
+    },
+    {
+      "file": "docs\\design\\prior_profile_v0.1.md",
+      "line": 68,
+      "word": "跨桨型",
+      "severity": "SOFT",
+      "text": "- 样本内对照：提升倍数不代表泛化能力；跨桨型/跨系列外推仍须实测；"
+    },
+    {
+      "file": "docs\\design\\processing_pipeline_v0.1.md",
+      "line": 59,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/metadata/calib_"
+    },
+    {
+      "file": "docs\\design\\public_data_benchmark_v0.1.md",
+      "line": 28,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/apce_10x7_static_pg0811.txt"
+    },
+    {
+      "file": "docs\\design\\数据采集方案_DAQ_v0.1.md",
+      "line": 57,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/metadata/calib_"
+    },
+    {
+      "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
+      "line": 19,
+      "word": "跨桨型",
+      "severity": "SOFT",
+      "text": "1. 附件 01–04 与开题 PPT 含“多桨/跨桨型”表述与图，与新口径（不更换桨型）冲突；01 的 UIUC 多桨图应改为“方法验证（REFERENCE），非项目主线”说明。"
+    },
+    {
+      "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
+      "line": 19,
+      "word": "更换桨型",
+      "severity": "SOFT",
+      "text": "1. 附件 01–04 与开题 PPT 含“多桨/跨桨型”表述与图，与新口径（不更换桨型）冲突；01 的 UIUC 多桨图应改为“方法验证（REFERENCE），非项目主线”说明。"
+    },
+    {
+      "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
+      "line": 21,
+      "word": "多桨对比",
+      "severity": "SOFT",
+      "text": "3. 部分设计文档（E1 多桨对比 108 次工况）与最新口径冲突，需标注“已暂缓/不纳入主线”。"
+    },
+    {
+      "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
+      "line": 30,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/README"
+    },
+    {
+      "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
+      "line": 33,
+      "word": "多桨对比",
+      "severity": "SOFT",
+      "text": "9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。"
+    },
+    {
+      "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
+      "line": 33,
+      "word": "跨桨型",
+      "severity": "SOFT",
+      "text": "9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。"
+    },
+    {
+      "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
+      "line": 33,
+      "word": "更换桨型",
+      "severity": "SOFT",
+      "text": "9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。"
+    },
+    {
+      "file": "docs\\plan\\拓展方向_ExpansionDirections_v0.1.md",
+      "line": 49,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "code/processing/compare_reference.py"
+    },
+    {
+      "file": "docs\\plan\\拓展方向_ExpansionDirections_v0.1.md",
+      "line": 52,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/processed/uiuc_benchmark_v0.1"
+    },
+    {
+      "file": "docs\\plan\\拓展方向_ExpansionDirections_v0.1.md",
+      "line": 87,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/README"
+    },
+    {
+      "file": "docs\\plan\\自动化轮次日志_AutomationRoundsLog_R81-R90_v0.1.md",
+      "line": 6,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/参考/无人机电调_ESCLearningGuide_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\plan\\阶段总结_StageSummary_r90_v0.1.md",
+      "line": 9,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/参考/无人机电调_ESCLearningGuide_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\plan\\阶段总结_StageSummary_r90_v0.1.md",
+      "line": 9,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/design/电调效率测量_ESCMeasurement_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\plan\\阶段总结_StageSummary_r90_v0.1.md",
+      "line": 12,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/plan/开题答辩要点_DefenseKeyPoints_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\procurement\\bom_v0.1.md",
+      "line": 75,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/procurement/到货验收记录.md"
+    },
+    {
+      "file": "docs\\procurement\\询价单模板.md",
+      "line": 59,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/procurement/quotes/"
+    },
+    {
+      "file": "docs\\README.md",
+      "line": 140,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/design/figs/"
+    },
+    {
+      "file": "docs\\research\\project_deep_dive_v0.1.md",
+      "line": 126,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/README"
+    },
+    {
+      "file": "docs\\research\\project_deep_dive_v0.1.md",
+      "line": 156,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/processed/efficiency_map_"
+    },
+    {
+      "file": "docs\\research\\project_deep_dive_v0.1.md",
+      "line": 227,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "code/daq/"
+    },
+    {
+      "file": "docs\\research\\project_deep_dive_v0.1.md",
+      "line": 252,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/design/bench_v0.2.md"
+    },
+    {
+      "file": "docs\\research\\project_deep_dive_v0.1.md",
+      "line": 255,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/test/静态砝码读数记录_v1.0.md"
+    },
+    {
+      "file": "docs\\research\\project_deep_dive_v0.1.md",
+      "line": 353,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "code/daq/"
+    },
+    {
+      "file": "docs\\softcopyright\\复现包清单_V1.0.md",
+      "line": 73,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/design/simulation_model_v"
+    },
+    {
+      "file": "docs\\team\\task_division_3person_v0.1.md",
+      "line": 49,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/design/bench"
+    },
+    {
+      "file": "docs\\team\\task_division_3person_v0.1.md",
+      "line": 50,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/design/daq"
+    },
+    {
+      "file": "docs\\test\\试验执行SOP_v0.1.md",
+      "line": 80,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/exports/项目成果总览_"
+    },
+    {
+      "file": "docs\\test\\静态砝码读数记录_v0.1.md",
+      "line": 7,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/metadata/calib_"
+    },
+    {
+      "file": "docs\\test\\静态砝码读数记录_v0.1.md",
+      "line": 76,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/metadata/calib_"
+    },
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 12,
+      "word": "更换桨型",
+      "severity": "SOFT",
+      "text": "| C8 | \"前面有电调这里怎么没有了\"；不涉及多套硬件 | §四研究内容 1/2/3 明确\"电机 + 电调 + 螺旋桨\"单套硬件；§四 3 与 §六（三）写入电调输入/输出电功率单独记录；全文删\"多套硬件/更换桨型\"表述 |"
+    },
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 12,
+      "word": "多套硬件",
+      "severity": "SOFT",
+      "text": "| C8 | \"前面有电调这里怎么没有了\"；不涉及多套硬件 | §四研究内容 1/2/3 明确\"电机 + 电调 + 螺旋桨\"单套硬件；§四 3 与 §六（三）写入电调输入/输出电功率单独记录；全文删\"多套硬件/更换桨型\"表述 |"
+    },
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 17,
+      "word": "多套硬件",
+      "severity": "SOFT",
+      "text": "| C22 | \"不涉及多套硬件\"（桨型相关） | §四 6 应用示例改为比较\"供电电压与运行点\"，不再写\"比较不同桨型\"；§四 5 保留\"按桨型分图\"仅作地图组织方式说明 |"
+    },
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 38,
+      "word": "多套硬件",
+      "severity": "SOFT",
+      "text": "3. 确认 §四 6 应用示例\"供电电压 + 运行点\"的表述是否符合导师\"不涉及多套硬件\"的要求；"
+    },
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 55,
+      "word": "跨桨型",
+      "severity": "SOFT",
+      "text": "| C22 | 效率地图由“按桨型分图、跨桨型比较”改为“部件/系统分别成图、同一套被测硬件内比较” |"
+    },
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 63,
+      "word": "更换桨型",
+      "severity": "SOFT",
+      "text": "2. 效率地图的建模精度与匹配应用（同一桨型下的电压—运行点匹配，明确不更换桨型）。"
+    },
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 67,
+      "word": "更换桨型",
+      "severity": "SOFT",
+      "text": "## 第四轮（不更换桨型口径统一，2026-11-22）"
+    },
+    {
+      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
+      "line": 69,
+      "word": "换不同桨型",
+      "severity": "SOFT",
+      "text": "- §一 项目简介：原“更换不同桨型、逐点采集”改为“同一桨型下逐点采集”；"
+    },
+    {
+      "file": "docs\\规划\\申报书对比分析与优化研究路径_v0.1.md",
+      "line": 4,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/申报/申报表/附件3"
+    },
+    {
+      "file": "docs\\规划\\申报书对比分析与优化研究路径_v0.1.md",
+      "line": 193,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/procurement/budget_5000_v0.1.md"
+    },
+    {
+      "file": "docs\\规划\\申报书对比分析与优化研究路径_v0.1.md",
+      "line": 224,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/procurement/budget_5000_v0.1.md"
+    },
+    {
+      "file": "docs\\规划\\申报书对比分析与优化研究路径_v0.1.md",
+      "line": 224,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/research/bench_tech"
+    },
+    {
+      "file": "docs\\规划\\结题材料总目录_v0.1.md",
+      "line": 20,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/规划/申报书对比分析与优化研究路径_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\规划\\结题材料总目录_v0.1.md",
+      "line": 21,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/规划/阶段总结_StageSummary_r40.md"
+    },
+    {
+      "file": "docs\\规划\\结题材料总目录_v0.1.md",
+      "line": 22,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/plan/项目待办与决策清单_TODOandDecisions_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\规划\\结题材料总目录_v0.1.md",
+      "line": 41,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/research/paper_method_draft_v0.1.md/.docx"
+    },
+    {
+      "file": "README.md",
+      "line": 24,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/exports/项目成果总览_"
+    },
+    {
+      "file": "README.md",
+      "line": 26,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/exports/项目成果总览_"
+    },
+    {
+      "file": "README.md",
+      "line": 56,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/申报/申报表/附件3"
+    },
+    {
+      "file": "README.md",
+      "line": 165,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/申报/申报表/附件3"
+    }
+  ]
+}
