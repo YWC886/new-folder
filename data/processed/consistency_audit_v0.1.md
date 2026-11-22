@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：104；HARD 0；SOFT 68
+文件数：105；HARD 0；SOFT 74
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -28,6 +28,12 @@
 - docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:23 [多套硬件] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）
 - docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:66 [broken-ref] docs/申报/第2-5步填写包_...md
 - docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:68 [broken-ref] docs/inputs/M0.4启动包_...md
+- docs\plan\会话记忆交接_MemoryPrimer_v1.1.md:23 [多桨对比] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` HARD>0 即失败
+- docs\plan\会话记忆交接_MemoryPrimer_v1.1.md:23 [跨桨型] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` HARD>0 即失败
+- docs\plan\会话记忆交接_MemoryPrimer_v1.1.md:23 [更换桨型] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` HARD>0 即失败
+- docs\plan\会话记忆交接_MemoryPrimer_v1.1.md:23 [多套硬件] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` HARD>0 即失败
+- docs\plan\会话记忆交接_MemoryPrimer_v1.1.md:68 [broken-ref] docs/申报/第2-5步填写包_
+- docs\plan\会话记忆交接_MemoryPrimer_v1.1.md:70 [broken-ref] docs/inputs/M0.4启动包_
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:30 [broken-ref] docs/README
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [多桨对比] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [跨桨型] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。
