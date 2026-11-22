@@ -1,0 +1,8 @@
+held_out,c_scale,p_factor,base_ct_mae,base_cp_mae,corr_ct_mae,corr_cp_mae
+ance_8.5x6_static_2848cm.txt,0.7,1.15,39.28,26.07,15.95,3.97
+apce_11x7_static_kt0534.txt,0.7,1.15,29.94,26.78,12.11,6.07
+apce_11x8_static_kt0517.txt,0.7,1.15,49.15,31.82,22.78,3.94
+apcsf_10x7_static_kt0827.txt,0.7,1.05,3.69,11.11,21.8,35.06
+apcsp_9x6_static_2532rd.txt,0.7,1.15,34.52,4.81,14.3,13.93
+grcp_10x6_static_rd0851.txt,0.7,1.15,33.89,21.48,17.57,4.63
+grsn_10x7_static_rd0787.txt,0.7,1.05,15.78,8.63,8.42,20.64
