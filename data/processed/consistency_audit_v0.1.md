@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：102；HARD 0；SOFT 60
+文件数：103；HARD 0；SOFT 66
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -20,6 +20,12 @@
 - docs\plan\v4口径四线核对表_V4ConsistencyCrossCheck_v0.1.md:10 [更换桨型] | 申报附件 01（前期基础摘要） | 未提"更换桨型"；UIUC 8 桨仅作 REFERENCE 方法验证 | 测量与解耦 + 建模与应用（见附件 04/说明） | 保留并加注「非项目主线；v4 口径为同一桨型」 | ✅ 一致 |
 - docs\plan\v4口径四线核对表_V4ConsistencyCrossCheck_v0.1.md:14 [多桨对比] | 开题答辩 PPT v0.2 | 「同一桨型·电压对比」页；地图页「电压×油门」 | 两条关键问题已写入 | 多桨对比页已删除 | ✅ 一致 |
 - docs\plan\v5治理总结与移交_GovernanceHandover_v0.1.md:28 [broken-ref] docs/research/paper_method_draft_v0.1.md/.docx
+- docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:23 [多桨对比] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）
+- docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:23 [跨桨型] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）
+- docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:23 [更换桨型] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）
+- docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:23 [多套硬件] - **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）
+- docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:66 [broken-ref] docs/申报/第2-5步填写包_...md
+- docs\plan\会话记忆交接_MemoryPrimer_v1.0.md:68 [broken-ref] docs/inputs/M0.4启动包_...md
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:30 [broken-ref] docs/README
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [多桨对比] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [跨桨型] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。

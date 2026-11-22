@@ -1,5 +1,5 @@
 {
-  "files": 102,
+  "files": 103,
   "hard": [],
   "soft": [
     {
@@ -85,6 +85,48 @@
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "docs/research/paper_method_draft_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\plan\\会话记忆交接_MemoryPrimer_v1.0.md",
+      "line": 23,
+      "word": "多桨对比",
+      "severity": "SOFT",
+      "text": "- **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）"
+    },
+    {
+      "file": "docs\\plan\\会话记忆交接_MemoryPrimer_v1.0.md",
+      "line": 23,
+      "word": "跨桨型",
+      "severity": "SOFT",
+      "text": "- **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）"
+    },
+    {
+      "file": "docs\\plan\\会话记忆交接_MemoryPrimer_v1.0.md",
+      "line": 23,
+      "word": "更换桨型",
+      "severity": "SOFT",
+      "text": "- **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）"
+    },
+    {
+      "file": "docs\\plan\\会话记忆交接_MemoryPrimer_v1.0.md",
+      "line": 23,
+      "word": "多套硬件",
+      "severity": "SOFT",
+      "text": "- **禁词审计**：项目自述禁 `多桨对比/跨桨型/更换桨型/多套硬件`（v4 口径=同一桨型、不换桨型）；`audit_consistency.py` 会扫描（HARD>0 失败）"
+    },
+    {
+      "file": "docs\\plan\\会话记忆交接_MemoryPrimer_v1.0.md",
+      "line": 66,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/申报/第2-5步填写包_...md"
+    },
+    {
+      "file": "docs\\plan\\会话记忆交接_MemoryPrimer_v1.0.md",
+      "line": 68,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/inputs/M0.4启动包_...md"
     },
     {
       "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
