@@ -1,13 +1,13 @@
 # 阶段总结 r60（自动化循环 Round 51–60）
 
 > 版本：v0.1 ｜ 2026-11-21 ｜ 性质：自动化推进（m00439）阶段小结与交接
-> 范围：Round 51–60（里程碑 r50 → r60）；前两份见 `docs/plan/阶段总结_r40.md`、`docs/plan/阶段总结_r50.md`
+> 范围：Round 51–60（里程碑 r50 → r60）；前两份见 `docs/plan/阶段总结_StageSummary_r40.md`、`docs/plan/阶段总结_StageSummary_r50.md`
 
 ## 1. 本阶段交付
 
 | 轮次 | 交付 | 关键点 |
 |---|---|---|
-| R51 | `docs/plan/阶段总结_r50.md` | R41–R50 增量与阻塞清单 |
+| R51 | `docs/plan/阶段总结_StageSummary_r50.md` | R41–R50 增量与阻塞清单 |
 | R52 | 答辩 PPT 增加 2 张备用页（数据字典 / 运行环境） | 16 → 18 页，676 KB |
 | R53 | `code/tools/release_package.py` | 结题材料包 37 项存在性核对，0 缺失 |
 | R54 | 计数同步 + 附件刷新 | 62 源文件 / 314 页 / 185 文件 |
