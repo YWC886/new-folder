@@ -157,6 +157,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--n", type=int, default=DEFAULT_N)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--rho", type=float, default=1.204)
+    parser.add_argument("--u-k2", type=float, default=0.0, help="测量扩展不确定度 U(k=2)")
     parser.add_argument("--output", default=str(PROJECT_ROOT / "data/metadata/uncertainty_v0.1.json"))
     args = parser.parse_args(argv)
     try:
@@ -166,6 +167,10 @@ def main(argv: list[str] | None = None) -> int:
         window = [r for r in rows if float(r["elapsed_s"]) >= last - 3.0]
         calib = ce.load_calibration(Path(args.calib))
         report = propagate(window, calib, rho=args.rho, n=args.n, seed=args.seed)
+        if args.u_k2 > 0:
+            from uq_utils import integrate_u2
+            report["u2_integrated"] = integrate_u2(
+                report["eta_sys"]["mean"], report["eta_sys"]["std"], args.u_k2)
         out = Path(args.output)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -175,6 +180,10 @@ def main(argv: list[str] | None = None) -> int:
     print(f"η_sys MC：mean={report['eta_sys']['mean']:.4f} std={report['eta_sys']['std']:.4f} "
           f"95%CI=[{report['eta_sys']['p2_5']:.4f}, {report['eta_sys']['p97_5']:.4f}]")
     print(f"名义值 η_sys={report['nominal']['eta_sys']:.4f}；输出 {out}")
+    if "u2_integrated" in report:
+        i = report["u2_integrated"]
+        print(f"合成：u_meas={i['u_meas']:.4f} σ_total={i['sigma_total']:.4f} "
+              f"η_cons(2σ)={i['eta_cons_2sigma']:.4f}")
     return 0
 
 

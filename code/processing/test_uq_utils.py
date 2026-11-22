@@ -32,5 +32,16 @@ class UqUtilsTests(unittest.TestCase):
         self.assertAlmostEqual(r["eta_cons_1sigma"], 0.30 - r["sigma_total"])
 
 
+
+
+class IntegrateU2Tests(unittest.TestCase):
+    def test_integrate_u2(self) -> None:
+        import uq_utils
+        out = uq_utils.integrate_u2(0.30, 0.004, 0.02)
+        self.assertAlmostEqual(out["u_meas"], 0.01, places=12)
+        self.assertAlmostEqual(out["sigma_total"], (0.01 ** 2 + 0.004 ** 2) ** 0.5, places=12)
+        self.assertAlmostEqual(out["eta_cons_2sigma"], 0.30 - 2 * out["sigma_total"], places=12)
+        self.assertAlmostEqual(out["eta_cons_1sigma"], 0.30 - out["sigma_total"], places=12)
+
 if __name__ == "__main__":
     unittest.main()

@@ -50,3 +50,19 @@ def conservative_eta(eta: float, *, u2: float = 0.0, sigma_model: float = 0.0,
         "eta_cons": eta - k * sigma_total,
         "eta_cons_1sigma": eta - sigma_total,
     }
+
+
+def integrate_u2(eta: float, sigma_mc: float, u_k2: float, *, k: float = 2.0) -> dict:
+    """把测量扩展不确定度 U(k=2) 与 MC 标准差合成（D056）。"""
+    if u_k2 < 0 or sigma_mc < 0 or k <= 0:
+        raise ValueError("u_k2/sigma_mc 必须非负、k 必须为正")
+    u_meas = from_u2(u_k2)
+    sigma_total = combine_sigma(u_meas, sigma_mc)
+    return {
+        "u_k2": u_k2,
+        "u_meas": u_meas,
+        "sigma_mc": sigma_mc,
+        "sigma_total": sigma_total,
+        "eta_cons_2sigma": eta - 2.0 * sigma_total,
+        "eta_cons_1sigma": eta - sigma_total,
+    }
