@@ -14,6 +14,14 @@
 """
 from __future__ import annotations
 
+import sys as _sys
+
+for _stream in (_sys.stdout, _sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:  # noqa: BLE001
+        pass
+
 import os
 
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
