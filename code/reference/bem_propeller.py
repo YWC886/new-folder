@@ -51,6 +51,16 @@ def _cl_cd(alpha: float, p: BemParams) -> tuple[float, float]:
     return cl, cd
 
 
+def prandtl_tip_loss(r: float, phi: float, p: BemParams) -> float:
+    """Prandtl 桨尖损失因子 F（BEM v0.2）。"""
+    R = p.radius
+    if r >= R:
+        return 0.0
+    rr = max(r, 1e-6)
+    f = 0.5 * p.blades * (R - r) / (rr * max(math.sin(phi), 1e-6))
+    return (2.0 / math.pi) * math.acos(min(1.0, math.exp(-max(f, 1e-9))))
+
+
 def _element_force(r: float, dr: float, omega: float, p: BemParams, V_i: float) -> tuple[float, float]:
     """单个环形叶素在局部诱导速度 V_i 下的推力/扭矩。"""
     theta = _pitch_angle(r, p)
@@ -78,7 +88,9 @@ def integrate(V_i_unused: float | None, omega: float, p: BemParams) -> tuple[flo
         for _ in range(80):
             mid = 0.5 * (lo + hi)
             dT, _ = _element_force(r, dr, omega, p, mid)
-            if dT - 2 * p.rho * area * mid * mid > 0:
+            phi_mid = math.atan2(mid, omega * r)
+            F = prandtl_tip_loss(r, phi_mid, p)
+            if dT - 2 * p.rho * area * mid * mid * max(F, 1e-6) > 0:
                 lo = mid
             else:
                 hi = mid
