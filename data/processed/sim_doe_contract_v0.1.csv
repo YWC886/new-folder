@@ -1,0 +1,5 @@
+strategy,rounds,grid_rmse_mean,holdout_rmse_mean,grid_improvement_vs_none,holdout_improvement_vs_none,best_eta_abs_gap,grid_pass,holdout_pass,gap_pass
+none,10,0.00633762,0.0191296,0.0000,0.0000,0.000070,PASS,PASS,PASS
+sigma,10,0.00102114,0.00145998,0.8389,0.9237,0.000099,PASS,PASS,PASS
+ei,10,0.00137544,0.00204595,0.7830,0.8930,0.000216,PASS,PASS,PASS
+random,10,0.00219992,0.00568024,0.6529,0.7031,0.004292,PASS,PASS,FAIL

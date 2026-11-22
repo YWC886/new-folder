@@ -59,13 +59,6 @@
       "text": "data/apce_10x7_static_pg0811.txt"
     },
     {
-      "file": "docs\\design\\sim_doe_contract_v0.1.md",
-      "line": 34,
-      "word": "broken-ref",
-      "severity": "SOFT",
-      "text": "data/processed/sim_doe_contract_v0.1.csv"
-    },
-    {
       "file": "docs\\design\\数据采集方案_DAQ_v0.1.md",
       "line": 57,
       "word": "broken-ref",
