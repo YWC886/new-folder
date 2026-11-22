@@ -26,7 +26,7 @@ category,rel_path,exists,size_bytes
 软件数据,data/processed/design_matrix_v0.2_demo.csv,Y,3603
 软件数据,data/exports/项目成果总览_20261121.xlsx,Y,29629
 软件数据,data/exports/项目成果报告_20261121.docx,Y,702618
-软件数据,data/processed/release_manifest_v0.1.csv,Y,25882
+软件数据,data/processed/release_manifest_v0.1.csv,Y,26024
 论文成果,docs/research/paper_method_draft_v0.1.docx,Y,467405
 论文成果,docs/research/paper_method_draft_v0.1.md,Y,21788
 论文成果,docs/research/literature_review_v0.1.md,Y,45895
