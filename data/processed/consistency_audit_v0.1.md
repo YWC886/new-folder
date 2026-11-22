@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：88；HARD 0；SOFT 54
+文件数：89；HARD 0；SOFT 55
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -18,6 +18,7 @@
 - docs\design\数据采集方案_DAQ_v0.1.md:57 [broken-ref] data/metadata/calib_
 - docs\plan\v4口径四线核对表_V4ConsistencyCrossCheck_v0.1.md:10 [更换桨型] | 申报附件 01（前期基础摘要） | 未提"更换桨型"；UIUC 8 桨仅作 REFERENCE 方法验证 | 测量与解耦 + 建模与应用（见附件 04/说明） | 保留并加注「非项目主线；v4 口径为同一桨型」 | ✅ 一致 |
 - docs\plan\v4口径四线核对表_V4ConsistencyCrossCheck_v0.1.md:14 [多桨对比] | 开题答辩 PPT v0.2 | 「同一桨型·电压对比」页；地图页「电压×油门」 | 两条关键问题已写入 | 多桨对比页已删除 | ✅ 一致 |
+- docs\plan\v5治理总结与移交_GovernanceHandover_v0.1.md:28 [broken-ref] docs/research/paper_method_draft_v0.1.md/.docx
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:30 [broken-ref] docs/README
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [多桨对比] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [跨桨型] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。

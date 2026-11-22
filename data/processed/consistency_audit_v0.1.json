@@ -1,5 +1,5 @@
 {
-  "files": 88,
+  "files": 89,
   "hard": [],
   "soft": [
     {
@@ -71,6 +71,13 @@
       "word": "多桨对比",
       "severity": "SOFT",
       "text": "| 开题答辩 PPT v0.2 | 「同一桨型·电压对比」页；地图页「电压×油门」 | 两条关键问题已写入 | 多桨对比页已删除 | ✅ 一致 |"
+    },
+    {
+      "file": "docs\\plan\\v5治理总结与移交_GovernanceHandover_v0.1.md",
+      "line": 28,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/research/paper_method_draft_v0.1.md/.docx"
     },
     {
       "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
