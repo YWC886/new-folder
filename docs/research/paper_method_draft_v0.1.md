@@ -218,3 +218,19 @@ Monte Carlo（N=1000）得均值 0.2749、标准差 0.0032、95% 区间 [0.2687,
 [21] Cox B, Dantsker O D, Deters R W. Propulsion system testing instrumentation for multi-rotor and lighter-than-air UAVs[C]//AIAA SCITECH 2025 Forum, AIAA 2025-0252, 2025. DOI: 10.2514/6.2025-0252.
 [22] Røstum H H, Afonso F, Morlier J. Deep Gaussian processes for probabilistic prediction of UAV propeller aerodynamics[C]//MATEC Web of Conferences, 2026, 422: 02007. DOI: 10.1051/matecconf/202642202007.
 [23] JCGM. Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM), JCGM 100:2008[R]. BIPM, 2008.
+
+### 4.4 误差来源定位：等效几何筛选（REFERENCE-GEOM）
+
+为判断 BEM-lite 的残余误差主要来自「求解框架」还是「几何/极曲线简化」，在 APC 10x7E 的 16 个静点上做了一组等效几何筛选：固定翼型模型与求解器，仅扫描等效弦长比 c/R 与等效桨距 P（153 组网格），逐组计算 C_T/C_P 平均绝对误差。
+
+| 方案 | c/R | P (m) | C_T 误差 | C_P 误差 |
+|---|---|---|---|---|
+| 基线（名义几何 10x7） | 0.110 | 0.1778 | 41.1% | 22.3% |
+| 网格最优点（落在边界） | 0.070 | 0.2200 | 11.9% | 6.9% |
+
+结论与边界：
+
+- 等效参数可显著吸收误差（C_T 41.1%→11.9%、C_P 22.3%→6.9%），说明主导误差来自几何/极曲线简化，而非叶素-动量求解框架本身；
+- 最优点处于扫描网格边界（P/D=0.866，实际约 0.7），属**补偿性拟合**，不符合真实几何，不能作为物理标定或性能结论；
+- 该结果仅用于误差来源定位（D053），BEM 仍只作论文对照、不接入主线；正式对照需真实弦长/扭转分布、翼型极曲线与多桨留一验证（v0.4 方向）。
+
