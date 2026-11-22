@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：97；HARD 0；SOFT 60
+文件数：98；HARD 0；SOFT 61
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -9,6 +9,7 @@
 ## SOFT（文献语境/断链，复核）
 
 - docs\decisions.md:31 [broken-ref] code/docs/data
+- docs\design\bem_model_plan_v0.1.md:31 [broken-ref] code/reference/bem_propeller.py
 - docs\design\calibration_fit_v0.1.md:16 [broken-ref] data/metadata/calib_SIM_
 - docs\design\expansion_E1_multi_prop_v0.1.md:27 [broken-ref] data/processed/design_matrix_E1.csv
 - docs\design\expansion_E1_multi_prop_v0.1.md:27 [broken-ref] data/metadata/design_matrix_E1.summary.json
