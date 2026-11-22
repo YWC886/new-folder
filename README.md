@@ -120,6 +120,11 @@ py -3.12 code\selection\multiobjective.py --input data\processed\efficiency_map_
 # v0.4：GP σ 补测点推荐（限定已测油门区间，间距 ≥0.12）
 py -3.12 code\selection\multiobjective.py --input data\processed\efficiency_map_runs.csv --suggest --n 5 --min-distance 0.12 --output data\processed\gp_suggestions_v0.4.csv --figure data\processed\figures\gp_suggestions_v0.4.png --overwrite
 
+# 选型结果按统一口径（D056）输出：U(k=2)=0.0226 时重算保守效率并重排 Pareto
+py -3.12 code\selection\multiobjective.py --input data\processed\efficiency_map_runs.csv --thrust 5 --tolerance 0.1 --uq-k2 0.0226 --output data\processed\selection_v0.4_pareto_u2.csv --figure data\processed\figures\selection_v0.4_uq.png --overwrite
+# 对已有选型 CSV 补 UQ 列（u_meas/sigma_total/eta_cons_2sigma）
+py -3.12 code\selection\uq_annotate.py --input data\processed\selection_v0.4_pareto.csv --runs data\processed\efficiency_map_runs.csv --output data\processed\selection_v0.4_pareto_uq.csv --overwrite
+
 # v0.5：补测策略对比（σ / EI / 随机 / 不补测；10 轮闭环模拟，SIM 方法学）
 py -3.12 code\selection\bo_suggest.py --rounds 10 --overwrite
 py -3.12 -m unittest discover -s code\selection -p "test_*.py" -v

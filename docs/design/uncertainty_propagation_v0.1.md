@@ -74,3 +74,26 @@ py -3.12 -m unittest discover -s code/processing -p "test_uncertainty.py"
 ## 7. 变更记录
 
 - 0.1（2026-11-22）：Monte Carlo 传播工具 + SIM 演示 + 7 项测试。
+
+## 8. 与选型工具的口径衔接（D056，2026-11-22）
+
+MC 得到的是 **1σ 模型波动**（σ_model），不能与测量不确定度 U(k=2) 直接相加，也不能把 bootstrap 区间当作 U。统一口径：
+
+```
+u_meas     = U(k=2) / 2          # 换算到 1σ
+σ_total    = sqrt(u_meas² + σ_model²)
+η_cons     = η − k · σ_total     # k=2 呈现保守值
+```
+
+落地位置：
+- `code/processing/uq_utils.py`：`from_u2/to_u2/combine_sigma/conservative_eta/integrate_u2`；
+- `code/processing/uncertainty.py --u-k2`：MC 输出直接附 u_meas/σ_total/η_cons；
+- `code/selection/uq_annotate.py`：为任意选型 CSV 补 UQ 列（`eta_cons_2sigma` 等）；
+- `code/selection/multiobjective.py --uq-k2`：Pareto 前沿按 D056 重算保守效率并重排；
+- 论文 §4.6 给出实现与示例（SIM 合成数据），并说明若不换算会高估 σ_total 约 2 倍。
+
+边界：U(k=2) 默认值 0.0226 来自 SIM 合成数据；实测后必须用 D032/M0.4 的标定 metrics 替换，并保留 `data_note` 标注。
+
+## 9. 变更记录
+
+- 0.2（2026-11-22）：补 §8 与选型工具的口径衔接（D056）及落地命令。
