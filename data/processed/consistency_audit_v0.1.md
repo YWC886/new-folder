@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：94；HARD 0；SOFT 59
+文件数：95；HARD 0；SOFT 60
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -12,6 +12,7 @@
 - docs\design\calibration_fit_v0.1.md:16 [broken-ref] data/metadata/calib_SIM_
 - docs\design\expansion_E1_multi_prop_v0.1.md:27 [broken-ref] data/processed/design_matrix_E1.csv
 - docs\design\expansion_E1_multi_prop_v0.1.md:27 [broken-ref] data/metadata/design_matrix_E1.summary.json
+- docs\design\geometry_prior_v0.1.md:38 [跨桨型] 但不足以跨桨型泛化；
 - docs\design\prior_profile_v0.1.md:68 [跨桨型] - 样本内对照：提升倍数不代表泛化能力；跨桨型/跨系列外推仍须实测；
 - docs\design\processing_pipeline_v0.1.md:59 [broken-ref] data/metadata/calib_
 - docs\design\public_data_benchmark_v0.1.md:28 [broken-ref] data/apce_10x7_static_pg0811.txt
@@ -32,7 +33,7 @@
 - docs\plan\阶段总结_StageSummary_r90_v0.1.md:12 [broken-ref] docs/plan/开题答辩要点_DefenseKeyPoints_v0.1.md/.docx
 - docs\procurement\bom_v0.1.md:75 [broken-ref] docs/procurement/到货验收记录.md
 - docs\procurement\询价单模板.md:59 [broken-ref] docs/procurement/quotes/
-- docs\README.md:140 [broken-ref] docs/design/figs/
+- docs\README.md:141 [broken-ref] docs/design/figs/
 - docs\research\project_deep_dive_v0.1.md:126 [broken-ref] docs/README
 - docs\research\project_deep_dive_v0.1.md:156 [broken-ref] data/processed/efficiency_map_
 - docs\research\project_deep_dive_v0.1.md:227 [broken-ref] code/daq/

@@ -105,6 +105,7 @@ docs\
 | `design/re_correction_v0.5.md` | v0.5 | 草稿（Reynolds 修正负结果：单一 Re 幂律 R² 0.03–0.05，不写入默认参数；13 项测试 = 参考共 61 项，D044） | D | 2026-11-21 |
 | `design/design_matrix_v0.1.md` | v0.1 | 草稿（多工况试验排程：full/sweep、字段、135 runs 基线；10 项测试 = 处理 82 项） | C/D | 2026-11-21 |
 | `design/design_matrix_v0.2.md` | v0.2 | 草稿（目标推力反解 + 不可达跳过 + 顺序随机化；19 项测试 = 处理 91 项；D045） | C/D | 2026-11-21 |
+| `design/geometry_prior_v0.1.md` | v0.1 | 完成（几何特征代理 + LOPO 负结果，REFERENCE，D049，8 项测试） | D | 2026-11-22 |
 | `research/literature_review_v0.1.md` | v0.1 | 草稿（六主题综述 + 差距 G1–G6；40 条参考文献） | lit-researcher | 2026-11-19 |
 | `research/standards_regulation_v0.1.md` | v0.1 | 草稿（国标/团标/计量/安全/伦理，21 条来源） | standards-researcher | 2026-11-19 |
 | `research/competition_softcopyright_v0.1.md` | v0.1 | 草稿（大创/赛事/软著/专利论文，15 条来源） | standards-researcher | 2026-11-19 |
@@ -169,7 +170,7 @@ docs\
 - `规划/开题答辩PPT_v0.2.pptx`：按 v4 口径（同一桨型、不更换桨型）替换多桨对比页。
 - 论文 `research/paper_method_draft_v0.1.*`：对标表述统一为「REFERENCE 方法验证」。
 - 一致性审计：`code/tools/audit_consistency.py` 已接入 `round_close.py`（HARD 必须为 0）。
-- 当前计数：69 源文件 / 16,135 行 / 323 页；复现清单 200 文件；测试 281 项。
+- 当前计数：71 源文件 / 16,461 行 / 330 页；复现清单 228 文件；测试 289 项。
 
 ### 2026-11-22 M0.4 启动包
 

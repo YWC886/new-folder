@@ -1,5 +1,5 @@
 {
-  "files": 94,
+  "files": 95,
   "hard": [],
   "soft": [
     {
@@ -29,6 +29,13 @@
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "data/metadata/design_matrix_E1.summary.json"
+    },
+    {
+      "file": "docs\\design\\geometry_prior_v0.1.md",
+      "line": 38,
+      "word": "跨桨型",
+      "severity": "SOFT",
+      "text": "但不足以跨桨型泛化；"
     },
     {
       "file": "docs\\design\\prior_profile_v0.1.md",
@@ -172,7 +179,7 @@
     },
     {
       "file": "docs\\README.md",
-      "line": 140,
+      "line": 141,
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "docs/design/figs/"

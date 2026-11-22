@@ -1,0 +1,8 @@
+prop,brand,series,diameter_in,pitch_in,pitch_ratio,points,generic_ct_mae,geo_ct_mae,generic_cp_mae,geo_cp_mae
+apce_11x7,APC,Electric (thin electric),11.0,7.0,0.6364,16,0.056856,0.04265,0.028622,0.118176
+apce_11x8,APC,Electric (thin electric),11.0,8.0,0.7273,16,0.080198,0.520587,0.116553,0.374548
+apcsf_10x7,APC,Slow Flyer,10.0,7.0,0.7,16,0.265102,0.265364,0.373257,0.259488
+apcsp_9x6,APC,Sport,9.0,6.0,0.6667,16,0.064647,0.086096,0.21004,0.070337
+grcp_10x6,Graupner,CAM Prop,10.0,6.0,0.6,16,0.156176,0.082643,0.078317,0.105004
+grsn_10x7,Graupner,Super Nylon,10.0,7.0,0.7,16,0.139465,0.100457,0.234474,0.05051
+ance_8.5x6,Aeronaut,Carbon Electric,8.5,6.0,0.7059,16,0.033501,0.247248,0.126045,0.394695
