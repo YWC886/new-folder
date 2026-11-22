@@ -1,0 +1,28 @@
+# 静态砝码标定读数（长表模板）· Calibration Readings Template
+# 说明：channel ∈ {thrust, torque}; direction ∈ {load, unload}; repeat ≥1；applied 为加载量（N 或 N·m）；raw 为 ADC 读数（计数）。
+# 用法：copy 本文件后按实际读数填写；行首 # 的行会被 calibration_fit.py 跳过。
+channel,direction,repeat,applied,raw
+thrust,load,1,0,0
+thrust,load,1,20,57143
+thrust,load,1,40,114286
+thrust,load,1,60,171429
+thrust,load,1,80,228571
+thrust,load,1,100,285714
+thrust,unload,1,100,285714
+thrust,unload,1,80,228571
+thrust,unload,1,60,171429
+thrust,unload,1,40,114286
+thrust,unload,1,20,57143
+thrust,unload,1,0,0
+torque,load,1,0,0
+torque,load,1,0.05,8500
+torque,load,1,0.10,17000
+torque,load,1,0.15,25500
+torque,load,1,0.20,34000
+torque,load,1,0.25,42500
+torque,unload,1,0.25,42500
+torque,unload,1,0.20,34000
+torque,unload,1,0.15,25500
+torque,unload,1,0.10,17000
+torque,unload,1,0.05,8500
+torque,unload,1,0,0

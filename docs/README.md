@@ -170,3 +170,9 @@ docs\
 - 论文 `research/paper_method_draft_v0.1.*`：对标表述统一为「REFERENCE 方法验证」。
 - 一致性审计：`code/tools/audit_consistency.py` 已接入 `round_close.py`（HARD 必须为 0）。
 - 当前计数：69 源文件 / 16,135 行 / 323 页；复现清单 200 文件；测试 281 项。
+
+### 2026-11-22 M0.4 启动包
+
+- `inputs/M0.4启动包_M0.4KickoffPack_v0.1.md`：采购→台架→双人标定→MEASURED 门禁→首采的完整清单与命令；
+- `data/metadata/templates/calibration_readings_template.csv`：砝码读数长表模板（已用 `calibration_fit.py` 干跑验证，可生成合法标定 JSON）；
+- 状态：硬件/标定未开始；网络受限导致远端 push 暂不可用（已记录）。
