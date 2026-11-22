@@ -125,3 +125,12 @@
 - 结论：单一全局修正方向可迁移但不稳定，不满足'≤20% 且不劣化'，不得写入论文可接受对照；BEM 仍仅作误差来源诊断。
 - 后续：按桨型分族/特征自适应修正，或真实几何+翼型极曲线。
 - 测试：+2（参考 85 项；全仓 312 项）。
+
+## D056 不确定度口径统一（U(k=2) 与 GP σ 的合成规则）
+
+- 现状：存在三套口径——`compute_efficiency` 输出的 U(k=2)（k=2 扩展不确定度）、`uncertainty.py` 的 Monte Carlo 1σ、`selection` 的 `η_cons = η − sqrt((2σ_gp)² + u_local²)`（把 2σ_gp 与 U 直接相加）。
+- 统一规则：`u_meas = U(k=2)/2`（换算成 1σ）；`σ_total = sqrt(u_meas² + σ_model²)`（独立量方差合成，σ_model 为 GP 预测标准差）；`η_cons = η − k·σ_total`（k=2 呈现为保守值，k=1 为 1σ 版本）。
+- 禁止事项：U(k=2) 与 σ_gp 直接相加（等价于把 2σ_gp 当 1σ 用）；用 bootstrap 区间冒充 U(k=2)；把两者相加后再乘 k。
+- 实现：`code/processing/uq_utils.py`（`from_u2`/`to_u2`/`combine_sigma`/`conservative_eta`）、`code/selection/uq_consistency.py`（runs×surface 匹配后输出统一口径表）。
+- 验收：合成公式误差 <1e-9（测试覆盖）；输出必须带 `data_note` 标注 SIM/REFERENCE；实机后以 D032/M0.4 标定不确定度替换默认 1σ 参数。
+- 影响：选型/补测输出改为 `eta_cons_2sigma`；历史文档中的 `η−U` 写法不再使用（说明性引用除外）。
