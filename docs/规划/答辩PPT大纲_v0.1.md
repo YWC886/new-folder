@@ -8,7 +8,7 @@
 | 2 | 问题与目标 | 巡检场景"选桨/选电压最省电"；效率地图目标 | 论文 §1 |
 | 3 | 研究现状与缺口 | 部件表征→地图优化→缺闭环（方法演进图） | `paper_method_evolution_v0.1.png` |
 | 4 | 技术路线总览 | 六阶段甘特 + S0–S5 门禁 | `plan_gantt_v0.1.png` |
-| 5 | 台架与采集 | 单轴台架、传感器、ADS1256/串口协议 | `docs/design/bench_v0.1.md`、`daq_v0.1.md` |
+| 5 | 台架与采集 | 单轴台架、传感器、ADS1256/串口协议 | `docs/design/bench_v0.1.md`、`数据采集方案_DAQ_v0.1.md` |
 | 6 | 标定与不确定度 | M1 砝码双人标定、U(k=2) 预算 | SOP、`calibration_fit_v0.1.md` |
 | 7 | 效率口径 | η_em / FM / η_sys 三定义与边界 | 论文 §3、D012 |
 | 8 | 数据与地图 | DoE 排程、GP 平滑面 + σ | `efficiency_map_v0.4.png` |

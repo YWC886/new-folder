@@ -18,7 +18,7 @@ docs\
 ├─ 参考\                    软件环境与使用说明、项目技能清单、2023 年范本 PDF（非本项目）
 ├─ design\                  台架、采集、数据处理方案
 │  ├─ bench_v0.1.md
-│  ├─ daq_v0.1.md
+│  ├─ 数据采集方案_DAQ_v0.1.md
 │  ├─ data_dictionary_v0.1.md
 │  ├─ processing_pipeline_v0.1.md
 │  ├─ processing_pipeline_v0.2.md
@@ -78,7 +78,7 @@ docs\
 | 文档 | 版本 | 状态 | 负责人 | 更新日期 |
 | --- | --- | --- | --- | --- |
 | `design/bench_v0.1.md` | v0.1 | 草稿（待 B 评审） | B | 2026-11-19 |
-| `design/daq_v0.1.md` | v0.1 | 草稿（待 C 评审） | C | 2026-11-19 |
+| `design/数据采集方案_DAQ_v0.1.md` | v0.1 | 草稿（待 C 评审） | C | 2026-11-19 |
 | `design/data_dictionary_v0.1.md` | v0.1 | 草稿（随协议同步） | C/D | 2026-11-19 |
 | `design/processing_pipeline_v0.1.md` | v0.1 | 草稿（基础口径；v0.2 为增量，口径不变） | D | 2026-11-19 |
 | `design/processing_pipeline_v0.2.md` | v0.2 | 草稿（稳态 auto + 一阶不确定度，23 项测试） | D | 2026-11-19 |

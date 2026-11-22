@@ -141,7 +141,7 @@ WBS 中的过程验收阈值（规划 §3.5–§3.11，PDF 第 5–8 页）：WP
 | # | 能力 | 已有 | 缺什么 |
 |---|---|---|---|
 | B1 | 台架结构设计 | `docs/design/bench_v0.1.md`：单轴立式方案、桨盘离地≥1.5D、挠度<0.1 mm、同轴度<1 mm、反扭矩臂 L=0.25 m 摩擦≤0.2%、安全红线 | 无 FreeCAD 三维图；无一阶固有频率估算；被测电机/桨未冻结；未评审（11-24 节点） |
-| B2 | 采集方案 | `docs/design/daq_v0.1.md`：7 通道量程/带宽/精度、ADS1256→STM32F103→USB CDC 拓扑、标定 6 步、M0.4 验收阈值 | **ADS1256 总 30 kSPS 无法同时满足电压/电流 10 kS/s**（v0.1 取 3 kS/s），需 INA226 或第二片 ADC 定案（P003）；硬件未选型定点 |
+| B2 | 采集方案 | `docs/design/数据采集方案_DAQ_v0.1.md`：7 通道量程/带宽/精度、ADS1256→STM32F103→USB CDC 拓扑、标定 6 步、M0.4 验收阈值 | **ADS1256 总 30 kSPS 无法同时满足电压/电流 10 kS/s**（v0.1 取 3 kS/s），需 INA226 或第二片 ADC 定案（P003）；硬件未选型定点 |
 | B3 | 不确定度评定 | 一阶 RSS 框架 + 1σ 分量表（u_T 0.65%、u_Q 0.50%、u_rpm 0.10%、u_V/u_I 各 0.10%/0.50%、u_ρ 0.50%）；U(k=2)：η_em 1.44%、FM/η_sys 2.26%（`data/metadata/*_efficiency.json` 实测含 `U_rel_eta_sys_k2=0.0225666`） | 分量为**先验假设**（bench_tech 量级），须用实机重复性/迟滞替换（D018 note；efficiency JSON 的 `uncertainty.note` 明确要求） |
 | B4 | 效率建模 | GP（RBF+LOOCV ℓ=0.550、RMSE 0.001662、R²=0.9999）；prestudy 学习曲线；28 项处理链测试中的 map/GP 部分 | 仅 16 个 SIM 点，LOOCV 自洽偏乐观；G3 的"实测交叉验证 R²≥0.90"无证据 |
 | B5 | 匹配优化算法 | 网格/插值/GP 连续匹配/Pareto/补测推荐全链路；43 项测试 | 输入为 SIM 地图；目标未含重量、噪声、寿命、温升余量、成本（D028 明确"不做成本项"）；KV/桨径/电调参数联合空间未真正展开 |
@@ -337,7 +337,7 @@ WBS 中的过程验收阈值（规划 §3.5–§3.11，PDF 第 5–8 页）：WP
 - 规划：`大创项目_推进规划与技术预研_v1.1.docx`（PDF 30 页，§1.3/§3/§5/§8/§9）。
 - 阶段：`大创项目_第一阶段启动计划_2026-11-17至11-30.docx`（4 页）。
 - 决策：`docs/decisions.md`（D001–D029、P001–P005）。
-- 设计/测试/采购/软著/团队：`docs/design/bench_v0.1.md`、`docs/design/daq_v0.1.md`、`docs/design/public_data_benchmark_v0.1.md`、`docs/test/采集链路自检报告_v0.1.md`、`docs/test/静态砝码读数记录_v0.1.md`、`docs/inputs/被测对象与实验室条件确认单_v0.1.md`、`docs/procurement/bom_v0.1.md`、`docs/softcopyright/`、`docs/team/roles.md`、`docs/plan/拓展方向_v0.1.md`。
+- 设计/测试/采购/软著/团队：`docs/design/bench_v0.1.md`、`docs/design/数据采集方案_DAQ_v0.1.md`、`docs/design/public_data_benchmark_v0.1.md`、`docs/test/采集链路自检报告_v0.1.md`、`docs/test/静态砝码读数记录_v0.1.md`、`docs/inputs/被测对象与实验室条件确认单_v0.1.md`、`docs/procurement/bom_v0.1.md`、`docs/softcopyright/`、`docs/team/roles.md`、`docs/plan/拓展方向_v0.1.md`。
 - 环境：`软件环境与使用说明.md`（§一 环境总览、§七 环境验证记录、FAQ 第 10 条）。
 
 ---
@@ -352,7 +352,7 @@ WBS 中的过程验收阈值（规划 §3.5–§3.11，PDF 第 5–8 页）：WP
 | 4 | 周会时间 | phase1 计划"周一 20:00" vs roles.md"站会周一 + 周会周四" | 以启动会决议为准，改一处 |
 | 5 | 交付物路径 | phase1 计划写 `code/daq/`，实际 `code/acquisition/` | 更新计划或建目录别名 |
 | 6 | 两版申报表个人信息/日期空白 | 两版 PDF 第 2 页 | 结题/中期前补齐并留档 |
-| 7 | 采样率折衷 3 kS/s vs 10 kS/s | `docs/design/daq_v0.1.md` | 11-24 前定案（P003） |
+| 7 | 采样率折衷 3 kS/s vs 10 kS/s | `docs/design/数据采集方案_DAQ_v0.1.md` | 11-24 前定案（P003） |
 | 8 | 台架一阶固有频率目标 600 Hz 可达性 | `docs/design/bench_v0.1.md` 自注 | 以实测/仿真下调安全转速上限（P005） |
 | 9 | `data/raw` 17 个 run 而 `efficiency_map_runs.csv` 16 行 | 目录计数 vs 产物 | 说明 2026-11-17 联调 run 的处置（保留但不进地图） |
 | 10 | BOM 必需项小计表述自相矛盾：原文"约 5255 元 > 设备+试制预算 5500 元"（实际 5255<5500） | `docs/procurement/bom_v0.1.md` 第 46 行 | 修正为"接近上限"，并注明该小计未含业务费 3000 元 |

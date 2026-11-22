@@ -7,7 +7,7 @@
 | 检索日期 | 2026-11-19（文内所有链接均于当日核验；标准"现行/废止"状态以平台当日显示为准） |
 | 适用项目 | 多旋翼 UAV「电机—螺旋桨—电调」系统效率地图（大创项目） |
 | 编制 | standards-researcher（合规与成果调研） |
-| 关联文档 | [../README.md](../README.md)、[../softcopyright/README.md](../softcopyright/README.md)、[../design/bench_v0.1.md](../design/bench_v0.1.md)、[../design/daq_v0.1.md](../design/daq_v0.1.md)、[../test/静态砝码读数记录_v0.1.md](../test/静态砝码读数记录_v0.1.md) |
+| 关联文档 | [../README.md](../README.md)、[../softcopyright/README.md](../softcopyright/README.md)、[../design/bench_v0.1.md](../design/bench_v0.1.md)、[../design/数据采集方案_DAQ_v0.1.md](../design/数据采集方案_DAQ_v0.1.md)、[../test/静态砝码读数记录_v0.1.md](../test/静态砝码读数记录_v0.1.md) |
 
 > 阅读约定：
 > 1. 本文区分「事实（已核验）」与「判断（本项目适用性分析）」；判断均标注"本项目判断"。
@@ -232,7 +232,7 @@
 ### 5.4 其他被测量（转速、电压、电流、温度）
 
 - 转速（r/min）、电压（V）、电流（A）、温度（℃）的传感器/仪表应具备出厂校准证明或送 CNAS 校准；相关专门检定规程本次未逐一检索，**【待核实】**。
-- 数据采集系统的采样率、量程、分辨率、同步方式应在 [../design/daq_v0.1.md](../design/daq_v0.1.md) 中说明，并与本节的溯源结论衔接。
+- 数据采集系统的采样率、量程、分辨率、同步方式应在 [../design/数据采集方案_DAQ_v0.1.md](../design/数据采集方案_DAQ_v0.1.md) 中说明，并与本节的溯源结论衔接。
 
 ### 5.5 CNAS 与校准机构
 

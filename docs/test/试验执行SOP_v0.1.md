@@ -1,7 +1,7 @@
 # 台架试验执行 SOP（标准作业程序）v0.1
 
 > 适用：M0.4 最小采集链路与后续多工况测试（S2）· 编制 2026-11-21 · 执行前须经指导教师确认
-> 配套：`docs/design/daq_v0.1.md`、`docs/design/design_matrix_v0.2.md`、`docs/design/data_dictionary_v0.1.md`、`docs/test/静态砝码读数记录_v0.1.md`
+> 配套：`docs/design/数据采集方案_DAQ_v0.1.md`、`docs/design/design_matrix_v0.2.md`、`docs/design/data_dictionary_v0.1.md`、`docs/test/静态砝码读数记录_v0.1.md`
 
 ## 1 目的与适用范围
 
