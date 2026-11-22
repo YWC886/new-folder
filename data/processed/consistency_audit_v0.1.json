@@ -1,5 +1,5 @@
 {
-  "files": 98,
+  "files": 99,
   "hard": [],
   "soft": [
     {
@@ -8,13 +8,6 @@
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "code/docs/data"
-    },
-    {
-      "file": "docs\\design\\bem_model_plan_v0.1.md",
-      "line": 31,
-      "word": "broken-ref",
-      "severity": "SOFT",
-      "text": "code/reference/bem_propeller.py"
     },
     {
       "file": "docs\\design\\calibration_fit_v0.1.md",
@@ -186,7 +179,7 @@
     },
     {
       "file": "docs\\README.md",
-      "line": 142,
+      "line": 143,
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "docs/design/figs/"

@@ -14,7 +14,7 @@
 | `bootstrap_priors.py` | v0.1 bootstrap 95% CI：逐点重采样重拟合，输出参数与内误差区间（非 U(k=2)，do_not_apply）+ boxplot/errorbar 图 |
 | `prior_profile.py` | v0.4 prior profile：逐桨先验 → opt-in `ModelParams`，同数据对比通用先验 vs 逐桨先验（样本内上限，非实测；do_not_apply） |
 | `re_correction.py` | v0.5 Reynolds 修正对标（负结果）：Re=n·D²/ν，替换式/乘性修正对照 generic/prior；结论不写入默认参数（D044） |
-| `test_reference.py` + `test_calibration_uiuc.py` + `test_bootstrap_priors.py` + `test_prior_profile.py` + `test_re_correction.py` | 69 项测试（解析 / 文件名 / 目录统计 / 对标 / 逐桨反推 / bootstrap 区间 / prior profile 对照 / Re 修正 / CSV / PNG / 覆盖保护） |
+| `test_reference.py` + `test_calibration_uiuc.py` + `test_bootstrap_priors.py` + `test_prior_profile.py` + `test_re_correction.py` | 77 项测试（解析 / 文件名 / 目录统计 / 对标 / 逐桨反推 / bootstrap 区间 / prior profile 对照 / Re 修正 / CSV / PNG / 覆盖保护） |
 | `geometry_prior.py` / `test_geometry_prior.py` | 几何特征代理（REFERENCE，LOPO 负结果，D049，8 项测试） |
 
 ## 用法

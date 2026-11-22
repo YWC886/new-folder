@@ -1,0 +1,22 @@
+{
+  "rpm": 4000.0,
+  "inflow_velocity_m_s": 5.435222053192999,
+  "thrust_n": 3.604527809437845,
+  "torque_nm": 0.060313784888983646,
+  "ct": 0.1618339167693424,
+  "cp": 0.0001599172415337515,
+  "figure_of_merit": 287.868423973586,
+  "converged": true,
+  "params": {
+    "diameter_m": 0.254,
+    "pitch_m": 0.1778,
+    "blades": 2,
+    "chord_ratio": 0.11,
+    "hub_ratio": 0.15,
+    "rho": 1.204,
+    "cl_alpha": 6.283185307179586,
+    "cl_max": 1.1,
+    "cd0": 0.012,
+    "cd_alpha2": 0.03
+  }
+}

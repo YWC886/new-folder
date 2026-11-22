@@ -182,3 +182,8 @@
 - 新增 `code/processing/uncertainty.py` + `test_uncertainty.py`（7 项测试）与 UQ 文档；
 - SIM 演示：η_sys 0.2749，MC 95% 区间 [0.2687, 0.2814]；
 - 处理测试 98 项、全仓 296 项。
+
+## 2026-11-22 · 深化目标 Round 8
+
+- 新增 `code/reference/bem_propeller.py` + `test_bem_propeller.py`（8 项测试）与 `docs/design/bem_lite_v0.1.md`；
+- APC 10x7E REFERENCE 对照：C_T 53.0%、C_P 26.5%；全仓 304 项测试。

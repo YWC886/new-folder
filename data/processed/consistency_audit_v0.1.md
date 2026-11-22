@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：98；HARD 0；SOFT 61
+文件数：99；HARD 0；SOFT 60
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -9,7 +9,6 @@
 ## SOFT（文献语境/断链，复核）
 
 - docs\decisions.md:31 [broken-ref] code/docs/data
-- docs\design\bem_model_plan_v0.1.md:31 [broken-ref] code/reference/bem_propeller.py
 - docs\design\calibration_fit_v0.1.md:16 [broken-ref] data/metadata/calib_SIM_
 - docs\design\expansion_E1_multi_prop_v0.1.md:27 [broken-ref] data/processed/design_matrix_E1.csv
 - docs\design\expansion_E1_multi_prop_v0.1.md:27 [broken-ref] data/metadata/design_matrix_E1.summary.json
@@ -34,7 +33,7 @@
 - docs\plan\阶段总结_StageSummary_r90_v0.1.md:12 [broken-ref] docs/plan/开题答辩要点_DefenseKeyPoints_v0.1.md/.docx
 - docs\procurement\bom_v0.1.md:75 [broken-ref] docs/procurement/到货验收记录.md
 - docs\procurement\询价单模板.md:59 [broken-ref] docs/procurement/quotes/
-- docs\README.md:142 [broken-ref] docs/design/figs/
+- docs\README.md:143 [broken-ref] docs/design/figs/
 - docs\research\project_deep_dive_v0.1.md:126 [broken-ref] docs/README
 - docs\research\project_deep_dive_v0.1.md:156 [broken-ref] data/processed/efficiency_map_
 - docs\research\project_deep_dive_v0.1.md:227 [broken-ref] code/daq/
