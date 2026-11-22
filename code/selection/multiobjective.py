@@ -489,6 +489,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--min-distance", type=float, default=0.12)
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--require-measured", action="store_true", help="MEASURED 守门：仅接受 source=MEASURED 的 runs（D038）")
+    parser.add_argument("--uq-k2", type=float, default=0.0, help="可选：统一 U(k=2) 测量不确定度；>0 时按 D056 重算保守效率")
     args = parser.parse_args(argv)
 
     try:
@@ -533,6 +534,16 @@ def main(argv: list[str] | None = None) -> int:
             voltage_points=args.voltage_points,
             throttle_points=args.throttle_points,
         )
+        if args.uq_k2 > 0:
+            u_meas = args.uq_k2 / 2.0
+            for row in result["front"]:
+                sigma_total = math.sqrt(u_meas ** 2 + float(row["gp_std_eta"]) ** 2)
+                row["eta_sys_conservative"] = row["eta_sys"] - 2.0 * sigma_total
+            result["front"].sort(key=lambda r: -r["eta_sys_conservative"])
+            for i, row in enumerate(result["front"], 1):
+                row["rank"] = i
+            mark_knee(result["front"])
+            result["knee"] = result["front"][0]
         csv_path = write_csv(result["front"], args.output, fields=PARETO_FIELDS, overwrite=args.overwrite)
         png_path = plot_pareto(
             result["candidates"],
