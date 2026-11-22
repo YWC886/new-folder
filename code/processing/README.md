@@ -26,7 +26,7 @@
 ## 快速运行
 
 ```powershell
-# 模块测试（91 项：流水线 12 + 汇总 12 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10 + 联动守门 5 + 试验排程 19）
+# 模块测试（98 项测试：流水线 12 + 汇总 12 + 绘图 6 + GP 12 + 标定拟合 15 + MEASURED 门禁 10 + 联动守门 5 + 试验排程 19）
 py -3.12 -m unittest discover -s code\processing -p "test_*.py" -v
 
 # 用模拟数据 + 合成标定跑通流水线（自动识别稳态窗口，输出带 simulated 标记）

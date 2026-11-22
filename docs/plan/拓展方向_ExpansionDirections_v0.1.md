@@ -176,3 +176,9 @@
 - 新增 code/reference/geometry_prior.py + 	est_geometry_prior.py（8 项测试）与 docs/design/geometry_prior_v0.1.md；
 - LOPO 负结果：几何特征线性代理未优于通用先验（C_T 11.37%→19.21%，C_P 16.68%→19.61%），记 D049；
 - 全仓 289 项测试；软著 71 源文件 / 16,461 行 / 330 页；清单 228 文件。
+
+## 2026-11-22 · 深化目标 Round 2
+
+- 新增 `code/processing/uncertainty.py` + `test_uncertainty.py`（7 项测试）与 UQ 文档；
+- SIM 演示：η_sys 0.2749，MC 95% 区间 [0.2687, 0.2814]；
+- 处理测试 98 项、全仓 296 项。

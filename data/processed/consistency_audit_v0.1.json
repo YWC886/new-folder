@@ -1,5 +1,5 @@
 {
-  "files": 95,
+  "files": 96,
   "hard": [],
   "soft": [
     {
@@ -179,7 +179,7 @@
     },
     {
       "file": "docs\\README.md",
-      "line": 141,
+      "line": 142,
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "docs/design/figs/"

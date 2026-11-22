@@ -106,6 +106,7 @@ docs\
 | `design/design_matrix_v0.1.md` | v0.1 | 草稿（多工况试验排程：full/sweep、字段、135 runs 基线；10 项测试 = 处理 82 项） | C/D | 2026-11-21 |
 | `design/design_matrix_v0.2.md` | v0.2 | 草稿（目标推力反解 + 不可达跳过 + 顺序随机化；19 项测试 = 处理 91 项；D045） | C/D | 2026-11-21 |
 | `design/geometry_prior_v0.1.md` | v0.1 | 完成（几何特征代理 + LOPO 负结果，REFERENCE，D049，8 项测试） | D | 2026-11-22 |
+| `design/uncertainty_propagation_v0.1.md` | v0.1 | 完成（Monte Carlo η_sys 传播 + 灵敏度，SIM 演示，D050，7 项测试） | D | 2026-11-22 |
 | `research/literature_review_v0.1.md` | v0.1 | 草稿（六主题综述 + 差距 G1–G6；40 条参考文献） | lit-researcher | 2026-11-19 |
 | `research/standards_regulation_v0.1.md` | v0.1 | 草稿（国标/团标/计量/安全/伦理，21 条来源） | standards-researcher | 2026-11-19 |
 | `research/competition_softcopyright_v0.1.md` | v0.1 | 草稿（大创/赛事/软著/专利论文，15 条来源） | standards-researcher | 2026-11-19 |
