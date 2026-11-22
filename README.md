@@ -24,7 +24,7 @@
 | 成果导出（Excel/Word） | **v0.1**：`code/tools/export_office.py` 把关键数据汇总为 Excel 工作簿（10 个工作表，含数据边界声明）+ Word 成果报告（成果概览/图件/验证/下一步）；`data/exports/项目成果总览_<日期>.xlsx`、`项目成果报告_<日期>.docx`（D046） |
 | 论文与结题材料 | **v0.1 方法草稿**：`docs/research/paper_method_draft_v0.1.md` + 自动转换 Word 版（`code/tools/md2docx.py`，3 图/6 节/23 条参考文献（DOI 已核验）+ 最接近工作对比表）；全部数值标注 SIM/REFERENCE，投稿前须补实测与导师审阅（D047） |
 | 试验执行 SOP | **v0.1**：`docs/test/试验执行SOP_v0.1.md` + Word 版；覆盖上电前检查、双人砝码标定、单工况流程、异常处置、入库门禁与复测判据；Excel 检查单见 `data/exports/项目成果总览_*.xlsx` 的「08b_试验执行检查单」；另有一页速查版 `docs/test/试验执行SOP_一页版_v0.1.docx`（打印贴墙用）（D048） |
-| 软件拓展方向 | `docs/plan/拓展方向_v0.1.md`：处理与效率地图自动化、公开数据对标、选型匹配原型、软著/竞赛/复现包；实机依赖项已按用户要求搁置 |
+| 软件拓展方向 | `docs/plan/拓展方向_ExpansionDirections_v0.1.md`：处理与效率地图自动化、公开数据对标、选型匹配原型、软著/竞赛/复现包；实机依赖项已按用户要求搁置 |
 | 科研调研与资料 | `docs/research/`（索引 `docs/research/README.md`）：文献综述 40 条（36 DOI 经 Crossref 核验）、标准法规（GB/T 38058—2019、GB/T 39567—2020、T/XJBX 001—2024 等）、竞赛/软著登记要求、项目深读（37 项能力矩阵、Top3 风险与下一步）；4 名 Agent 完成、Lead 复核集成 |
 | Python 解释器 | 已修复：系统默认 `python` 升至 3.15 与 `work/pylibs`（cp312）不兼容 → 安装 3.12.10，项目命令统一用 `py -3.12`（FAQ 第 10 条） |
 | 依赖完整性 | `work/env/requirements.txt` 已补全 pandas / python-docx / openpyxl / lxml 等；`check_env.py` 全通过，采集 5 项测试通过（2026-11-19） |
@@ -166,7 +166,7 @@ py -3.12 code\tools\measured_e2e_drill.py
 
 ## 下一步
 
-**软件拓展（实机数据到位前优先，见 `docs/plan/拓展方向_v0.1.md`）**
+**软件拓展（实机数据到位前优先，见 `docs/plan/拓展方向_ExpansionDirections_v0.1.md`）**
 
 1. ✅ 效率地图 v0.2 + v0.3 + v0.4：不确定度传播、稳态自动识别、`--uncertainty` 误差棒/格内 ±U、GP 平滑代理（LOOCV 核宽 0.550、RMSE 0.001662、R² 0.9999，21×21 预测面）已完成（38 项测试，`docs/design/processing_pipeline_v0.2.md`、`efficiency_map_v0.3.md`、`efficiency_map_v0.4.md`）；剩余：与 prestudy 口径统一（GP 已并入选型 v0.3，见 D027）；
 2. ✅ 仿真模型 v0.2 + v0.3 + v0.4：电池内阻压降、温升/铜温漂敏感性（16 工况）、一阶热瞬态 T(t)/η_sys(t) 与双节点热网络（绕组/机壳 + 冷却曲线）已完成（33 项测试，`docs/design/simulation_model_v0.2.md`、`simulation_model_v0.3.md`、`simulation_model_v0.4.md`）；剩余：v0.5 用实测温升/冷却曲线辨识热参数（公开桨数据校核已由 `code/reference/` 承接）；

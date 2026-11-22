@@ -39,6 +39,6 @@
 | 目录/文档 | 关系 |
 | --- | --- |
 | `docs/design/` | 文献结论支撑设计选择（台架方案、采集通道、效率口径、GP 代理） |
-| `docs/plan/拓展方向_v0.1.md` | 研究方向与调研结论对齐（四方向 + 搁置清单） |
+| `docs/plan/拓展方向_ExpansionDirections_v0.1.md` | 研究方向与调研结论对齐（四方向 + 搁置清单） |
 | `docs/softcopyright/` | 软著登记要求、竞赛/成果材料规范来自本目录调研 |
 | `code/reference/` | UIUC 公开数据对标实现；引用与许可约定见 `data/reference/README.md` |

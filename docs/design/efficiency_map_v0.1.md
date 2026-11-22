@@ -77,7 +77,7 @@ raw CSV ──compute_efficiency.py──► <run_id>_efficiency.json（每次�
 - 未做温度/电压漂移修正；
 - 未把 `work/prestudy/efficiency_demo.py` 的合成地图与真实流水线统一（口径相同、代码两套，需合并）；
 - U 尚未画进图件（误差棒/置信带），v0.3 与绘图脚本一起改；
-- 公开数据对标（UIUC 等）另见 `docs/plan/拓展方向_v0.1.md` 方向二。
+- 公开数据对标（UIUC 等）另见 `docs/plan/拓展方向_ExpansionDirections_v0.1.md` 方向二。
 
 ## 7. 复现命令
 

@@ -174,7 +174,7 @@ WBS 中的过程验收阈值（规划 §3.5–§3.11，PDF 第 5–8 页）：WP
 | D4 | 实测效率数据集 | MEASURED 数据 **0 组**（目标 ≥500 组）；`data/` 无任何 MEASURED 标记 |
 | D5 | 台架验收与部件特性测试 | WP3/WP4 未启动（规划 2027-02~05） |
 | D6 | 组合测试与实验验证（含 2~3 套方案台架复测） | WP5/WP10 未启动 |
-| D7 | 论文投稿、软著登记、专利申请 | 仅有方法草稿思路（`docs/plan/拓展方向_v0.1.md` §四方向 4） |
+| D7 | 论文投稿、软著登记、专利申请 | 仅有方法草稿思路（`docs/plan/拓展方向_ExpansionDirections_v0.1.md` §四方向 4） |
 | D8 | 中期检查/结题材料 | 申报书 PDF 第 13 页说明"本栏为中期检查及结题答辩重要参考"，校内节点未明确 |
 
 **矩阵汇总：已达成 13 项 / 部分达成 8 项 / SIM 演示 8 项 / 未开始 8 项（共 37 项）。** 软件方法链（A4–A8）完整但全部以 SIM 为输入；硬件链（B1、B2、D1–D5）尚在方案与模板阶段。
@@ -206,7 +206,7 @@ WBS 中的过程验收阈值（规划 §3.5–§3.11，PDF 第 5–8 页）：WP
 - 现状：17 个 raw run 全 SIM；仿真参数（R_cell 0.008 Ω、R_th 2.5 K/W、k_loss 0.7、C_th 45 J/K、C_w 15/C_s 30 J/K、R_ws 0.7/R_sa 1.8 K/W、KV=400、C_T0=0.11、C_P0=0.045）为文献量级+工程取值（D020/D022/D029/D016），非被测对象辨识值。
 - 后果：地图/选型/热结论只能表述为"方法验证/趋势"；论文实验章节无法成立；对外汇报若省略 SIM 标注即为学术不端风险（现有机制 A9 已防，但人因风险仍在）。
 - 触发信号：2027-01 前仍无任何 MEASURED 数据 → 2027-03 台架验收将无缓冲。
-- 缓解：硬件未到期间保持"软件/文档成果"推进（D014、`docs/plan/拓展方向_v0.1.md`），并提前准备实机数据落地后的重跑脚本与对比表。
+- 缓解：硬件未到期间保持"软件/文档成果"推进（D014、`docs/plan/拓展方向_ExpansionDirections_v0.1.md`），并提前准备实机数据落地后的重跑脚本与对比表。
 
 **R3 关键输入未冻结引发工期连锁风险（高）**
 - 现状：确认单 A/B/C/E/F/G 全空，截止 11-21（M0.2）；BOM 无报价，截止 11-25（M0.3）；最小链路 11-27（M0.4）。被测对象未定 → 台架量程、桨夹、防护罩、传感器分档都无法定案。
@@ -337,7 +337,7 @@ WBS 中的过程验收阈值（规划 §3.5–§3.11，PDF 第 5–8 页）：WP
 - 规划：`大创项目_推进规划与技术预研_v1.1.docx`（PDF 30 页，§1.3/§3/§5/§8/§9）。
 - 阶段：`大创项目_第一阶段启动计划_2026-11-17至11-30.docx`（4 页）。
 - 决策：`docs/decisions.md`（D001–D029、P001–P005）。
-- 设计/测试/采购/软著/团队：`docs/design/bench_v0.1.md`、`docs/design/数据采集方案_DAQ_v0.1.md`、`docs/design/public_data_benchmark_v0.1.md`、`docs/test/采集链路自检报告_v0.1.md`、`docs/test/静态砝码读数记录_v0.1.md`、`docs/inputs/被测对象与实验室条件确认单_v0.1.md`、`docs/procurement/bom_v0.1.md`、`docs/softcopyright/`、`docs/team/roles.md`、`docs/plan/拓展方向_v0.1.md`。
+- 设计/测试/采购/软著/团队：`docs/design/bench_v0.1.md`、`docs/design/数据采集方案_DAQ_v0.1.md`、`docs/design/public_data_benchmark_v0.1.md`、`docs/test/采集链路自检报告_v0.1.md`、`docs/test/静态砝码读数记录_v0.1.md`、`docs/inputs/被测对象与实验室条件确认单_v0.1.md`、`docs/procurement/bom_v0.1.md`、`docs/softcopyright/`、`docs/team/roles.md`、`docs/plan/拓展方向_ExpansionDirections_v0.1.md`。
 - 环境：`软件环境与使用说明.md`（§一 环境总览、§七 环境验证记录、FAQ 第 10 条）。
 
 ---

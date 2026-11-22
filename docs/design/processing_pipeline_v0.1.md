@@ -85,7 +85,7 @@ raw CSV（13 列）
 
 - **效率地图**：按（电压, 油门/转速）网格汇总多次运行的 `window.*.mean` → `data/processed/efficiency_map_runs.csv` / `efficiency_map_grid.csv`（v0.1 已实现 `aggregate_efficiency.py`，成图见 `plot_efficiency_map.py` 与 `efficiency_map_v0.1.md`）；
 - **GP 代理模型**：输入 `(U, n, 桨)`，输出 `η_sys`/`FM`，与 `work/prestudy/prestudy_gp.py` 对接；
-- **选型匹配**：以效率地图/代理模型为代价面，搜索满足推力需求的组合（见 `docs/plan/拓展方向_v0.1.md`）；
+- **选型匹配**：以效率地图/代理模型为代价面，搜索满足推力需求的组合（见 `docs/plan/拓展方向_ExpansionDirections_v0.1.md`）；
 - **报告图件**：统一从汇总 JSON 出图，禁止手工抄数。
 
 ## 7. 变更记录
