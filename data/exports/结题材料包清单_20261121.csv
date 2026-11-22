@@ -9,7 +9,7 @@ category,rel_path,exists,size_bytes
 申报,docs/申报/附件/04_已有成果佐证.pdf,Y,587860
 申报,docs/申报/经费预算_5000元_v0.1.md,Y,2998
 规划过程,docs/规划/申报书对比分析与优化研究路径_v0.1.docx,Y,51760
-规划过程,docs/规划/结题材料总目录_v0.1.md,Y,4129
+规划过程,docs/规划/结题材料总目录_v0.1.md,Y,4262
 规划过程,docs/规划/答辩PPT大纲_v0.1.md,Y,2078
 规划过程,docs/规划/答辩PPT骨架_v0.1.pptx,Y,676301
 规划过程,docs/plan/阶段总结_r40.md,N,0
@@ -26,7 +26,7 @@ category,rel_path,exists,size_bytes
 软件数据,data/processed/design_matrix_v0.2_demo.csv,Y,3603
 软件数据,data/exports/项目成果总览_20261121.xlsx,Y,29629
 软件数据,data/exports/项目成果报告_20261121.docx,Y,702618
-软件数据,data/processed/release_manifest_v0.1.csv,Y,26299
+软件数据,data/processed/release_manifest_v0.1.csv,Y,26427
 论文成果,docs/research/paper_method_draft_v0.1.docx,Y,468148
 论文成果,docs/research/paper_method_draft_v0.1.md,Y,22842
 论文成果,docs/research/literature_review_v0.1.md,Y,45895
