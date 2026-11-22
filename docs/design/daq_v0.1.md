@@ -91,4 +91,4 @@ seq,device_time_ms,thrust_raw,torque_raw,rpm,voltage_v,current_a,motor_temp_c,am
 
 - 电调作为被测环节时，通道表增加 P3：电调三相输出 U/I（或相电流+母线电压推算），用于 η_esc = P_esc,out / P_elec,in。
 - 若首版台架暂无法测三相功率：只测 P_elec,in（P1×P2）与轴功率，η_esc 记"未测"，不得用厂商曲线替代（D012）。
-- 测点定义、接线要求与记录字段见 `docs/design/esc_efficiency_measurement_v0.1.md`。
+- 测点定义、接线要求与记录字段见 `docs/design/电调效率测量_ESCMeasurement_v0.1.md`。
