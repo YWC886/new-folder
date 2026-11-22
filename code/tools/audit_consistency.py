@@ -41,6 +41,8 @@ def main() -> int:
                 if w not in line:
                     continue
                 is_self = any(m in line for m in SELF_MARKERS)
+                if w == '更换桨型' and '不更换桨型' in line:
+                    continue
                 is_lit = any(m in line for m in LIT_MARKERS)
                 severity = "HARD" if is_self and not is_lit else "SOFT"
                 findings.append({"file": rel, "line": i, "word": w, "severity": severity,

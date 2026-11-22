@@ -1,27 +1,22 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：86；HARD 2；SOFT 60
+文件数：86；HARD 1；SOFT 54
 
 ## HARD（项目自述语境禁词，必须改）
 
-- docs\申报\申报表\改动说明_第四五六部分.md:61 [更换桨型] 按“不更换桨型”要求，拟解决的关键问题由 3 条改为 2 条：
-- docs\规划\申报书对比分析与优化研究路径_v0.1.md:66 [跨桨型] - 地图四步：清洗（重复性检验 + MAD 剔除离群 + 原始数据留档）→ 建模（机理给趋势 + GP/NN 拟合残差，LOOCV 取优）→ 插值（电压—油门规则网格 + 等效率曲线，按桨型分图，跨桨型固定推力点取值）→ 出图（效率不确定度
+- docs\规划\申报书对比分析与优化研究路径_v0.1.md:66 [跨桨型] - 地图四步：清洗（重复性检验 + MAD 剔除离群 + 原始数据留档）→ 建模（机理给趋势 + GP/NN 拟合残差，LOOCV 取优）→ 插值（电压—油门规则网格 + 等效率曲线，v4 口径为同一桨型，跨桨型取值暂缓）→ 出图（效率不确
 
 ## SOFT（文献语境/断链，复核）
 
 - docs\decisions.md:31 [broken-ref] code/docs/data
 - docs\design\calibration_fit_v0.1.md:16 [broken-ref] data/metadata/calib_SIM_
-- docs\design\expansion_E1_multi_prop_v0.1.md:3 [broken-ref] docs/规划/开题拓展方向_ExpansionDirections_v0.1.md
 - docs\design\expansion_E1_multi_prop_v0.1.md:27 [broken-ref] data/processed/design_matrix_E1.csv
 - docs\design\expansion_E1_multi_prop_v0.1.md:27 [broken-ref] data/metadata/design_matrix_E1.summary.json
-- docs\design\expansion_E2_thermal_coupling_v0.1.md:3 [broken-ref] docs/规划/开题拓展方向_ExpansionDirections_v0.1.md
-- docs\design\expansion_E3_allocation_v0.1.md:3 [broken-ref] docs/规划/开题拓展方向_ExpansionDirections_v0.1.md
 - docs\design\prior_profile_v0.1.md:68 [跨桨型] - 样本内对照：提升倍数不代表泛化能力；跨桨型/跨系列外推仍须实测；
 - docs\design\processing_pipeline_v0.1.md:59 [broken-ref] data/metadata/calib_
 - docs\design\public_data_benchmark_v0.1.md:28 [broken-ref] data/apce_10x7_static_pg0811.txt
 - docs\design\数据采集方案_DAQ_v0.1.md:57 [broken-ref] data/metadata/calib_
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:19 [跨桨型] 1. 附件 01–04 与开题 PPT 含“多桨/跨桨型”表述与图，与新口径（不更换桨型）冲突；01 的 UIUC 多桨图应改为“方法验证（REFERENCE），非项目主线”说明。
-- docs\plan\成果盘点与差距_GapReview_v0.1.md:19 [更换桨型] 1. 附件 01–04 与开题 PPT 含“多桨/跨桨型”表述与图，与新口径（不更换桨型）冲突；01 的 UIUC 多桨图应改为“方法验证（REFERENCE），非项目主线”说明。
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:21 [多桨对比] 3. 部分设计文档（E1 多桨对比 108 次工况）与最新口径冲突，需标注“已暂缓/不纳入主线”。
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:30 [broken-ref] docs/README
 - docs\plan\成果盘点与差距_GapReview_v0.1.md:33 [多桨对比] 9. 所有材料需机器可查的 SIM/REFERENCE/MEASURED 标注与“禁词”扫描（多桨对比/跨桨型/更换桨型/节能宣称等）。
@@ -54,8 +49,6 @@
 - docs\申报\申报表\改动说明_第四五六部分.md:17 [多套硬件] | C22 | "不涉及多套硬件"（桨型相关） | §四 6 应用示例改为比较"供电电压与运行点"，不再写"比较不同桨型"；§四 5 保留"按桨型分图"仅作地图组织方式说明 |
 - docs\申报\申报表\改动说明_第四五六部分.md:38 [多套硬件] 3. 确认 §四 6 应用示例"供电电压 + 运行点"的表述是否符合导师"不涉及多套硬件"的要求；
 - docs\申报\申报表\改动说明_第四五六部分.md:55 [跨桨型] | C22 | 效率地图由“按桨型分图、跨桨型比较”改为“部件/系统分别成图、同一套被测硬件内比较” |
-- docs\申报\申报表\改动说明_第四五六部分.md:63 [更换桨型] 2. 效率地图的建模精度与匹配应用（同一桨型下的电压—运行点匹配，明确不更换桨型）。
-- docs\申报\申报表\改动说明_第四五六部分.md:67 [更换桨型] ## 第四轮（不更换桨型口径统一，2026-11-22）
 - docs\申报\申报表\改动说明_第四五六部分.md:69 [换不同桨型] - §一 项目简介：原“更换不同桨型、逐点采集”改为“同一桨型下逐点采集”；
 - docs\规划\申报书对比分析与优化研究路径_v0.1.md:4 [broken-ref] docs/申报/申报表/附件3
 - docs\规划\申报书对比分析与优化研究路径_v0.1.md:193 [broken-ref] docs/procurement/budget_5000_v0.1.md

@@ -2,18 +2,11 @@
   "files": 86,
   "hard": [
     {
-      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
-      "line": 61,
-      "word": "更换桨型",
-      "severity": "HARD",
-      "text": "按“不更换桨型”要求，拟解决的关键问题由 3 条改为 2 条："
-    },
-    {
       "file": "docs\\规划\\申报书对比分析与优化研究路径_v0.1.md",
       "line": 66,
       "word": "跨桨型",
       "severity": "HARD",
-      "text": "- 地图四步：清洗（重复性检验 + MAD 剔除离群 + 原始数据留档）→ 建模（机理给趋势 + GP/NN 拟合残差，LOOCV 取优）→ 插值（电压—油门规则网格 + 等效率曲线，按桨型分图，跨桨型固定推力点取值）→ 出图（效率不确定度"
+      "text": "- 地图四步：清洗（重复性检验 + MAD 剔除离群 + 原始数据留档）→ 建模（机理给趋势 + GP/NN 拟合残差，LOOCV 取优）→ 插值（电压—油门规则网格 + 等效率曲线，v4 口径为同一桨型，跨桨型取值暂缓）→ 出图（效率不确"
     }
   ],
   "soft": [
@@ -33,13 +26,6 @@
     },
     {
       "file": "docs\\design\\expansion_E1_multi_prop_v0.1.md",
-      "line": 3,
-      "word": "broken-ref",
-      "severity": "SOFT",
-      "text": "docs/规划/开题拓展方向_ExpansionDirections_v0.1.md"
-    },
-    {
-      "file": "docs\\design\\expansion_E1_multi_prop_v0.1.md",
       "line": 27,
       "word": "broken-ref",
       "severity": "SOFT",
@@ -51,20 +37,6 @@
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "data/metadata/design_matrix_E1.summary.json"
-    },
-    {
-      "file": "docs\\design\\expansion_E2_thermal_coupling_v0.1.md",
-      "line": 3,
-      "word": "broken-ref",
-      "severity": "SOFT",
-      "text": "docs/规划/开题拓展方向_ExpansionDirections_v0.1.md"
-    },
-    {
-      "file": "docs\\design\\expansion_E3_allocation_v0.1.md",
-      "line": 3,
-      "word": "broken-ref",
-      "severity": "SOFT",
-      "text": "docs/规划/开题拓展方向_ExpansionDirections_v0.1.md"
     },
     {
       "file": "docs\\design\\prior_profile_v0.1.md",
@@ -98,13 +70,6 @@
       "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
       "line": 19,
       "word": "跨桨型",
-      "severity": "SOFT",
-      "text": "1. 附件 01–04 与开题 PPT 含“多桨/跨桨型”表述与图，与新口径（不更换桨型）冲突；01 的 UIUC 多桨图应改为“方法验证（REFERENCE），非项目主线”说明。"
-    },
-    {
-      "file": "docs\\plan\\成果盘点与差距_GapReview_v0.1.md",
-      "line": 19,
-      "word": "更换桨型",
       "severity": "SOFT",
       "text": "1. 附件 01–04 与开题 PPT 含“多桨/跨桨型”表述与图，与新口径（不更换桨型）冲突；01 的 UIUC 多桨图应改为“方法验证（REFERENCE），非项目主线”说明。"
     },
@@ -331,20 +296,6 @@
       "word": "跨桨型",
       "severity": "SOFT",
       "text": "| C22 | 效率地图由“按桨型分图、跨桨型比较”改为“部件/系统分别成图、同一套被测硬件内比较” |"
-    },
-    {
-      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
-      "line": 63,
-      "word": "更换桨型",
-      "severity": "SOFT",
-      "text": "2. 效率地图的建模精度与匹配应用（同一桨型下的电压—运行点匹配，明确不更换桨型）。"
-    },
-    {
-      "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
-      "line": 67,
-      "word": "更换桨型",
-      "severity": "SOFT",
-      "text": "## 第四轮（不更换桨型口径统一，2026-11-22）"
     },
     {
       "file": "docs\\申报\\申报表\\改动说明_第四五六部分.md",
