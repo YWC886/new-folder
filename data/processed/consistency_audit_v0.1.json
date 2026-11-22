@@ -1,5 +1,5 @@
 {
-  "files": 92,
+  "files": 94,
   "hard": [],
   "soft": [
     {
@@ -302,6 +302,34 @@
       "word": "换不同桨型",
       "severity": "SOFT",
       "text": "- §一 项目简介：原“更换不同桨型、逐点采集”改为“同一桨型下逐点采集”；"
+    },
+    {
+      "file": "docs\\申报\\第2-5步填写包_Sec2to5FillPack_v0.1.md",
+      "line": 172,
+      "word": "多套硬件",
+      "severity": "SOFT",
+      "text": "测量与试验设计方面，采用同一时钟源触发或多通道同步采集卡，保证电参量与力学量同步；按 GUM 方法开展测量不确定度评定；用正交试验设计压缩试验点数量，同时保证在供电电压与油门两个维度上的覆盖（三个维度均在固定电机与电调的同一套测试硬件上，通"
+    },
+    {
+      "file": "docs\\规划\\v5治理交付包_GovernanceDeliverablePack_v0.1.md",
+      "line": 35,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/research/paper_method_draft_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\规划\\v5治理交付包_GovernanceDeliverablePack_v0.1.md",
+      "line": 109,
+      "word": "更换桨型",
+      "severity": "SOFT",
+      "text": "| 申报附件 01（前期基础摘要） | 未提\"更换桨型\"；UIUC 8 桨仅作 REFERENCE 方法验证 | 测量与解耦 + 建模与应用（见附件 04/说明） | 保留并加注「非项目主线；v4 口径为同一桨型」 | ✅ 一致 |"
+    },
+    {
+      "file": "docs\\规划\\v5治理交付包_GovernanceDeliverablePack_v0.1.md",
+      "line": 113,
+      "word": "多桨对比",
+      "severity": "SOFT",
+      "text": "| 开题答辩 PPT v0.2 | 「同一桨型·电压对比」页；地图页「电压×油门」 | 两条关键问题已写入 | 多桨对比页已删除 | ✅ 一致 |"
     },
     {
       "file": "docs\\规划\\申报书对比分析与优化研究路径_v0.1.md",
