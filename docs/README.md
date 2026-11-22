@@ -162,3 +162,11 @@ docs\
 | `docs/research/` | 文献、标准、竞赛/软著、项目深读、AI 工具 | 设计选择与成果材料的可核验依据 |
 | `docs/softcopyright/` | 软著说明书、源代码页、复现包清单 | 登记材料与交付复现依据 |
 | `data/` | raw / processed / metadata | 测试记录与标定结果 |
+
+## 2026-11-22 治理补充（v5）
+
+- `参考/文件命名与索引_FileNamingIndex_v0.2.md`：中英双名索引（对外提交件保留正式中文名）。
+- `规划/开题答辩PPT_v0.2.pptx`：按 v4 口径（同一桨型、不更换桨型）替换多桨对比页。
+- 论文 `research/paper_method_draft_v0.1.*`：对标表述统一为「REFERENCE 方法验证」。
+- 一致性审计：`code/tools/audit_consistency.py` 已接入 `round_close.py`（HARD 必须为 0）。
+- 当前计数：69 源文件 / 16,135 行 / 323 页；复现清单 200 文件；测试 281 项。
