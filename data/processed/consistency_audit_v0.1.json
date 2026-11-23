@@ -494,13 +494,6 @@
     },
     {
       "file": "README.md",
-      "line": 24,
-      "word": "broken-ref",
-      "severity": "SOFT",
-      "text": "data/exports/项目成果总览_"
-    },
-    {
-      "file": "README.md",
       "line": 26,
       "word": "broken-ref",
       "severity": "SOFT",
@@ -508,14 +501,21 @@
     },
     {
       "file": "README.md",
-      "line": 56,
+      "line": 28,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "data/exports/项目成果总览_"
+    },
+    {
+      "file": "README.md",
+      "line": 58,
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "docs/申报/申报表/附件3"
     },
     {
       "file": "README.md",
-      "line": 174,
+      "line": 176,
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "docs/申报/申报表/附件3"
