@@ -12,8 +12,8 @@ category,rel_path,exists,size_bytes
 规划过程,docs/规划/结题材料总目录_v0.1.md,Y,4262
 规划过程,docs/规划/答辩PPT大纲_v0.1.md,Y,2078
 规划过程,docs/规划/答辩PPT骨架_v0.1.pptx,Y,676301
-规划过程,docs/plan/阶段总结_r40.md,N,0
-规划过程,docs/plan/阶段总结_r50.md,N,0
+规划过程,docs/plan/阶段总结_StageSummary_r40.md,Y,2021
+规划过程,docs/plan/阶段总结_StageSummary_r50.md,Y,2450
 规划过程,docs/plan/项目待办与决策清单_TODOandDecisions_v0.1.md,Y,4341
 规划过程,docs/team/task_division_3person_v0.1.md,Y,5856
 软件数据,code/acquisition/README.md,Y,6504
@@ -35,4 +35,4 @@ category,rel_path,exists,size_bytes
 论文成果,docs/test/试验执行SOP_一页版_v0.1.docx,Y,38788
 论文成果,docs/softcopyright/软件说明书_V1.0.md,Y,11543
 论文成果,docs/softcopyright/复现包清单_V1.0.md,Y,8787
-论文成果,docs/softcopyright/build/源代码页_V1.0.txt,Y,1033490
+论文成果,docs/softcopyright/build/源代码页_V1.0.txt,Y,1033507
