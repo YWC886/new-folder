@@ -134,3 +134,10 @@
 - 实现：`code/processing/uq_utils.py`（`from_u2`/`to_u2`/`combine_sigma`/`conservative_eta`）、`code/selection/uq_consistency.py`（runs×surface 匹配后输出统一口径表）。
 - 验收：合成公式误差 <1e-9（测试覆盖）；输出必须带 `data_note` 标注 SIM/REFERENCE；实机后以 D032/M0.4 标定不确定度替换默认 1σ 参数。
 - 影响：选型/补测输出改为 `eta_cons_2sigma`；历史文档中的 `η−U` 写法不再使用（说明性引用除外）。
+
+## D057 · 补测批次计划口径（2026-11-23）
+
+- **决策**：新增 `code/selection/batch_plan.py`，把 GP σ 补测建议转成计划表；优先级 = `σ_total = sqrt((U(k=2)/2)² + σ_gp²)`（D056 口径），`u_meas = U/2`。
+- **边界**：只生成计划、不产生数据；计划值与预测值均标 `data_note`；不得作为实测或地图结论引用。
+- **理由**：补测优先级必须同时考虑测量不确定度与模型不确定度，避免只看 σ_gp 导致在 U 很大的实机上仍优先补测"模型稀疏但测量更差"的点。
+- **替代方案**：只看 σ_gp（被否，忽略 U）；随机补测（被否，效率低）；纯贝叶斯优化（作为 v0.2 候选）。

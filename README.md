@@ -124,6 +124,8 @@ py -3.12 code\selection\multiobjective.py --input data\processed\efficiency_map_
 py -3.12 code\selection\multiobjective.py --input data\processed\efficiency_map_runs.csv --thrust 5 --tolerance 0.1 --uq-k2 0.0226 --output data\processed\selection_v0.4_pareto_u2.csv --figure data\processed\figures\selection_v0.4_uq.png --overwrite
 # 对已有选型 CSV 补 UQ 列（u_meas/sigma_total/eta_cons_2sigma）
 py -3.12 code\selection\uq_annotate.py --input data\processed\selection_v0.4_pareto.csv --runs data\processed\efficiency_map_runs.csv --output data\processed\selection_v0.4_pareto_uq.csv --overwrite
+# 补测批次计划（D056）：GP σ + U(k=2) 合成优先级
+py -3.12 code\selection\batch_plan.py --overwrite
 
 # v0.5：补测策略对比（σ / EI / 随机 / 不补测；10 轮闭环模拟，SIM 方法学）
 py -3.12 code\selection\bo_suggest.py --rounds 10 --overwrite

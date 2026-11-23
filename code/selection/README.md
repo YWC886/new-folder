@@ -4,6 +4,17 @@
 
 v0.1 离散网格 → v0.2 油门线性插值 + 多目标排序 + U 过滤 → v0.3 GP 连续匹配 → v0.4 真多目标 Pareto（η/电流/稳健性）+ GP 补测点推荐 → v0.5 补测策略对比（σ/EI/随机/不补测，闭环模拟量化补测收益）+ 三入口 `--require-measured` 守门（仅接受 MEASURED runs CSV）。
 
+## 补测批次计划（v0.6，2026-11-23）
+
+`batch_plan.py`：把 `bo_suggest` 的 σ 建议转成台架计划表（D057）。
+
+```bat
+py -3.12 code\selection\batch_plan.py --overwrite
+py -3.12 code\selection\batch_plan.py --n 8 --u-k2 0.0226 --duration 40 --output data\processed\next_batch_plan_v0.1.csv --overwrite
+```
+
+字段与边界见 `docs/design/next_batch_plan_v0.1.md`；计划值不是实测结果。
+
 ## 文件
 
 | 文件 | 用途 |

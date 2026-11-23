@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：106；HARD 0；SOFT 74
+文件数：107；HARD 0；SOFT 74
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -47,7 +47,7 @@
 - docs\plan\阶段总结_StageSummary_r90_v0.1.md:12 [broken-ref] docs/plan/开题答辩要点_DefenseKeyPoints_v0.1.md/.docx
 - docs\procurement\bom_v0.1.md:75 [broken-ref] docs/procurement/到货验收记录.md
 - docs\procurement\询价单模板.md:59 [broken-ref] docs/procurement/quotes/
-- docs\README.md:144 [broken-ref] docs/design/figs/
+- docs\README.md:145 [broken-ref] docs/design/figs/
 - docs\research\project_deep_dive_v0.1.md:126 [broken-ref] docs/README
 - docs\research\project_deep_dive_v0.1.md:156 [broken-ref] data/processed/efficiency_map_
 - docs\research\project_deep_dive_v0.1.md:227 [broken-ref] code/daq/
@@ -81,4 +81,4 @@
 - README.md:24 [broken-ref] data/exports/项目成果总览_
 - README.md:26 [broken-ref] data/exports/项目成果总览_
 - README.md:56 [broken-ref] docs/申报/申报表/附件3
-- README.md:170 [broken-ref] docs/申报/申报表/附件3
+- README.md:172 [broken-ref] docs/申报/申报表/附件3

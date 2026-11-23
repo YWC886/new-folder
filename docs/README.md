@@ -117,6 +117,7 @@ docs\
 | `softcopyright/软件说明书_V1.0.md` | V1.0 | 初稿（软著说明书；附源代码页生成器与复现包清单） | A/E | 2026-11-19 |
 | `plan/项目待办与决策清单_TODOandDecisions_v0.1.md` | v0.1 | 完整（阻塞项 B1–B5、内部待办 P1–P6、脚本约束、组会议程） | A | 2026-11-21 |
 | `plan/会话记忆交接_MemoryPrimer_v1.2.md` | v1.2 | 已更新（状态/环境/资产/决策/目标/待办 + 开场清单；每轮交接用） | A | 2026-11-23 |
+| `design/next_batch_plan_v0.1.md` | v0.1 | 草稿（补测批次计划：σ_total 优先级、字段、用法、限制；3 项测试） | C | 2026-11-23 |
 | `plan/拓展方向_ExpansionDirections_v0.1.md` | v0.1 | 草稿（四方向 + 搁置清单） | A/D | 2026-11-19 |
 | `procurement/bom_v0.1.md` | v0.1 | 草稿（11-25 询价） | C | 2026-11-19 |
 | `procurement/询价单模板.md` | v0.1 | 可直接使用 | C | 2026-11-19 |
