@@ -33,7 +33,7 @@ CATEGORIES = {
         "docs/规划/答辩PPT骨架_v0.1.pptx",
         "docs/plan/阶段总结_r40.md",
         "docs/plan/阶段总结_r50.md",
-        "docs/plan/项目待办与决策清单_v0.1.md",
+        "docs/plan/项目待办与决策清单_TODOandDecisions_v0.1.md",
         "docs/team/task_division_3person_v0.1.md",
     ],
     "软件数据": [
