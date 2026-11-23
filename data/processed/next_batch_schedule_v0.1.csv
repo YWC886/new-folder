@@ -1,0 +1,6 @@
+order,block,run_id,combo,prop_id,voltage_set_v,throttle_set_pct,direction,repeat,duration_s,steady_window_s,notes
+1,NEXT-R1,NEXT_01_R1,NEXT,SIM10x4.5,26.5167,34.375,up,1,30.0,3.0,由补测计划派生的采集排程（design_matrix 兼容），计划值非实测
+2,NEXT-R1,NEXT_02_R1,NEXT,SIM10x4.5,26.5167,90.625,up,1,30.0,3.0,由补测计划派生的采集排程（design_matrix 兼容），计划值非实测
+3,NEXT-R1,NEXT_03_R1,NEXT,SIM10x4.5,18.8083,34.375,up,1,30.0,3.0,由补测计划派生的采集排程（design_matrix 兼容），计划值非实测
+4,NEXT-R1,NEXT_04_R1,NEXT,SIM10x4.5,18.8083,90.625,up,1,30.0,3.0,由补测计划派生的采集排程（design_matrix 兼容），计划值非实测
+5,NEXT-R1,NEXT_05_R1,NEXT,SIM10x4.5,26.5167,62.5,up,1,30.0,3.0,由补测计划派生的采集排程（design_matrix 兼容），计划值非实测

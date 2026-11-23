@@ -91,6 +91,75 @@ def load_runs(path: Path | str) -> list[dict]:
     return rows
 
 
+SCHEDULE_FIELDS = [
+    "order",
+    "block",
+    "run_id",
+    "combo",
+    "prop_id",
+    "voltage_set_v",
+    "throttle_set_pct",
+    "direction",
+    "repeat",
+    "duration_s",
+    "steady_window_s",
+    "notes",
+]
+
+SCHEDULE_NOTE = "由补测计划派生的采集排程（design_matrix 兼容），计划值非实测"
+
+
+def to_schedule(
+    rows: list[dict],
+    *,
+    combo: str = "NEXT",
+    prop_id: str = "SIM10x4.5",
+    repeats: int = 1,
+    duration_s: float = 30.0,
+    steady_window_s: float = 3.0,
+) -> list[dict]:
+    """把补测计划行转换为 design_matrix 兼容的采集排程（按 rank 顺序）。"""
+    if repeats < 1:
+        raise ValueError("repeats 必须 ≥ 1")
+    if steady_window_s <= 0 or steady_window_s > duration_s:
+        raise ValueError("steady_window_s 必须在 (0, duration_s] 内")
+    out = []
+    order = 0
+    for r in range(1, repeats + 1):
+        for item in sorted(rows, key=lambda x: x["rank"]):
+            order += 1
+            out.append(
+                {
+                    "order": order,
+                    "block": f"{combo}-R{r}",
+                    "run_id": f"{combo}_{order:02d}_R{r}",
+                    "combo": combo,
+                    "prop_id": prop_id,
+                    "voltage_set_v": item["voltage_set_v"],
+                    "throttle_set_pct": item["throttle_set_pct"],
+                    "direction": "up",
+                    "repeat": r,
+                    "duration_s": duration_s,
+                    "steady_window_s": steady_window_s,
+                    "notes": SCHEDULE_NOTE,
+                }
+            )
+    return out
+
+
+def write_schedule(rows: list[dict], path: Path | str, *, overwrite: bool = False) -> Path:
+    out = Path(path)
+    if out.exists() and not overwrite:
+        raise FileExistsError(f"输出已存在：{out}（加 --overwrite 覆盖）")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=SCHEDULE_FIELDS, extrasaction="ignore")
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+    return out
+
+
 def main(argv: list[str] | None = None) -> int:
     import argparse
 
@@ -102,6 +171,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--min-distance", type=float, default=0.12)
     parser.add_argument("--u-k2", type=float, default=0.0226)
     parser.add_argument("--duration", type=float, default=30.0)
+    parser.add_argument("--schedule", default="", help="可选：同时输出 design_matrix 兼容排程 CSV")
+    parser.add_argument("--combo", default="NEXT")
+    parser.add_argument("--repeats", type=int, default=1)
+    parser.add_argument("--steady-window", type=float, default=3.0)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args(argv)
 
@@ -116,6 +189,16 @@ def main(argv: list[str] | None = None) -> int:
             duration_s=args.duration,
         )
         out = write_csv(rows, args.output, overwrite=args.overwrite)
+        schedule_out = None
+        if args.schedule:
+            schedule = to_schedule(
+                rows,
+                combo=args.combo,
+                repeats=args.repeats,
+                duration_s=args.duration,
+                steady_window_s=args.steady_window,
+            )
+            schedule_out = write_schedule(schedule, args.schedule, overwrite=args.overwrite)
     except (ValueError, FileExistsError, FileNotFoundError) as exc:
         print(f"错误：{exc}")
         return 2
@@ -128,6 +211,8 @@ def main(argv: list[str] | None = None) -> int:
             f"｜σ_total={row['sigma_total']:.4f}"
         )
     print(f"计划表：{out}")
+    if schedule_out is not None:
+        print(f"采集排程：{schedule_out}")
     print("注意：" + DATA_NOTE)
     return 0
 

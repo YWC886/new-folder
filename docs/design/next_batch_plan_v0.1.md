@@ -55,3 +55,21 @@ SIM 演示（2026-11-23）：5 点计划 → `data/processed/next_batch_plan_v0.
 ## 7. 变更记录
 
 - 0.1（2026-11-23）：计划表工具 + 3 项测试 + SIM 演示 5 点。
+
+## 8. 与 design_matrix 串联（v0.2 增量，2026-11-23）
+
+`to_schedule()` 把计划行转换为 **design_matrix 兼容排程**（字段 order/block/run_id/combo/prop_id/voltage_set_v/throttle_set_pct/direction/repeat/duration_s/steady_window_s/notes），CLI 直接输出：
+
+```bat
+py -3.12 code\selection\batch_plan.py --schedule data\processed\next_batch_schedule_v0.1.csv --repeats 1 --overwrite
+```
+
+- run_id 规则：`{combo}_{order:02d}_R{repeat}`（如 `NEXT_01_R1`），全表唯一；
+- 排程按计划 rank 顺序、可叠加重复次数；notes 标注"计划值非实测"；
+- 下游可直接交给 `acquire.py --mode serial` 的工况表/人工执行，再经 MEASURED 门禁入库。
+
+测试：`test_batch_plan.py` 共 6 项（计划 3 + 排程 3）。
+
+## 9. 变更记录
+
+- 0.2（2026-11-23）：新增 `to_schedule`/`write_schedule` 与 `--schedule`，排程接入 design_matrix 口径；测试 3→6。

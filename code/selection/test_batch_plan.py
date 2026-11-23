@@ -58,5 +58,35 @@ class PlanTests(unittest.TestCase):
             bp.write_csv(rows, out, overwrite=True)
 
 
+class ScheduleTests(unittest.TestCase):
+    def test_schedule_rows(self) -> None:
+        plan = bp.build_plan(toy_runs(), n=3, duration_s=25.0)
+        sched = bp.to_schedule(plan, combo="NEXT", repeats=2, duration_s=25.0, steady_window_s=3.0)
+        self.assertEqual(len(sched), len(plan) * 2)
+        self.assertEqual(sorted(sched[0]), sorted(bp.SCHEDULE_FIELDS))
+        self.assertEqual(len({r["run_id"] for r in sched}), len(sched))
+        for row in sched:
+            self.assertAlmostEqual(row["duration_s"], 25.0)
+            self.assertAlmostEqual(row["steady_window_s"], 3.0)
+
+    def test_schedule_invalid(self) -> None:
+        plan = bp.build_plan(toy_runs(), n=2)
+        with self.assertRaises(ValueError):
+            bp.to_schedule(plan, repeats=0)
+        with self.assertRaises(ValueError):
+            bp.to_schedule(plan, duration_s=10.0, steady_window_s=12.0)
+
+    def test_schedule_write_and_overwrite(self) -> None:
+        plan = bp.build_plan(toy_runs(), n=2)
+        sched = bp.to_schedule(plan, repeats=1)
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "sched.csv"
+            bp.write_schedule(sched, out)
+            self.assertTrue(out.exists())
+            with self.assertRaises(FileExistsError):
+                bp.write_schedule(sched, out)
+            bp.write_schedule(sched, out, overwrite=True)
+
+
 if __name__ == "__main__":
     unittest.main()
