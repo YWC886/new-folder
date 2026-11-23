@@ -1,5 +1,5 @@
 {
-  "files": 107,
+  "files": 108,
   "hard": [],
   "soft": [
     {
@@ -239,6 +239,13 @@
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "docs/参考/无人机电调_ESCLearningGuide_v0.1.md/.docx"
+    },
+    {
+      "file": "docs\\plan\\阶段总结_StageSummary_r40_deepening.md",
+      "line": 11,
+      "word": "broken-ref",
+      "severity": "SOFT",
+      "text": "docs/README"
     },
     {
       "file": "docs\\plan\\阶段总结_StageSummary_r90_v0.1.md",

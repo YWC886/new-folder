@@ -1,6 +1,6 @@
 # 口径与引用一致性审计 v0.1
 
-文件数：107；HARD 0；SOFT 74
+文件数：108；HARD 0；SOFT 75
 
 ## HARD（项目自述语境禁词，必须改）
 
@@ -42,6 +42,7 @@
 - docs\plan\拓展方向_ExpansionDirections_v0.1.md:52 [broken-ref] data/processed/uiuc_benchmark_v0.1
 - docs\plan\拓展方向_ExpansionDirections_v0.1.md:87 [broken-ref] docs/README
 - docs\plan\自动化轮次日志_AutomationRoundsLog_R81-R90_v0.1.md:6 [broken-ref] docs/参考/无人机电调_ESCLearningGuide_v0.1.md/.docx
+- docs\plan\阶段总结_StageSummary_r40_deepening.md:11 [broken-ref] docs/README
 - docs\plan\阶段总结_StageSummary_r90_v0.1.md:9 [broken-ref] docs/参考/无人机电调_ESCLearningGuide_v0.1.md/.docx
 - docs\plan\阶段总结_StageSummary_r90_v0.1.md:9 [broken-ref] docs/design/电调效率测量_ESCMeasurement_v0.1.md/.docx
 - docs\plan\阶段总结_StageSummary_r90_v0.1.md:12 [broken-ref] docs/plan/开题答辩要点_DefenseKeyPoints_v0.1.md/.docx
