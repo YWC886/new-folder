@@ -277,7 +277,7 @@
     },
     {
       "file": "docs\\README.md",
-      "line": 143,
+      "line": 144,
       "word": "broken-ref",
       "severity": "SOFT",
       "text": "docs/design/figs/"
