@@ -130,6 +130,8 @@ py -3.12 code\selection\uq_annotate.py --input data\processed\selection_v0.4_par
 py -3.12 code\selection\batch_plan.py --overwrite
 # 同时生成 design_matrix 兼容采集排程
 py -3.12 code\selection\batch_plan.py --schedule data\processed\next_batch_schedule_v0.1.csv --repeats 1 --overwrite
+# 补测闭环演练（SIM）：留出 RMSE 改善量化
+py -3.12 code\selection\loop_drill.py --overwrite
 
 # v0.5：补测策略对比（σ / EI / 随机 / 不补测；10 轮闭环模拟，SIM 方法学）
 py -3.12 code\selection\bo_suggest.py --rounds 10 --overwrite

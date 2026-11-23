@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1",
+  "data_note": "SIM 闭环演练：补测点由代理模型模拟，不是实测数据，不构成实验结果",
+  "n_train": 12,
+  "n_holdout": 4,
+  "n_planned": 5,
+  "holdout_every": 4,
+  "before_rmse": 0.06920055988625995,
+  "after_rmse": 0.020377281497064397,
+  "improvement_pct": 70.55329966902421,
+  "before_length_scale": 0.5,
+  "after_length_scale": 0.45,
+  "seed": 20261123,
+  "noise_std": 0.002,
+  "planned": [
+    {
+      "rank": 1,
+      "voltage_set_v": 26.5167,
+      "throttle_set_pct": 36.25,
+      "predicted_eta": 0.325067,
+      "gp_std_eta": 0.021123,
+      "u_meas": 0.0113,
+      "sigma_total": 0.02395560746464176,
+      "priority": 0.02395560746464176,
+      "est_duration_s": 30.0,
+      "data_note": "SIM 补测计划：由 GP 代理标准差与 D056 口径生成，仅用于安排台架测量，不是实验结果"
+    },
+    {
+      "rank": 2,
+      "voltage_set_v": 26.5167,
+      "throttle_set_pct": 63.75,
+      "predicted_eta": 0.495103,
+      "gp_std_eta": 0.021123,
+      "u_meas": 0.0113,
+      "sigma_total": 0.02395560746464176,
+      "priority": 0.02395560746464176,
+      "est_duration_s": 30.0,
+      "data_note": "SIM 补测计划：由 GP 代理标准差与 D056 口径生成，仅用于安排台架测量，不是实验结果"
+    },
+    {
+      "rank": 3,
+      "voltage_set_v": 18.8083,
+      "throttle_set_pct": 63.75,
+      "predicted_eta": 0.411431,
+      "gp_std_eta": 0.019668,
+      "u_meas": 0.0113,
+      "sigma_total": 0.022683038244468046,
+      "priority": 0.022683038244468046,
+      "est_duration_s": 30.0,
+      "data_note": "SIM 补测计划：由 GP 代理标准差与 D056 口径生成，仅用于安排台架测量，不是实验结果"
+    },
+    {
+      "rank": 4,
+      "voltage_set_v": 18.8083,
+      "throttle_set_pct": 36.25,
+      "predicted_eta": 0.22786,
+      "gp_std_eta": 0.019668,
+      "u_meas": 0.0113,
+      "sigma_total": 0.022683038244468046,
+      "priority": 0.022683038244468046,
+      "est_duration_s": 30.0,
+      "data_note": "SIM 补测计划：由 GP 代理标准差与 D056 口径生成，仅用于安排台架测量，不是实验结果"
+    },
+    {
+      "rank": 5,
+      "voltage_set_v": 12.6417,
+      "throttle_set_pct": 63.75,
+      "predicted_eta": 0.287672,
+      "gp_std_eta": 0.019188,
+      "u_meas": 0.0113,
+      "sigma_total": 0.022268123944329032,
+      "priority": 0.022268123944329032,
+      "est_duration_s": 30.0,
+      "data_note": "SIM 补测计划：由 GP 代理标准差与 D056 口径生成，仅用于安排台架测量，不是实验结果"
+    }
+  ],
+  "measured_sim": [
+    {
+      "voltage_set_v": 26.5167,
+      "throttle_set_pct": 36.25,
+      "eta_sys": 0.33225929364137047
+    },
+    {
+      "voltage_set_v": 26.5167,
+      "throttle_set_pct": 63.75,
+      "eta_sys": 0.48315448905562175
+    },
+    {
+      "voltage_set_v": 18.8083,
+      "throttle_set_pct": 63.75,
+      "eta_sys": 0.40482756524239516
+    },
+    {
+      "voltage_set_v": 18.8083,
+      "throttle_set_pct": 36.25,
+      "eta_sys": 0.23233945083596663
+    },
+    {
+      "voltage_set_v": 12.6417,
+      "throttle_set_pct": 63.75,
+      "eta_sys": 0.2846157060408656
+    }
+  ]
+}
